@@ -1,0 +1,6 @@
+# Source images live here for reference; the optimised copies used by the site
+# are in public/images. Uploading these adds ~40 MB to every deployment.
+Images/
+
+.next
+node_modules

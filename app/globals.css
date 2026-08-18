@@ -1,26 +1,481 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ============================================================================
+   YOUR DART EXPRESS — DESIGN SYSTEM
+   Visual benchmark: ramp.com. Palette, type treatment, radii, borders and the
+   flat (shadowless) surface language are matched to it. Values below were
+   sampled from the live site's computed styles, not eyeballed.
+
+   Tokens are the single source of truth. Never hardcode a hex in a component.
+   ========================================================================= */
+
+@theme {
+  /* ------------------------------------------------------------------------
+     ACCENT — a purple ramp.
+
+     Only the DEEP steps are interactive. Measured against white:
+       accent-800 #3C096C → 14.51    accent-500 #9D4EDD →  4.60
+       accent-700 #5A189A → 10.33    accent-400 #C77DFF →  2.69  ✗
+       accent-600 #7B2CBF →  7.11    accent-300 #E0AAFF →  1.85  ✗
+
+     THE RULE: 400 and lighter never carry text and never sit behind white
+     text. They are tints, washes, and — because they are bright — the accent
+     colour on dark surfaces, where 400 reaches 7.35:1 against the deep ground.
+     600 is the button fill; 700 is its hover.
+     --------------------------------------------------------------------- */
+  --color-accent-950: #10002b;
+  --color-accent-900: #240046;
+  --color-accent-800: #3c096c;
+  --color-accent-700: #5a189a;
+  --color-accent-600: #7b2cbf;
+  --color-accent-500: #9d4edd;
+  --color-accent-400: #c77dff;
+  --color-accent-300: #e0aaff;
+  --color-accent-200: #e6bbff;
+  --color-accent-100: #ebc9ff;
+
+  /* Semantic aliases so call sites read by role, not by number. */
+  --color-accent: #7b2cbf;
+  --color-accent-hover: #5a189a;
+  --color-accent-bright: #c77dff;
+  --color-accent-soft: #e6bbff;
+  --color-accent-wash: #ebc9ff;
+
+  /* ------------------------------------------------------------------------
+     INK — a warm near-black ramp.
+     400 and up are TEXT colours; every one clears WCAG AA (4.5:1) on both
+     white and the off-white surface. Measured:
+       400 #6d6c6b → 5.24 / 4.69      700 #3a3837 → 11.66 / 10.44
+       500 #5c645f → 6.10 / 5.67      800 #2a2827 → 14.67 / 13.14
+       600 #4e5651 → 7.57 / 7.04      950 #0c0a08 → 19.76 / 17.70
+     300 and lighter are DECORATIVE ONLY — borders, rules, disabled states.
+     --------------------------------------------------------------------- */
+  --color-ink-950: #0c0a08;
+  --color-ink-900: #1a1919;
+  --color-ink-800: #2a2827;
+  --color-ink-700: #3a3837;
+  --color-ink-600: #4e5651;
+  --color-ink-500: #5c645f;
+  --color-ink-400: #6d6c6b;
+  --color-ink-300: #c9c7c5;
+  --color-ink-200: #e5e3e1;
+  --color-ink-100: #eeeceb;
+  --color-ink-50: #f4f2f0;
+
+  /* --- Surfaces --- */
+  --color-canvas: #ffffff;
+  --color-canvas-warm: #f4f2f0;
+  --color-canvas-sunk: #f4f2f0;
+
+  /* --- Lines: a single hairline weight, everywhere --- */
+  --color-line: #e5e3e1;
+  --color-line-strong: #d6d3d0;
+
+  /* ------------------------------------------------------------------------
+     BRAND — the original green identity. The logo mark is now drawn in the
+     accent purple, so nothing references these; they are kept only as a
+     record of the pre-purple palette. Safe to delete.
+     --------------------------------------------------------------------- */
+  --color-brand-500: #16a34a;
+  --color-brand-600: #15803d;
+  --color-spark: #f97316;
+
+  /* --- Typography ---------------------------------------------------------
+     Geist stands in for Lausanne: the same neo-grotesque character, and
+     freely licensed. Weight 400 carries almost everything — hierarchy comes
+     from size and space, not from bolding.
+     --------------------------------------------------------------------- */
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system,
+    "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* Display scale: near-1.0 line height, near-zero tracking, weight 400 */
+  --text-display: 4rem;
+  --text-display--line-height: 1;
+  --text-display--letter-spacing: -0.012em;
+  --text-display--font-weight: 400;
+
+  --text-h1: 3rem;
+  --text-h1--line-height: 1.04;
+  --text-h1--letter-spacing: -0.011em;
+  --text-h1--font-weight: 400;
+
+  --text-h2: 2.5rem;
+  --text-h2--line-height: 1.05;
+  --text-h2--letter-spacing: -0.008em;
+  --text-h2--font-weight: 400;
+
+  --text-h3: 1.75rem;
+  --text-h3--line-height: 1.14;
+  --text-h3--letter-spacing: -0.004em;
+  --text-h3--font-weight: 400;
+
+  --text-h4: 1.25rem;
+  --text-h4--line-height: 1.3;
+  --text-h4--letter-spacing: 0em;
+  --text-h4--font-weight: 400;
+
+  --text-lead: 1.25rem;
+  --text-lead--line-height: 1.5;
+  --text-lead--letter-spacing: 0em;
+
+  --text-eyebrow: 0.6875rem;
+  --text-eyebrow--line-height: 1.4;
+  --text-eyebrow--letter-spacing: 0.09em;
+  --text-eyebrow--font-weight: 400;
+
+  /* --- Radius: 12px panels, 6px controls, 4px chips --- */
+  --radius-xs: 3px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+
+  /* ------------------------------------------------------------------------
+     ELEVATION — deliberately flat.
+     The benchmark uses no drop shadows anywhere; separation comes from
+     hairline borders and surface tone. These are kept as tokens so nothing
+     breaks, but they resolve to nothing.
+     --------------------------------------------------------------------- */
+  --shadow-xs: 0 0 #0000;
+  --shadow-sm: 0 0 #0000;
+  --shadow-md: 0 0 #0000;
+  --shadow-lg: 0 0 #0000;
+  --shadow-glow: 0 0 #0000;
+
+  /* --- Motion ---
+     One rhythm for the whole site. Micro-interactions live at 150-220ms;
+     nothing decorative runs past 320ms. Entering uses ease-out (fast start,
+     soft landing); the in-out curve is for things that both open and close. */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out-soft: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 150ms;
+  --duration-base: 220ms;
+  --duration-slow: 320ms;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* ============================================================================
+   BASE
+   ========================================================================= */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    border-color: var(--color-line);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-ink-950);
+    font-family: var(--font-sans);
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Headings sit at 400. Hierarchy is size and whitespace, never weight. */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 400;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ink-950);
+    outline-offset: 2px;
+    border-radius: var(--radius-xs);
+  }
+
+  ::selection {
+    background-color: var(--color-accent-200);
+    color: var(--color-accent-950);
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /*
+   * Grid children default to `min-width: auto`, which means a track refuses to
+   * shrink below the intrinsic minimum of its content. One long unbreakable
+   * string then widens the whole row and pushes the page into horizontal
+   * scroll at narrow viewports. `:where()` keeps specificity at zero.
+   */
+  :where(.grid) > * {
+    min-width: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ============================================================================
+   SCROLL REVEAL
+   Progressive enhancement only. The default state is fully visible — the
+   animation is layered on for browsers that support scroll-driven animation
+   and skipped everywhere else. Content is never hidden behind a capability
+   check. See components/shared/reveal.tsx.
+   ========================================================================= */
+
+/*
+ * TRANSFORM ONLY — no opacity fade.
+ *
+ * A fade renders text at partial opacity for the duration of the transition,
+ * which blends it toward the background and drops it below 4.5:1. A pure
+ * translate reads as a reveal while keeping every character at full contrast.
+ */
+@keyframes ydx-reveal-in {
+  from {
+    transform: translateY(calc(14px + var(--reveal-offset, 0px)));
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/*
+ * ROUTE ENTER — the new page rises and fades in on navigation.
+ *
+ * Pure CSS, deliberately: the from-state is opacity 0, so if this depended on
+ * JavaScript a hydration failure would leave a blank page. A CSS animation
+ * runs as soon as the stylesheet is parsed, and if the stylesheet never loads
+ * the rule does not exist either — so content is visible in every failure
+ * mode. Transform + opacity only, so it cannot shift layout or cost CLS.
+ */
+@keyframes ydx-route-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .ydx-route {
+    animation: ydx-route-in var(--duration-slow) var(--ease-out-soft) both;
+  }
+}
+
+/*
+ * ACCORDION — animate the native <details> open/close.
+ *
+ * A closed <details> hides its content with `content-visibility`, so the usual
+ * max-height trick cannot animate it. `::details-content` plus
+ * `interpolate-size: allow-keywords` lets block-size animate to `auto`
+ * properly. Browsers without support simply snap open, which is the same
+ * behaviour as before — a pure enhancement, never a regression.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  @supports selector(::details-content) {
+    :root {
+      interpolate-size: allow-keywords;
+    }
+
+    .ydx-accordion::details-content {
+      overflow: hidden;
+      block-size: 0;
+      transition:
+        block-size var(--duration-slow) var(--ease-out-soft),
+        content-visibility var(--duration-slow) allow-discrete;
+    }
+
+    .ydx-accordion[open]::details-content {
+      block-size: auto;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .ydx-reveal {
+      animation: ydx-reveal-in linear forwards;
+      animation-timeline: view();
+      animation-range: entry 0% cover 26%;
+    }
+  }
+}
+
+/*
+ * `forwards`, deliberately, not `both`. With `both`, an element before the
+ * animation range holds the from-state, so anything that stops the timeline
+ * advancing leaves real content permanently invisible. `forwards` inverts the
+ * failure: out of range the element falls back to its own visible styles.
+ */
+
+/* ============================================================================
+   UTILITIES
+   ========================================================================= */
+
+@utility text-balance {
+  text-wrap: balance;
+}
+
+/*
+ * Dotted field, matching the benchmark's hero backdrop. A dot lattice reads
+ * as texture where a line grid reads as structure — much quieter behind large
+ * type.
+ */
+@utility bg-dots {
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    color-mix(in oklab, var(--color-ink-300) 78%, transparent) 1px,
+    transparent 0
+  );
+  background-size: 18px 18px;
+}
+
+@utility bg-dots-dark {
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgb(255 255 255 / 0.09) 1px,
+    transparent 0
+  );
+  background-size: 18px 18px;
+}
+
+/* Retained so existing call sites keep working; both now render the dot field. */
+@utility bg-grid {
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    color-mix(in oklab, var(--color-ink-300) 78%, transparent) 1px,
+    transparent 0
+  );
+  background-size: 18px 18px;
+}
+
+@utility bg-grid-dark {
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgb(255 255 255 / 0.09) 1px,
+    transparent 0
+  );
+  background-size: 18px 18px;
+}
+
+/*
+ * AMBIENT BLOOM — the gradient treatment.
+ *
+ * Worth being precise about what the reference actually does, because it is
+ * the opposite of what "gradient brand" usually means: its BUTTONS ARE FLAT.
+ * Gradients appear in exactly two roles —
+ *
+ *   1. a large, very soft radial bloom behind a hero, and
+ *   2. a vertical wash where a dark band hands off to the next section.
+ *
+ * Both are ambient and structural. Nothing small wears a gradient: no buttons,
+ * no chips, no icons, no text fills. That restraint is the whole reason it
+ * reads as expensive rather than as a 2014 CSS demo.
+ *
+ * Alphas are held low enough that white text over the brightest point of the
+ * dark bloom still measures 13.2:1.
+ */
+@utility bg-bloom {
+  background-image: radial-gradient(
+    58% 48% at 50% 0%,
+    rgb(157 78 221 / 0.1),
+    transparent 66%
+  );
+}
+
+@utility bg-bloom-dark {
+  background-image: radial-gradient(
+    78% 62% at 50% 100%,
+    rgb(157 78 221 / 0.28),
+    transparent 70%
+  );
+}
+
+/* The hand-off: a dark band lifting toward the accent at its bottom edge. */
+@utility bg-handoff {
+  background-image: linear-gradient(
+    to bottom,
+    transparent 55%,
+    rgb(90 24 154 / 0.35) 82%,
+    rgb(157 78 221 / 0.45) 100%
+  );
+}
+
+@utility mask-fade {
+  mask-image: radial-gradient(ellipse 76% 62% at 50% 0%, #000 42%, transparent 100%);
+}
+
+/*
+ * Dissolves an element's four edges into the page. Applied to the auth
+ * artwork panels so they have no hard rectangle — the mask affects the
+ * element's background as well as its children, so the panel needs no
+ * rounded corners.
+ *
+ * A rectangular variant (four linear fades composited with `intersect`) was
+ * tried at 14%, 6% and 3% feathers and rejected each time: wide values read
+ * as a blob, narrow ones as blur. The ellipse is the treatment that stuck.
+ */
+@utility mask-edges {
+  /*
+   * `closest-side` inscribes the ellipse in the box so the gradient reaches
+   * zero exactly at each edge midpoint — a percentage radius leaves the edges
+   * ~70% opaque, which still reads as a rectangle. Corners fall outside the
+   * ellipse entirely, so they dissolve completely.
+   */
+  mask-image: radial-gradient(
+    ellipse closest-side at 50% 50%,
+    #000 52%,
+    rgb(0 0 0 / 0.55) 78%,
+    transparent 100%
+  );
+}
+
+/*
+ * Soft violet lift for form cards. Three stacked shadows — a tight contact
+ * shadow, a mid spread and a wide ambient bloom — all tinted with the accent
+ * rather than neutral black, so the card reads as sitting in purple light
+ * instead of casting a grey shadow.
+ *
+ * On a WHITE card only. Over a tinted surface the bloom muddies, and a
+ * translucent card would drag the form's ink-400 text under AA.
+ */
+@utility shadow-bloom {
+  /*
+   * Tinted with accent-bright (#c77dff) rather than the deep accent, and at
+   * roughly half the alpha — the deep violet at 0.22 read as a grey-purple
+   * bruise rather than light.
+   */
+  box-shadow:
+    0 1px 2px rgb(199 125 255 / 0.05),
+    0 8px 24px -8px rgb(199 125 255 / 0.12),
+    0 28px 60px -18px rgb(199 125 255 / 0.16);
+}
+
+@utility mask-fade-b {
+  mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
 }
