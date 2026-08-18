@@ -11,7 +11,14 @@ export const site = {
   legalName: "Your Dart Express",
   shortName: "YourDart",
   domain: "yourdartexpress.com",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://yourdartexpress.com",
+  /*
+   * `||`, NOT `??`. A host that defines NEXT_PUBLIC_SITE_URL with an EMPTY
+   * value passes `??` straight through, and `new URL("")` in app/layout.tsx
+   * throws ERR_INVALID_URL — which fails the production build outright, not
+   * just the page. Trim first so a stray space behaves the same way.
+   * This bit us on a real Vercel build; do not "tidy" it back to `??`.
+   */
+  url: process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://yourdartexpress.com",
 
   tagline: "Logistics for businesses that are growing",
   description:

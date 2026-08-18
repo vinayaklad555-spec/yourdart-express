@@ -69,8 +69,9 @@ export async function sendContactEmail(data: ContactFormValues): Promise<void> {
     throw new Error("SMTP is not configured. Set SMTP_* environment variables.");
   }
 
-  const from = process.env.MAIL_FROM ?? process.env.SMTP_USER!;
-  const to = process.env.MAIL_TO ?? site.contact.email;
+  // `||` for the same reason as content/site.ts: an empty value must fall back.
+  const from = process.env.MAIL_FROM?.trim() || process.env.SMTP_USER!;
+  const to = process.env.MAIL_TO?.trim() || site.contact.email;
 
   const rows: [string, string][] = [
     ["Name", data.name],
