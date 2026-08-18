@@ -38,12 +38,26 @@ export const metadata: Metadata = {
   formatDetection: { telephone: true, address: false, email: true },
   alternates: { canonical: site.url },
   manifest: "/manifest.webmanifest",
+  /*
+   * Only the SVG is declared by hand. favicon.ico and the Apple touch icon
+   * come from the file conventions (app/favicon.ico, app/apple-icon.tsx),
+   * and Next emits those with a CONTENT HASH in the URL — which is what makes
+   * a browser pick up a changed icon instead of serving its cached one.
+   *
+   * Declaring them here as well produced two bugs: a second, un-hashed
+   * /favicon.ico link that defeated that cache-busting, and an
+   * apple-touch-icon pointing at /apple-icon.png, which 404s — the route
+   * generated from apple-icon.tsx is /apple-icon, with no extension.
+   */
   icons: {
-    icon: [
-      { url: "/icon.svg", type: "image/svg+xml" },
-      { url: "/favicon.ico", sizes: "any" },
-    ],
-    apple: [{ url: "/apple-icon.png", sizes: "180x180" }],
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    /*
+     * Must be declared: setting `icons.icon` at all suppresses the
+     * apple-touch-icon that app/apple-icon.tsx would otherwise emit (verified,
+     * not assumed). The route it generates is /apple-icon — with NO .png
+     * extension. Pointing at /apple-icon.png here shipped a 404.
+     */
+    apple: [{ url: "/apple-icon", sizes: "180x180", type: "image/png" }],
   },
   openGraph: {
     type: "website",
