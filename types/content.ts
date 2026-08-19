@@ -54,7 +54,9 @@ export type BenefitVisualSpec =
   | { kind: "checks"; items: { label: string; ok?: boolean }[]; result?: string }
   | { kind: "steps"; steps: string[]; flagged?: number }
   | { kind: "record"; title: string; lines: string[] }
-  | { kind: "levels"; bars: { label: string; height: number }[] };
+  | { kind: "levels"; bars: { label: string; height: number }[] }
+  /** Owner-supplied artwork, shown in place of a generated diagram. */
+  | { kind: "image"; src: string };
 
 export interface Benefit {
   title: string;
