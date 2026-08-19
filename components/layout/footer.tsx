@@ -23,7 +23,10 @@ export function Footer() {
         alt=""
         fill
         sizes="100vw"
-        className="-z-10 object-cover"
+        /* object-top: the footer is far wider than the artwork's 1.66 ratio,
+           so cover crops vertically. Anchoring to the top starts the image at
+           the footer's top edge instead of showing its middle. */
+        className="-z-10 object-cover object-top"
       />
       {/*
        * The wash's darker streaks drop ink-400 text to 3.49:1 — well under
