@@ -60,7 +60,7 @@ export const services: Service[] = [
         title: "One point of contact",
         body: "The same team handles your bookings, your questions and your exceptions. You are not routed through a queue to explain the shipment again.",
         icon: MessagesSquare,
-        visual: { kind: "image", src: "/images/benefit-one-point-of-contact.png" },
+        visual: { kind: "hub", spokes: ["Bookings", "Questions", "Exceptions"], hub: "One team" },
       },
       {
         title: "Serviceability confirmed upfront",
