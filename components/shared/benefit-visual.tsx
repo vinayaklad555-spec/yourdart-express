@@ -45,9 +45,13 @@ export function BenefitVisual({ spec }: { spec?: BenefitVisualSpec }) {
        * Owner-supplied wash (Images/background for cards.png). It carries its
        * own light, so no CSS gradient or glow sits on top — those only muddied
        * it. The solid bg above is a fallback for the moment before it decodes.
+       *
+       * An `image` visual replaces the wash outright: that artwork brings its
+       * own ground, so layering the wash under it would only show at the crop
+       * edges.
        */}
       <Image
-        src="/images/card-bg.png"
+        src={spec?.kind === "image" ? spec.src : "/images/card-bg.png"}
         alt=""
         fill
         sizes="(min-width: 640px) 44vw, 92vw"
