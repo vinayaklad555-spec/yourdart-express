@@ -82,6 +82,10 @@ export const heroImages = {
    * Owner-supplied brand artwork, not licensed stock — see
    * docs/IMAGE-CREDITS.md. Purple ground, so it needs no tint treatment.
    */
+  airFreightHero: {
+    src: "/images/air-freight-hero.png",
+    alt: "An aircraft in flight above cloud at dusk",
+  },
   shippingHero: {
     src: "/images/shipping-hero.png",
     alt: "A labelled Your Dart Express parcel among stacked boxes, with a location pin and a dotted world map behind",
@@ -94,9 +98,7 @@ export const serviceHeroImages: Record<string, HeroImage> = {
   fulfillment: heroImages.fulfilmentFloor,
   warehousing: heroImages.warehouseRacking,
   "reverse-logistics": heroImages.parcelsStacked,
-  /* Neutral cargo, not a container ship — this service is air only.
-     Replace with air-freight imagery when a licensed photo is available. */
-  "freight-forwarding": heroImages.parcelsStacked,
+  "freight-forwarding": heroImages.airFreightHero,
   "shop-and-ship": heroImages.parcelPair,
 };
 

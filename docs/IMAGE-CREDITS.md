@@ -132,4 +132,5 @@ assets to use.
 | `shipping-hero.png` | `/services/shipping` hero | Branded parcel render. The parcel label carries a **"V" roundel, not the site's dart mark** — worth regenerating if brand consistency matters. |
 | `auth-aura.png` | `/login`, `/signup` panel | Purple aura artwork. |
 | `benefit-one-point-of-contact.png` | "One point of contact" card on `/services/shipping` | Rendered illustration (source: `Images/One point.png`). Supplied per-benefit via the `image` visual kind, which replaces the card wash. |
+| `air-freight-hero.png` | `/services/freight-forwarding` hero | Aircraft above cloud. Replaces the neutral-parcels stand-in that was standing in for air imagery. |
 | `card-bg.png` | Benefit-card panels on every `/services/*` page | Lavender wash. Repeated four times per page, so it is served through the image optimiser rather than as a CSS background. Was briefly used on the footer too; removed at the owner's request. |
