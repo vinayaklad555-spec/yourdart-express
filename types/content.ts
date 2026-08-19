@@ -38,10 +38,30 @@ export interface NavColumn {
   links: NavLink[];
 }
 
+/**
+ * The diagram that heads a benefit card. Every label is drawn from the
+ * benefit's own copy, so the picture explains the claim rather than decorating
+ * it — and adding a service means writing labels, not commissioning artwork.
+ *
+ *   hub    — several inputs arriving at one place
+ *   checks — a list verified before something happens (items may be denials)
+ *   steps  — an ordered chain; `flagged` marks one as the exception
+ *   record — a document travelling with the goods
+ *   levels — volume changing across named periods
+ */
+export type BenefitVisualSpec =
+  | { kind: "hub"; spokes: string[]; hub: string }
+  | { kind: "checks"; items: { label: string; ok?: boolean }[]; result?: string }
+  | { kind: "steps"; steps: string[]; flagged?: number }
+  | { kind: "record"; title: string; lines: string[] }
+  | { kind: "levels"; bars: { label: string; height: number }[] };
+
 export interface Benefit {
   title: string;
   body: string;
   icon: LucideIcon;
+  /** Optional; cards without one fall back to a plain tinted panel. */
+  visual?: BenefitVisualSpec;
 }
 
 export interface ProcessStep {

@@ -78,11 +78,19 @@ export const heroImages = {
     src: "/images/hero-truck-mobile.jpg",
     alt: "",
   },
+  /*
+   * Owner-supplied brand artwork, not licensed stock — see
+   * docs/IMAGE-CREDITS.md. Purple ground, so it needs no tint treatment.
+   */
+  shippingHero: {
+    src: "/images/shipping-hero.png",
+    alt: "A labelled Your Dart Express parcel among stacked boxes, with a location pin and a dotted world map behind",
+  },
 } as const satisfies Record<string, HeroImage>;
 
 /** Which image heads each service page, keyed by slug. */
 export const serviceHeroImages: Record<string, HeroImage> = {
-  shipping: heroImages.roadFreight,
+  shipping: heroImages.shippingHero,
   fulfillment: heroImages.fulfilmentFloor,
   warehousing: heroImages.warehouseRacking,
   "reverse-logistics": heroImages.parcelsStacked,

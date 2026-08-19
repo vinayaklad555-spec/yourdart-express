@@ -120,3 +120,15 @@ the site picks them up with no code change. At that point:
    shown, and whose it is.
 2. Update this file to record that the imagery is now first-party.
 3. If people are identifiable, obtain written model releases before publishing.
+
+## Owner-supplied artwork
+
+These are **not** licensed stock and are not covered by the Unsplash table
+above. They were provided by Your Dart Express and are the company's own
+assets to use.
+
+| File | Used on | Note |
+| --- | --- | --- |
+| `shipping-hero.png` | `/services/shipping` hero | Branded parcel render. The parcel label carries a **"V" roundel, not the site's dart mark** — worth regenerating if brand consistency matters. |
+| `auth-aura.png` | `/login`, `/signup` panel | Purple aura artwork. |
+| `card-bg.png` | Benefit-card panels on every `/services/*` page | Lavender wash. Repeated four times per page, so it is served through the image optimiser rather than as a CSS background. |

@@ -1,5 +1,8 @@
+"use client";
+
 import * as React from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { site } from "@/content/site";
 
@@ -127,8 +130,66 @@ export function Logo({
   }
 
   return (
-    <Link href={href} className={classes} aria-label={`${site.name} — home`}>
+    <HomeLink href={href} className={classes}>
       {content}
+    </HomeLink>
+  );
+}
+
+/**
+ * The lockup always returns you to the top of the landing page.
+ *
+ * Off the landing page a normal navigation already lands at the top, so the
+ * Link does the work and the route-enter animation in globals.css covers the
+ * change. ON the landing page a Link to "/" is a no-op — the browser is
+ * already there — which makes the logo feel broken to anyone scrolled halfway
+ * down. So that case is intercepted and scrolled smoothly instead.
+ *
+ * `prefers-reduced-motion` is honoured explicitly: `window.scrollTo` ignores
+ * the CSS `scroll-behavior: auto` that the media query sets, so the behaviour
+ * has to be chosen here or the animation plays for people who asked for none.
+ */
+function HomeLink({
+  href,
+  className,
+  children,
+}: {
+  href: string;
+  className?: string;
+  children: React.ReactNode;
+}) {
+  const pathname = usePathname();
+
+  const onClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    // Let the browser handle new-tab / download / modified clicks.
+    if (
+      href !== "/" ||
+      pathname !== "/" ||
+      event.defaultPrevented ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey ||
+      event.button !== 0
+    ) {
+      return;
+    }
+
+    event.preventDefault();
+    const reduced =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: reduced ? "auto" : "smooth" });
+  };
+
+  return (
+    <Link
+      href={href}
+      className={className}
+      aria-label={`${site.name} — home`}
+      onClick={onClick}
+    >
+      {children}
     </Link>
   );
 }

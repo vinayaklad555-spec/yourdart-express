@@ -10,6 +10,7 @@ import { Heading } from "@/components/ui/typography";
 import { ProcessSteps } from "@/components/shared/process-steps";
 import { CtaBand } from "@/components/shared/cta-band";
 import { Reveal, RevealGroup, RevealItem } from "@/components/shared/reveal";
+import { BenefitVisual } from "@/components/shared/benefit-visual";
 import { JsonLd } from "@/components/shared/json-ld";
 import { buildMetadata, buildCrumbs } from "@/lib/seo";
 import { breadcrumbSchema, serviceSchema } from "@/lib/jsonld";
@@ -127,25 +128,28 @@ export default async function ServicePage({
           headingId="benefits-heading"
         />
 
-        <RevealGroup as="ul" className="mt-12 grid gap-4 sm:grid-cols-2">
-          {service.benefits.map((benefit) => {
-            const BenefitIcon = benefit.icon;
-            return (
-              <RevealItem as="li" key={benefit.title}>
-                <Card variant="raised" padding="md" className="h-full">
-                  <CardIcon>
-                    <BenefitIcon />
-                  </CardIcon>
-                  <h3 className="mt-5 text-[1.0625rem] font-medium tracking-[-0.014em] text-ink-950">
+        <RevealGroup as="ul" className="mt-12 grid gap-5 sm:grid-cols-2">
+          {service.benefits.map((benefit) => (
+            <RevealItem as="li" key={benefit.title}>
+              {/*
+                * Card shape from the layout reference: the illustration is
+                * INSET (the card pads around it), and the shadow is a minimal
+                * NEUTRAL grey — not the purple bloom used on the form cards,
+                * which read far too heavy at this size.
+                */}
+              <div className="h-full rounded-2xl bg-canvas p-2.5 shadow-[0_1px_2px_rgb(16_24_40/0.04),0_2px_6px_rgb(16_24_40/0.03),0_12px_28px_-14px_rgb(16_24_40/0.14)]">
+                <BenefitVisual spec={benefit.visual} />
+                <div className="px-4 pt-5 pb-4 sm:px-5 sm:pb-5">
+                  <h3 className="text-[1rem] font-medium tracking-[-0.012em] text-ink-950">
                     {benefit.title}
                   </h3>
-                  <p className="mt-2 text-[0.9375rem] leading-relaxed text-ink-400">
+                  <p className="mt-1.5 text-[0.875rem] leading-[1.6] text-ink-400">
                     {benefit.body}
                   </p>
-                </Card>
-              </RevealItem>
-            );
-          })}
+                </div>
+              </div>
+            </RevealItem>
+          ))}
         </RevealGroup>
       </Section>
 
