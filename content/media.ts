@@ -87,8 +87,8 @@ export const heroImages = {
     alt: "An airliner cruising above a cloud layer at sunset",
   },
   shippingHero: {
-    src: "/images/shipping-hero.png",
-    alt: "A labelled Your Dart Express parcel among stacked boxes, with a location pin and a dotted world map behind",
+    src: "/images/shipping-hero.jpg",
+    alt: "Two couriers checking the shipping label on a parcel against a delivery docket",
   },
 } as const satisfies Record<string, HeroImage>;
 

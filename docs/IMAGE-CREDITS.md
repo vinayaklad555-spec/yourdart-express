@@ -129,7 +129,7 @@ assets to use.
 
 | File | Used on | Note |
 | --- | --- | --- |
-| `shipping-hero.png` | `/services/shipping` hero | Branded parcel render. The parcel label carries a **"V" roundel, not the site's dart mark** — worth regenerating if brand consistency matters. |
+| `shipping-hero.jpg` | `/services/shipping` hero | Courier photograph. Downscaled from the 6000x4000 / 8.4 MB original to 2400px wide (~0.46 MB) before committing — the optimiser would have served it fine, but the source would have bloated the repo. |
 | `auth-aura.png` | `/login`, `/signup` panel | Purple aura artwork. |
 | `benefit-one-point-of-contact.png` | "One point of contact" card on `/services/shipping` | Rendered illustration (source: `Images/One point.png`). Supplied per-benefit via the `image` visual kind, which replaces the card wash. |
 | `air-freight-hero.png` | `/services/freight-forwarding` hero | Aircraft above cloud. Replaces the neutral-parcels stand-in that was standing in for air imagery. |
