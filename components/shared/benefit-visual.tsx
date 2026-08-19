@@ -583,25 +583,35 @@ function Composition({ spec }: { spec?: BenefitVisualSpec }) {
         <div className="relative size-full">
           <svg viewBox="0 0 320 180" fill="none" className="absolute inset-0 size-full">
             <FadeStroke id="leg-fade" />
-            <path d="M44 118C96 118 104 74 160 74" stroke="url(#leg-fade)" strokeWidth="1" strokeDasharray="2 4" />
+            <path d="M58 118C104 118 110 74 160 74" stroke="url(#leg-fade)" strokeWidth="1" strokeDasharray="2 4" />
             {/* The final leg stays solid — it is the point the card makes. */}
-            <path d="M160 74c56 0 64 44 116 44" stroke="#7b2cbf" strokeWidth="1.5" opacity="0.55" />
+            <path d="M160 74c50 0 56 44 102 44" stroke="#7b2cbf" strokeWidth="1.5" opacity="0.55" />
           </svg>
-          {spec.legs.map((leg, i) => (
-            <span
-              key={leg}
-              className={i === spec.legs.length - 1 ? `${FOCAL} absolute` : `${CHIP} absolute`}
-              style={
-                i === 0
-                  ? { left: "5%", top: "66%" }
-                  : i === 1
-                    ? { left: "50%", top: "41%", transform: "translateX(-50%)" }
-                    : { right: "5%", top: "66%" }
-              }
-            >
-              {leg}
-            </span>
-          ))}
+          {/*
+           * Seated on the curve's OWN coordinates, centred on them. `top`
+           * alone anchors a chip by its top edge, which is why the route
+           * appeared to leave from above Airport and pass under Customs.
+           *   curve: (58,118) -> (160,74) -> (262,118)
+           *   as %:  (18.1, 65.6) (50, 41.1) (81.9, 65.6)
+           * Endpoints are inboard of the panel edge so a CENTRED chip still
+           * fits — at 86% "Your door" wrapped to two lines.
+           */}
+          {spec.legs.map((leg, i) => {
+            const seat = [
+              { left: "18.1%", top: "65.6%" },
+              { left: "50%", top: "41.1%" },
+              { left: "81.9%", top: "65.6%" },
+            ][i];
+            return (
+              <span
+                key={leg}
+                className={`${i === spec.legs.length - 1 ? FOCAL : CHIP} absolute -translate-x-1/2 -translate-y-1/2 whitespace-nowrap`}
+                style={seat}
+              >
+                {leg}
+              </span>
+            );
+          })}
         </div>
       );
 
