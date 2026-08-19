@@ -58,11 +58,35 @@ function Arcs() {
   return (
     <svg viewBox="0 0 320 180" fill="none" className="absolute inset-0 size-full">
       <g stroke="#7b2cbf" fill="none">
-        <circle cx="160" cy="90" r="60" strokeWidth="1" opacity="0.13" />
-        <circle cx="160" cy="90" r="88" strokeWidth="1" opacity="0.09" />
-        <circle cx="160" cy="90" r="118" strokeWidth="1" opacity="0.06" />
+        <circle cx="160" cy="90" r="60" strokeWidth="0.75" opacity="0.11" />
+        <circle cx="160" cy="90" r="88" strokeWidth="0.75" opacity="0.08" />
+        <circle cx="160" cy="90" r="118" strokeWidth="0.75" opacity="0.05" />
       </g>
     </svg>
+  );
+}
+
+/**
+ * The gradient every connector is stroked with: solid-ish where the line
+ * leaves its source and gone by the far end, so the routing suggests itself
+ * rather than being drawn on. `objectBoundingBox` means each path fades along
+ * its OWN direction — one shared gradient would fade them all left-to-right
+ * regardless of which way they run.
+ */
+function FadeStroke({ id }: { id: string }) {
+  return (
+    <defs>
+      <linearGradient id={id} x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stopColor="#7b2cbf" stopOpacity="0.45" />
+        <stop offset="60%" stopColor="#7b2cbf" stopOpacity="0.26" />
+        {/*
+          NOT zero. Fading fully out killed the line exactly where it meets
+          its node, and the chips read as disconnected. It has to thin out
+          without letting go.
+        */}
+        <stop offset="100%" stopColor="#7b2cbf" stopOpacity="0.14" />
+      </linearGradient>
+    </defs>
   );
 }
 
@@ -70,15 +94,15 @@ function Arcs() {
 function Routes({ d }: { d: string[] }) {
   return (
     <svg viewBox="0 0 320 180" fill="none" className="absolute inset-0 size-full">
+      <FadeStroke id="route-fade" />
       {d.map((path) => (
         <path
           key={path}
           d={path}
-          stroke="#7b2cbf"
-          strokeWidth="1.5"
-          strokeDasharray="2.5 5"
+          stroke="url(#route-fade)"
+          strokeWidth="1"
+          strokeDasharray="2 4"
           strokeLinecap="round"
-          opacity="0.45"
         />
       ))}
     </svg>
@@ -195,7 +219,7 @@ function Composition({ spec }: { spec?: BenefitVisualSpec }) {
     case "annotated":
       return (
         <div className="relative size-full">
-          <Routes d={["M104 52H132", "M104 90H128", "M104 128H132"]} />
+          <Routes d={["M104 52H150", "M104 90H150", "M104 128H150"]} />
           {/* Seated on the viewBox percentages the routes are drawn in
               (y 29/50/71%, right edge 32.5%), or the leaders miss. */}
           {spec.notes.map((n, i) => (
@@ -293,7 +317,13 @@ function Composition({ spec }: { spec?: BenefitVisualSpec }) {
     case "notify":
       return (
         <div className="relative size-full">
-          <Routes d={["M118 44H196", "M118 90H196", "M118 136H196"]} />
+          <Routes
+            d={[
+              "M118 44H198Q210 44 210 56V78Q210 90 222 90H248",
+              "M118 90H248",
+              "M118 136H198Q210 136 210 124V102Q210 90 222 90H248",
+            ]}
+          />
           {/* Same rule: seated on the route coordinates (y 24/50/76%). */}
           {spec.pings.map((n, i) => (
             <span
@@ -345,7 +375,8 @@ function Composition({ spec }: { spec?: BenefitVisualSpec }) {
       return (
         <div className="relative size-full">
           <svg viewBox="0 0 320 180" fill="none" className="absolute inset-0 size-full">
-            <circle cx="160" cy="90" r="58" stroke="#7b2cbf" strokeWidth="1.5" strokeDasharray="3 6" opacity="0.4" fill="none" />
+            <FadeStroke id="cycle-fade" />
+            <circle cx="160" cy="90" r="58" stroke="url(#cycle-fade)" strokeWidth="1" strokeDasharray="2 4" fill="none" />
           </svg>
           <span className={`${CHIP} absolute top-[13%] left-1/2 -translate-x-1/2 justify-center`}>{spec.nodes[0]}</span>
           <span className={`${CHIP} absolute bottom-[13%] left-[16%] justify-center`}>{spec.nodes[1]}</span>
@@ -519,7 +550,8 @@ function Composition({ spec }: { spec?: BenefitVisualSpec }) {
       return (
         <div className="relative size-full">
           <svg viewBox="0 0 320 180" fill="none" className="absolute inset-0 size-full">
-            <path d="M160 14V166" stroke="#7b2cbf" strokeWidth="1.5" strokeDasharray="4 6" opacity="0.4" />
+            <FadeStroke id="border-fade" />
+            <path d="M160 14V166" stroke="url(#border-fade)" strokeWidth="1" strokeDasharray="2 4" />
           </svg>
           <span className="absolute top-[6%] left-1/2 -translate-x-1/2 rounded-md bg-canvas/85 px-2 py-1 text-[0.625rem] leading-none font-medium tracking-[0.07em] text-accent uppercase">
             {spec.border}
@@ -545,8 +577,10 @@ function Composition({ spec }: { spec?: BenefitVisualSpec }) {
       return (
         <div className="relative size-full">
           <svg viewBox="0 0 320 180" fill="none" className="absolute inset-0 size-full">
-            <path d="M44 118C96 118 104 74 160 74" stroke="#7b2cbf" strokeWidth="1.5" strokeDasharray="3 6" opacity="0.35" />
-            <path d="M160 74c56 0 64 44 116 44" stroke="#7b2cbf" strokeWidth="2" opacity="0.75" />
+            <FadeStroke id="leg-fade" />
+            <path d="M44 118C96 118 104 74 160 74" stroke="url(#leg-fade)" strokeWidth="1" strokeDasharray="2 4" />
+            {/* The final leg stays solid — it is the point the card makes. */}
+            <path d="M160 74c56 0 64 44 116 44" stroke="#7b2cbf" strokeWidth="1.5" opacity="0.55" />
           </svg>
           {spec.legs.map((leg, i) => (
             <span
