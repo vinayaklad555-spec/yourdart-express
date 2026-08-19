@@ -25,11 +25,19 @@ import type { BenefitVisualSpec } from "@/types/content";
  * the brief rules out inventing it, so the diagrams carry named things.
  */
 
-const CHIP =
-  "inline-flex items-center gap-2 rounded-[0.625rem] bg-canvas px-3.5 py-2.5 text-[0.8125rem] leading-none font-medium text-ink-800 shadow-[0_1px_2px_rgb(16_24_40/0.06),0_8px_18px_-8px_rgb(76_29_149/0.22)]";
+/*
+ * Two shadow values for the whole file. They were duplicated per pattern and
+ * drifted — the orbit's discs ended up at 0.45 against the chips' 0.22, which
+ * is what made that card read heavier than the rest of the set.
+ */
+const PLATE_SHADOW =
+  "shadow-[0_1px_2px_rgb(16_24_40/0.06),0_8px_18px_-8px_rgb(76_29_149/0.22)]";
+const FOCAL_SHADOW =
+  "shadow-[0_2px_4px_rgb(76_29_149/0.25),0_10px_22px_-8px_rgb(76_29_149/0.55)]";
 
-const FOCAL =
-  "inline-flex items-center gap-2 rounded-[0.625rem] bg-[linear-gradient(180deg,#9d4edd,#6d28d9)] px-3.5 py-2.5 text-[0.8125rem] leading-none font-medium text-white shadow-[0_2px_4px_rgb(76_29_149/0.25),0_10px_22px_-8px_rgb(76_29_149/0.55)]";
+const CHIP = `inline-flex items-center gap-2 rounded-[0.625rem] bg-canvas px-3.5 py-2.5 text-[0.8125rem] leading-none font-medium text-ink-800 ${PLATE_SHADOW}`;
+
+const FOCAL = `inline-flex items-center gap-2 rounded-[0.625rem] bg-[linear-gradient(180deg,#9d4edd,#6d28d9)] px-3.5 py-2.5 text-[0.8125rem] leading-none font-medium text-white ${FOCAL_SHADOW}`;
 
 /** The faint arcs that sit behind every composition. */
 function Arcs() {
@@ -83,8 +91,8 @@ export function BenefitVisual({ spec }: { spec?: BenefitVisualSpec }) {
     >
       {/*
        * An `image` visual replaces the wash outright — that artwork has the
-       * wash composited into it already, so layering ours underneath would
-       * only ever show at the crop edges.
+       * wash composited into it already, so ours would only show at the crop
+       * edges.
        */}
       <Image
         src={spec?.kind === "image" ? spec.src : "/images/card-bg.png"}
