@@ -6,15 +6,15 @@ import type { HeroImage } from "@/content/media";
 /**
  * The image that sits beside interior page headings.
  *
- * One layer sits over the photograph:
+ * The photograph is shown as it is. Two treatments used to sit on top and
+ * were both removed at the owner's request: a hairline inset ring, and a
+ * purple wash entering from the top-left.
  *
- *  1. A purple wash entering from the top-left corner at low opacity. It is
- *     what pulls a set of stock photographs — shot by different people, in
- *     different light, graded differently — into one family. Without it they
- *     read as a pile of unrelated pictures.
- *
- * The hairline inset ring that used to sit on top was removed at the owner's
- * request — the rounded corners and the wash define the plate on their own.
+ * Worth knowing what the wash was doing, if the heroes ever start to look
+ * mismatched: it tinted every photograph toward the same purple, which pulled
+ * images shot by different people, in different light and graded differently
+ * into one family. Without it, each hero carries its own colour — fine while
+ * the images are chosen to suit, but nothing is unifying them any more.
  *
  * LOADING STRATEGY — eager and high priority, measured rather than assumed.
  *
@@ -50,12 +50,6 @@ export function HeroMedia({
         fetchPriority="high"
         sizes="(min-width: 1024px) 44vw, 100vw"
         className="object-cover"
-      />
-
-      {/* Purple wash from the top-left corner — the unifying layer. */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 bg-[linear-gradient(135deg,rgb(123_44_191/0.42)_0%,rgb(90_24_154/0.18)_42%,transparent_74%)]"
       />
     </div>
   );
