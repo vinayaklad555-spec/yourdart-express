@@ -84,7 +84,7 @@ export const heroImages = {
    */
   airFreightHero: {
     src: "/images/air-freight-hero.png",
-    alt: "An aircraft in flight above cloud at dusk",
+    alt: "An airliner cruising above a cloud layer at sunset",
   },
   shippingHero: {
     src: "/images/shipping-hero.png",
