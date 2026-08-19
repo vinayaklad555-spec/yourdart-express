@@ -67,16 +67,21 @@ function Arcs() {
 }
 
 /**
- * The gradient every connector is stroked with: solid-ish where the line
- * leaves its source and gone by the far end, so the routing suggests itself
- * rather than being drawn on. `objectBoundingBox` means each path fades along
- * its OWN direction — one shared gradient would fade them all left-to-right
- * regardless of which way they run.
+ * The gradient every connector is stroked with: stronger where the line
+ * leaves its source, thinning out along its run, so the routing suggests
+ * itself rather than being drawn on.
+ *
+ * `userSpaceOnUse`, NOT `objectBoundingBox`. A perfectly horizontal path has
+ * a zero-height bounding box, and the SVG spec says a bounding-box gradient
+ * on a zero-dimension box renders NOTHING — which silently deleted every
+ * straight connector on the site. Spanning the viewBox instead means the
+ * fade is a property of the panel, not of each path's own extents, so it
+ * survives horizontal and vertical runs alike.
  */
 function FadeStroke({ id }: { id: string }) {
   return (
     <defs>
-      <linearGradient id={id} x1="0" y1="0" x2="1" y2="1">
+      <linearGradient id={id} gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="320" y2="180">
         <stop offset="0%" stopColor="#7b2cbf" stopOpacity="0.45" />
         <stop offset="60%" stopColor="#7b2cbf" stopOpacity="0.26" />
         {/*
