@@ -212,5 +212,6 @@ export const pageHeroImages = {
   sustainability: heroImages.highwayHaulage,
   analytics: heroImages.warehouseRacking,
   smallBusiness: heroImages.parcelPair,
-  enterprise: heroImages.portTerminal,
+  /* Racking, not the container port — see the note on portTerminal. */
+  enterprise: heroImages.warehouseRacking,
 } as const satisfies Record<string, HeroImage>;

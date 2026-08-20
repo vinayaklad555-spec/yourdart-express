@@ -39,13 +39,17 @@ if used on a transport page:
 
 | File | Status |
 |---|---|
-| `port-terminal.jpg` | Removed from `/industries/b2b` on 2026-08-20. **Still on `/services`, `/partners` and `/enterprise`** — flagged to the owner, not yet changed. |
+| `port-terminal.jpg` | Removed from `/industries/b2b` and `/enterprise` on 2026-08-20. **Still on `/services` and `/partners`** — flagged to the owner, not yet changed. |
 | `container-ship.jpg` | Unused, and should stay unused. The most explicit sea-freight claim in the library. |
 
 A reader takes the picture as the claim, so a container port on a page about
-moving goods offers a service that does not exist. B2B now uses
-`road-freight.jpg` — a curtain-sider, which is what those pallet consignments
-actually travel on.
+moving goods offers a service that does not exist. Replacements so far:
+
+- `/industries/b2b` -> `road-freight.jpg`, a curtain-sider, which is what
+  those pallet consignments actually travel on.
+- `/enterprise` -> `warehouse-racking.jpg`. That page is about written
+  procedures and reviewable reporting rather than about transport at all, so
+  organised racking suits it better than any vehicle would.
 
 > `road-freight.jpg` carries a legible third-party marking of its own: the
 > trailer is signwritten **GRANOTRADE** with the domain `granotrade.cl`, a
