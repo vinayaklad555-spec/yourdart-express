@@ -79,12 +79,16 @@ export const heroImages = {
     alt: "",
   },
   /*
-   * Owner-supplied brand artwork, not licensed stock — see
-   * docs/IMAGE-CREDITS.md. Purple ground, so it needs no tint treatment.
+   * Pexels stock, chosen by the owner — see docs/IMAGE-CREDITS.md. It
+   * replaced a purple rendered aircraft, so this is the one hero photograph
+   * whose colour does NOT come from the brand palette.
+   *
+   * The master is square; the hero crops it to each breakpoint's ratio from
+   * the centre, which keeps the parked aircraft and the sunset in frame.
    */
   airFreightHero: {
-    src: "/images/air-freight-hero.png",
-    alt: "An airliner cruising above a cloud layer at sunset",
+    src: "/images/air-freight-hero.jpg",
+    alt: "Ground crew and baggage carts working around a parked airliner on an airport apron at sunset",
   },
   shippingHero: {
     src: "/images/shipping-hero.jpg",

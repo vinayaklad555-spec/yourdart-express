@@ -26,6 +26,30 @@ be blocked by the browser.
 > retrievable without an API key — resolve each at
 > `https://unsplash.com/photos/<id>` if you want to credit them by name.
 
+## Pexels
+
+One image comes from **Pexels** rather than Unsplash, used under the
+[Pexels Licence](https://www.pexels.com/license/) — free for commercial use,
+attribution not required. Recorded here for the same traceability reason.
+
+| File | Source | Photographer |
+|---|---|---|
+| `air-freight-hero.jpg` | `pexels.com/photo/3140204` | Brett Sayles |
+
+Chosen by the owner. Downscaled from the 4024x4024 / 2.6 MB original to
+1800x1800 at quality 60 (~0.48 MB) before committing, matching what
+`shipping-hero.jpg` was held to. The master is square; the hero crops it to
+each breakpoint's ratio.
+
+> **Third-party livery.** Unlike the homepage truck, this photograph shows
+> **United Airlines** aircraft, ground equipment and baggage containers, all
+> carrying United's marks. Your Dart Express has no stated relationship with
+> United, and on a page selling air freight forwarding a viewer could read one
+> in. The Pexels licence covers the photograph; it does not grant any right in
+> the trademarks inside it. Flagged to the owner on 2026-08-20 and used at
+> their direction — revisit if the page ever makes a carrier-partnership
+> claim, or swap for unbranded air-cargo imagery.
+
 ---
 
 ## The homepage hero image
@@ -132,5 +156,4 @@ assets to use.
 | `shipping-hero.jpg` | `/services/shipping` hero | Courier photograph. Downscaled from the 6000x4000 / 8.4 MB original to 2400px wide (~0.46 MB) before committing — the optimiser would have served it fine, but the source would have bloated the repo. |
 | `auth-aura.png` | `/login`, `/signup` panel | Purple aura artwork. |
 | `benefit-one-point-of-contact.png` | "One point of contact" card on `/services/shipping` | Rendered illustration (source: `Images/One point.png`). Supplied per-benefit via the `image` visual kind, which replaces the card wash. |
-| `air-freight-hero.png` | `/services/freight-forwarding` hero | Aircraft above cloud. Replaces the neutral-parcels stand-in that was standing in for air imagery. |
 | `card-bg.png` | Benefit-card panels on every `/services/*` page | Lavender wash. Repeated four times per page, so it is served through the image optimiser rather than as a CSS background. Was briefly used on the footer too; removed at the owner's request. |
