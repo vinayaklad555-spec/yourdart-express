@@ -183,7 +183,7 @@ nothing that exists.
 | File | Used on | Source |
 |---|---|---|
 | `fulfillment-picking.jpg` | `/services/fulfillment` hero | Supplied by the owner as `Images/Fulfillment.png` |
-| `warehouse-forklift.jpg` | `/services/warehousing` hero | Supplied by the owner as `Images/Warehousing.png` |
+| `warehouse-pallet.jpg` | `/services/warehousing` hero | Supplied by the owner as `Images/Warehousing new.png` |
 | `dtc-courier-hd.jpg` | `/industries/dtc` hero | Supplied by the owner as `Images/Door to door.png` |
 
 ### `dtc-courier-hd.jpg`
@@ -206,17 +206,23 @@ spare.
 `parcelsStacked` (`parcels-stacked.jpg`) was the previous DTC hero and is
 **not** retired: `/integrations/shopify` still uses it.
 
-### `warehouse-forklift.jpg`
+### `warehouse-pallet.jpg`
 
-A forklift carrying a shrink-wrapped pallet past racking. The master is square
-(1254x1254) and is trimmed only 74px off the bottom, to 1254x1180 (1.06),
-quality 82 (~0.22 MB), served at native width.
+A forklift carrying a shrink-wrapped pallet past racking. Cut from 3762x3231
+(1.164) by removing **300px off the top**, then resized to 1800x1402 (1.28),
+quality 80 (~0.31 MB).
 
-It is deliberately **not** cut hard from the top like the portrait sources. The
-forklift stands tall in the frame, so a deeper crop takes its wheels off at the
-1.60 card; a near-square master keeps the whole machine at every card ratio.
-1254px covers the desktop card at 2x with headroom and the 800px card at about
-84% — acceptable, and far better than the alternative below.
+The trim direction is the point. The forklift stands tall in frame, so cutting
+the bottom pushes it downward relative to the frame until the 1.60 card clips
+its wheels — the same trap the previous warehousing file was shaped around.
+Removing ceiling instead lifts the machine clear at both ends: the 0.90 card
+shows the middle 70% of the width and the 1.60 card the middle 80% of the
+height, and the whole forklift survives both. Verified in the browser.
+
+> **Supersedes `warehouse-forklift.jpg`, 2026-08-20.** That was the same
+> subject from `Images/Warehousing.png` (since renamed `Warehousing1.png`) but
+> only 1254px square, which left the 800px card at about 84% of the pixels it
+> wanted. This file is 3762px wide with more of the aisle in shot.
 
 > **Rejected before this one, 2026-08-20.** The slot was briefly pointed at
 > `Images/✨ Transform with Precision_ Powder Coating Service in Singapore

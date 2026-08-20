@@ -144,13 +144,13 @@ export const heroImages = {
   /*
    * Owner-supplied — see docs/IMAGE-CREDITS.md.
    *
-   * A square master, trimmed only slightly off the bottom. It is NOT cut
-   * harder from the top like the other portrait sources: the forklift stands
-   * tall in the frame, and a deeper crop loses its wheels at the 1.60 card.
-   * Served at native width (1254px).
+   * Trimmed from the TOP, unusually — 300px of ceiling. Cutting the bottom
+   * instead would have pushed the forklift down the frame until the 1.60 card
+   * clipped its wheels; removing ceiling lifts it clear at both ends of the
+   * card range.
    */
   warehouseForklift: {
-    src: "/images/warehouse-forklift.jpg",
+    src: "/images/warehouse-pallet.jpg",
     alt: "A forklift carrying a shrink-wrapped pallet of cartons past warehouse racking",
   },
   /*
