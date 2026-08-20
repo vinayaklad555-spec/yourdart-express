@@ -103,28 +103,37 @@ export const heroImages = {
     alt: "Boxes and padded envelopes left on a doorstep beside a green front door",
   },
   /*
-   * Owner-supplied — see docs/IMAGE-CREDITS.md.
-   *
-   * The master was a tall portrait (0.70) and is pre-cropped to 1.21, the
-   * hero's own ratio, around the hands and the box seam. Re-crop from the
-   * original in Images/ rather than reusing this file if the hero's shape
-   * changes.
-   */
-  boxSealing: {
-    src: "/images/box-sealing.jpg",
-    alt: "A pair of hands sealing a cardboard box with a roll of packing tape",
-  },
-  /*
    * Pexels stock, chosen by the owner — see docs/IMAGE-CREDITS.md, which
    * records that the van carries an unrelated company's livery.
    *
-   * The master was a portrait (0.75) and is pre-cropped to 1.21, the hero's
-   * own ratio. Re-crop from the original in Images/ rather than reusing this
-   * file if the hero's shape changes.
+   * The master was a portrait (0.75) and is pre-cropped to 0.95 — deliberately
+   * near-square, because the van sits right of centre and the 0.90 card would
+   * otherwise cut its front off. See the card-ratio table in the doc.
    */
   returnsVan: {
     src: "/images/returns-van.jpg",
     alt: "A yellow delivery van seen from above, driving along a road between concrete barriers",
+  },
+  /*
+   * Owner-supplied — see docs/IMAGE-CREDITS.md.
+   *
+   * The lowest-resolution hero on the site: the master is only 1023px wide,
+   * so it is served as-is rather than upscaled. Cropped to 0.95 and placed so
+   * the worker's face survives the 1.60 card, which shows only the middle
+   * 59% of the height.
+   */
+  fulfilmentPicking: {
+    src: "/images/fulfillment-picking.jpg",
+    alt: "A warehouse worker in a hi-vis vest lifting a carton from pallet racking",
+  },
+  /*
+   * Pexels stock, chosen by the owner — see docs/IMAGE-CREDITS.md. Trimmed
+   * from 1.50 to 1.20 so the 0.90 card does not have to discard 40% of the
+   * width; the cartons sit centrally either way.
+   */
+  warehouseDock: {
+    src: "/images/warehouse-dock.jpg",
+    alt: "Two cardboard cartons stacked on the apron in front of warehouse loading dock doors",
   },
   shippingHero: {
     src: "/images/shipping-hero.jpg",
@@ -135,8 +144,8 @@ export const heroImages = {
 /** Which image heads each service page, keyed by slug. */
 export const serviceHeroImages: Record<string, HeroImage> = {
   shipping: heroImages.shippingHero,
-  fulfillment: heroImages.boxSealing,
-  warehousing: heroImages.warehouseRacking,
+  fulfillment: heroImages.fulfilmentPicking,
+  warehousing: heroImages.warehouseDock,
   "reverse-logistics": heroImages.returnsVan,
   "freight-forwarding": heroImages.airFreightHero,
   "shop-and-ship": heroImages.doorstepParcels,

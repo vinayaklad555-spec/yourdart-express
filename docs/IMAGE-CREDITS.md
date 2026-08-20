@@ -37,8 +37,14 @@ attribution not required. Recorded here for the same traceability reason.
 | `air-freight-hero.jpg` | `pexels.com/photo/3140204` | Brett Sayles |
 | `shop-and-ship-hero.jpg` | `pexels.com/photo/6995133` | Kindel Media |
 | `returns-van.jpg` | `pexels.com/photo/11932102` | Minsu Breitenstein |
+| `warehouse-dock.jpg` | `pexels.com/photo/12585837` | Boom |
 
-All three chosen by the owner.
+All four chosen by the owner.
+
+`warehouse-dock.jpg` — cartons in front of loading dock doors. The original is
+5158x3434 (1.50); trimmed evenly from both sides to 1.20 and resized to
+1800x1500 (~0.18 MB), so the 0.90 card discards 25% of the width rather than
+40%. No people, no marks.
 
 `air-freight-hero.jpg` was downscaled from the 4024x4024 / 2.6 MB original to
 1800x1800 at quality 60 (~0.48 MB) before committing, matching what
@@ -117,30 +123,41 @@ to 0.95 than to 1.20.
 
 ---
 
-## `box-sealing.jpg` — provenance not recorded
+## `fulfillment-picking.jpg` — provenance not recorded
 
 | File | Used on | Source |
 |---|---|---|
-| `box-sealing.jpg` | `/services/fulfillment` hero | Supplied by the owner as `Images/person-sealing-cardboard-box-with-packing-tape.jpg` |
+| `fulfillment-picking.jpg` | `/services/fulfillment` hero | Supplied by the owner as `Images/Fulfillment.png` |
 
-Hands sealing a carton with packing tape. Pre-cropped from the 5594x8000
-portrait master to 1800x1488 (ratio 1.21) around the hands and the box seam,
-quality 78 (~0.22 MB), EXIF stripped. The subject is centred, so it survives
-the 0.90 card described above. Re-crop from the original in `Images/` rather
-than reusing this file if the hero's shape changes.
+A warehouse worker lifting a carton from racking. Cropped from the 1023x1537
+portrait master to 1023x1077 (ratio 0.95), quality 82 (~0.10 MB). The crop is
+placed high on purpose: the 1.60 card shows only the middle 59% of the height,
+and a centred crop cut the top of her head off.
 
-Unlike the Unsplash and Pexels images above, no library or licence is on
-record for this one — it arrived as a bare file. It carries **no copyright or
-author metadata**, and no trademarks, faces or identifiable people appear in
-the frame, so the exposure is low. Still worth recording where it came from if
-anyone knows.
+Two things to know about this one.
 
-> **Superseded, 2026-08-20.** This slot briefly held a different photograph
-> (`african-american-staff-printing-awb-tracking-numbers-tags-...jpg`), which
-> carried an explicit `Artist` / `Copyright` EXIF notice reading "Dragos
-> Condrea" and no licence grant. It was replaced at the owner's request before
-> that question was resolved, so the concern no longer applies to the live
-> site — but do not reinstate that file without a licence.
+**It is the lowest-resolution image on the site.** The master is 1023px wide
+and is served as-is — upscaling would only add weight, not detail. That is
+enough for the desktop card (540 CSS px, so 1080 at 2x) but *short* of the
+800px-viewport card, which wants ~1488. It will look slightly soft on a retina
+tablet. A higher-resolution copy of the same shot would fix it.
+
+**Someone identifiable is in frame.** Her face is clearly visible and in
+focus. The section above notes that identifiable people need written model
+releases before publishing; no library, licence or release is on record here,
+and the file carries no copyright metadata. Worth confirming a release exists —
+this is a different question from the licence, and it is the one that matters
+when a real person's face is used to advertise a service.
+
+> **Two superseded photographs, 2026-08-20.** This slot previously held
+> `african-american-staff-printing-awb-...jpg`, which carried an explicit
+> `Artist` / `Copyright` EXIF notice reading "Dragos Condrea" and no licence
+> grant — do not reinstate it without one. It then briefly held
+> `box-sealing.jpg` (hands taping a carton, from
+> `Images/person-sealing-cardboard-box-with-packing-tape.jpg`), which was clean
+> on every count: no copyright metadata, no marks, no faces. That file has been
+> deleted now that nothing references it, but it is in git history and is the
+> obvious fallback if the picking photograph has to come down.
 
 ---
 
