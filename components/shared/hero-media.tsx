@@ -38,7 +38,12 @@ export function HeroMedia({
   return (
     <div
       className={cn(
-        "relative aspect-[4/3] overflow-hidden rounded-xl sm:aspect-[16/11]",
+        /*
+         * `lg:aspect-auto` hands height back to the grid row, so the card
+         * matches the copy column's full height rather than a fixed ratio.
+         * It relies on PageHero's `lg:min-h-*` to establish that height.
+         */
+        "relative aspect-[4/3] overflow-hidden rounded-[1.25rem] sm:aspect-[16/10] lg:aspect-auto",
         className,
       )}
     >
@@ -48,7 +53,7 @@ export function HeroMedia({
         fill
         loading="eager"
         fetchPriority="high"
-        sizes="(min-width: 1024px) 44vw, 100vw"
+        sizes="(min-width: 1024px) 37.5rem, 100vw"
         className="object-cover"
       />
     </div>

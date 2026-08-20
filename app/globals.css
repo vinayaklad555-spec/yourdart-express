@@ -62,10 +62,14 @@
   --color-ink-100: #eeeceb;
   --color-ink-50: #f4f2f0;
 
-  /* --- Surfaces --- */
+  /* --- Surfaces ---
+     canvas-hero is the band every interior page hero sits on. It is a hair
+     cooler than canvas-warm on purpose: the hero photographs are warm, and
+     the warm grey put a yellow cast next to them. */
   --color-canvas: #ffffff;
   --color-canvas-warm: #f4f2f0;
   --color-canvas-sunk: #f4f2f0;
+  --color-canvas-hero: #f4f4f5;
 
   /* --- Lines: a single hairline weight, everywhere --- */
   --color-line: #e5e3e1;
@@ -81,7 +85,7 @@
   --color-spark: #f97316;
 
   /* --- Typography ---------------------------------------------------------
-     Nunito Sans, promoted from the shipping-hero trial to the whole site.
+     Nunito Sans, promoted from the shipping page hero trial to the whole site.
      Weight 400 carries almost everything — hierarchy comes from size and
      space, not from bolding.
      --------------------------------------------------------------------- */

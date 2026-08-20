@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
  * 14px text at weight 400, no shadow, and colour doing all the work.
  *
  * The primary action is a near-black fill with white text, matched to the
- * shipping-hero reference and promoted site-wide from there.
+ * shipping page hero reference and promoted site-wide from there.
  */
 /*
  * A soft highlight bleeding down from the top edge, so filled buttons read as

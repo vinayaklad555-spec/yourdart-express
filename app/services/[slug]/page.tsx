@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Check } from "lucide-react";
-import { PageHero } from "@/components/shared/page-hero";
-import { ShippingHero } from "@/components/shared/shipping-hero";
+import { PageHero, heroCtaSize } from "@/components/shared/page-hero";
 import { Section, SectionHeader } from "@/components/layout/section";
 import { Button } from "@/components/ui/button";
 import { Card, CardIcon } from "@/components/ui/card";
@@ -63,35 +62,25 @@ export default async function ServicePage({
     <>
       <JsonLd schema={[breadcrumbSchema(crumbs), serviceSchema(service)]} />
 
-      {service.slug === "shipping" ? (
-        /* Shipping alone gets the Figma-referenced hero: Nunito Sans, black
-           gradient CTA, split card layout. Everything below stays on the
-           shared system. */
-        <ShippingHero
-          image={serviceHeroImages[service.slug]}
-          eyebrow={service.name}
-          heading={service.hero.heading}
-          body={service.hero.body}
-        />
-      ) : (
-        <PageHero
-          image={serviceHeroImages[service.slug]}
-          eyebrow={service.name}
-          heading={service.hero.heading}
-          body={service.hero.body}
-        >
-          <div className="mt-3 flex flex-col gap-3 sm:flex-row">
-            {/* The Button primitive, not hand-rolled classes — these had drifted
-                out of sync with the accent and one class was malformed. */}
-            <Button href="/talk-to-an-expert" size="lg">
-              Talk to our team
-            </Button>
-            <Button href="/services" size="lg" variant="outline">
-              All services
-            </Button>
-          </div>
-        </PageHero>
-      )}
+      <PageHero
+        image={serviceHeroImages[service.slug]}
+        eyebrow={service.name}
+        heading={service.hero.heading}
+        body={service.hero.body}
+      >
+        <div className="flex flex-col gap-4 sm:flex-row">
+          <Button href="/talk-to-an-expert" className={heroCtaSize}>
+            Talk to our team
+          </Button>
+          <Button
+            href="/services"
+            variant="outline"
+            className={heroCtaSize}
+          >
+            All services
+          </Button>
+        </div>
+      </PageHero>
 
       {/* ------------------------------------------------------ what it covers */}
       <Section tone="canvas" spacing="md" aria-labelledby="covers-heading">
