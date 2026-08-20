@@ -82,7 +82,7 @@ export function CardTitle({
   ...props
 }: React.HTMLAttributes<HTMLHeadingElement> & { as?: "h2" | "h3" | "h4" }) {
   return (
-    <Tag className={cn("text-h4 font-normal text-ink-950", className)} {...props} />
+    <Tag className={cn("text-h4 font-medium text-ink-950", className)} {...props} />
   );
 }
 

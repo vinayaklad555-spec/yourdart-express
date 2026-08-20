@@ -55,7 +55,7 @@ export default function TrackPage() {
             <p className="text-[0.6875rem] leading-[1.4] tracking-[0.09em] text-ink-400 uppercase">
               Shipment tracking
             </p>
-            <h1 className="mt-6 text-[clamp(2rem,1.45rem+2.6vw,3.25rem)] leading-[1.08] font-normal tracking-[-0.014em] text-ink-950">
+            <h1 className="mt-6 text-[clamp(2rem,1.45rem+2.6vw,3.25rem)] leading-[1.08] font-medium tracking-[-0.014em] text-ink-950">
               Track your shipment
             </h1>
             <p className="mt-5 text-[clamp(1rem,0.96rem+0.22vw,1.125rem)] leading-[1.55] text-ink-400">

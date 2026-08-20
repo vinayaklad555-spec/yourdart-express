@@ -5,9 +5,10 @@ import { cn } from "@/lib/utils";
  * The type system as components. Sizes live here and nowhere else, so the whole
  * site rescales from one file.
  *
- * Matched to the benchmark: everything sits at weight 400, line height runs
- * close to 1.0 on display sizes, and tracking is near zero rather than tightly
- * negative. Hierarchy is carried by size, colour and whitespace.
+ * Headings sit at weight 500 — Nunito Sans draws lighter than the previous
+ * Geist, and 400 read too thin at heading sizes. Line height runs close to
+ * 1.0 on display sizes, and tracking is near zero rather than tightly
+ * negative. Hierarchy is otherwise carried by size, colour and whitespace.
  */
 
 export function Eyebrow({
@@ -44,7 +45,7 @@ export function Display({
   return (
     <Tag
       className={cn(
-        "text-[clamp(2.125rem,1.35rem+3.9vw,4rem)] leading-[1.02] font-normal tracking-[-0.012em] text-ink-950",
+        "text-[clamp(2.125rem,1.35rem+3.9vw,4rem)] leading-[1.02] font-medium tracking-[-0.012em] text-ink-950",
         className,
       )}
     >
@@ -74,7 +75,7 @@ export function Heading({
   };
 
   return (
-    <Tag id={id} className={cn("font-normal text-ink-950", sizes[size], className)}>
+    <Tag id={id} className={cn("font-medium text-ink-950", sizes[size], className)}>
       {children}
     </Tag>
   );

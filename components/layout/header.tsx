@@ -327,7 +327,7 @@ function NavItem({
                                 </span>
                               ) : null}
                               <span className="min-w-0">
-                                <span className="block text-[0.875rem] leading-[1.43] text-ink-950">
+                                <span className="block text-[0.875rem] leading-[1.43] font-medium text-ink-950">
                                   {link.label}
                                 </span>
                                 {link.description ? (
@@ -388,7 +388,7 @@ function MobileNav() {
                       <li key={link.href}>
                         <Link
                           href={link.href}
-                          className="flex items-center gap-3 rounded-lg py-2 pr-3 pl-1 text-[0.9375rem] text-ink-950 active:bg-ink-50"
+                          className="flex items-center gap-3 rounded-lg py-2 pr-3 pl-1 text-[0.9375rem] font-medium text-ink-950 active:bg-ink-50"
                         >
                           {Icon ? (
                             <span

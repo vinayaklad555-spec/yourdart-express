@@ -39,7 +39,7 @@ export function ServicesShowcase() {
 
               <h2
                 id="services-heading"
-                className="mt-6 text-[clamp(1.75rem,1.3rem+1.9vw,2.5rem)] leading-[1.16] font-normal tracking-[-0.012em] text-white"
+                className="mt-6 text-[clamp(1.75rem,1.3rem+1.9vw,2.5rem)] leading-[1.16] font-medium tracking-[-0.012em] text-white"
               >
                 Six services that cover the journey from your supplier to your
                 customer — and back again when it needs to come back.

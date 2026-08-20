@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { GeistSans } from "geist/font/sans";
+import { Nunito_Sans } from "next/font/google";
 import "./globals.css";
 
 import { Header } from "@/components/layout/header";
@@ -10,18 +10,24 @@ import { organizationSchema, websiteSchema } from "@/lib/jsonld";
 import { site } from "@/content/site";
 
 /**
- * Geist stands in for the benchmark's proprietary Lausanne: the same
- * neo-grotesque character, freely licensed, and self-hosted at build time — no
+ * Nunito Sans, trialled on the shipping hero and approved for the whole site.
+ * Loaded via next/font as a variable font, self-hosted at build time — no
  * request to a font CDN, no layout shift.
  *
  * Only the sans family is downloaded. The handful of monospaced numerals on
  * the site use the system mono stack instead — a second webfont family was
  * measurably hurting mobile LCP for a few decorative digits.
  *
- * To go back to DM Sans, swap this import and point --font-sans in globals.css
- * at the new variable. Nothing else references the family.
+ * To change family again, swap this import and point --font-sans in
+ * globals.css at the new variable. Nothing else references the family.
  */
-const fontVariables = GeistSans.variable;
+const nunitoSans = Nunito_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-nunito-sans",
+});
+
+const fontVariables = nunitoSans.variable;
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),

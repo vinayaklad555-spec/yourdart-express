@@ -81,39 +81,41 @@
   --color-spark: #f97316;
 
   /* --- Typography ---------------------------------------------------------
-     Geist stands in for Lausanne: the same neo-grotesque character, and
-     freely licensed. Weight 400 carries almost everything — hierarchy comes
-     from size and space, not from bolding.
+     Nunito Sans, promoted from the shipping-hero trial to the whole site.
+     Weight 400 carries almost everything — hierarchy comes from size and
+     space, not from bolding.
      --------------------------------------------------------------------- */
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system,
+  --font-sans: var(--font-nunito-sans), ui-sans-serif, system-ui, -apple-system,
     "Helvetica Neue", Arial, sans-serif;
   --font-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
 
-  /* Display scale: near-1.0 line height, near-zero tracking, weight 400 */
+  /* Display scale: near-1.0 line height, near-zero tracking, weight 500 —
+     Nunito Sans draws lighter than Geist did, so regular read too thin at
+     heading sizes. */
   --text-display: 4rem;
   --text-display--line-height: 1;
   --text-display--letter-spacing: -0.012em;
-  --text-display--font-weight: 400;
+  --text-display--font-weight: 500;
 
   --text-h1: 3rem;
   --text-h1--line-height: 1.04;
   --text-h1--letter-spacing: -0.011em;
-  --text-h1--font-weight: 400;
+  --text-h1--font-weight: 500;
 
   --text-h2: 2.5rem;
   --text-h2--line-height: 1.05;
   --text-h2--letter-spacing: -0.008em;
-  --text-h2--font-weight: 400;
+  --text-h2--font-weight: 500;
 
   --text-h3: 1.75rem;
   --text-h3--line-height: 1.14;
   --text-h3--letter-spacing: -0.004em;
-  --text-h3--font-weight: 400;
+  --text-h3--font-weight: 500;
 
   --text-h4: 1.25rem;
   --text-h4--line-height: 1.3;
   --text-h4--letter-spacing: 0em;
-  --text-h4--font-weight: 400;
+  --text-h4--font-weight: 500;
 
   --text-lead: 1.25rem;
   --text-lead--line-height: 1.5;
