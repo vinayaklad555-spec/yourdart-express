@@ -106,7 +106,13 @@ export function Logo({
       />
       <span
         className={cn(
-          "font-semibold tracking-[-0.03em] whitespace-nowrap",
+          /*
+           * 700, not the 600 this carried under Geist. Nunito Sans is a
+           * rounder face and draws lighter at the same weight, which left the
+           * wordmark too faint beside the mark. The weight is set here rather
+           * than inherited so it stays put if the body font changes again.
+           */
+          "font-bold tracking-[-0.03em] whitespace-nowrap",
           "text-[1.0625rem] sm:text-[1.125rem]",
           variant === "inverse" ? "text-white" : "text-ink-950",
         )}
