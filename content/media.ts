@@ -102,6 +102,16 @@ export const heroImages = {
     src: "/images/shop-and-ship-hero.jpg",
     alt: "Boxes and padded envelopes left on a doorstep beside a green front door",
   },
+  /*
+   * Owner-supplied, and the ONE hero whose licence is unconfirmed — the file
+   * carries a photographer's copyright notice rather than a stock-library
+   * grant. See the warning in docs/IMAGE-CREDITS.md before reusing it
+   * anywhere else.
+   */
+  fulfilmentLabelDesk: {
+    src: "/images/fulfillment-hero.jpg",
+    alt: "A warehouse worker in a hi-vis vest and hard hat printing shipping labels at a desk, with pallet racking behind",
+  },
   shippingHero: {
     src: "/images/shipping-hero.jpg",
     alt: "Two couriers checking the shipping label on a parcel against a delivery docket",
@@ -111,7 +121,7 @@ export const heroImages = {
 /** Which image heads each service page, keyed by slug. */
 export const serviceHeroImages: Record<string, HeroImage> = {
   shipping: heroImages.shippingHero,
-  fulfillment: heroImages.fulfilmentFloor,
+  fulfillment: heroImages.fulfilmentLabelDesk,
   warehousing: heroImages.warehouseRacking,
   "reverse-logistics": heroImages.parcelsStacked,
   "freight-forwarding": heroImages.airFreightHero,

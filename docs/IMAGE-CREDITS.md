@@ -57,6 +57,41 @@ own ratio and keeps the doorstep as the subject. Re-crop from the original in
 > parcel forwarding, where a retailer's mark could read as a tie-in. The
 > remaining packaging is unbranded. Nothing else was altered.
 
+---
+
+## ⚠️ Unconfirmed licence — `fulfillment-hero.jpg`
+
+| File | Used on | Photographer |
+|---|---|---|
+| `fulfillment-hero.jpg` | `/services/fulfillment` hero | **Dragos Condrea** |
+
+Supplied by the owner as
+`Images/african-american-staff-printing-awb-tracking-numbers-tags-new-parcel-shipment-managing-airway.jpg`
+and put live at their direction on 2026-08-20. Downscaled 5472x3648 → 1800x1200
+at quality 78 (~0.18 MB), EXIF stripped.
+
+**This is the only hero on the site whose licence has not been established.**
+Unlike the Unsplash and Pexels images above, the file carries an explicit
+copyright notice in its EXIF — `Artist` and `Copyright` both read
+"Dragos Condrea" — and no stock-library grant travels with it. The long
+keyword filename and the embedded marketing description are the shape of a
+paid stock listing (Dreamstime / Adobe Stock / iStock all list this
+photographer), which means a licence probably has to be **bought**, and the
+one that applies decides whether commercial web use is covered at all.
+
+Before treating this as settled, confirm one of:
+
+1. Your Dart Express holds a commercial licence for it — record the library,
+   licence type and order reference in this table; or
+2. it was commissioned, in which case record that and it moves to the
+   owner-supplied section; or
+3. neither — in which case **replace it**. `fulfilmentFloor`
+   (`fulfilment-floor.jpg`, Unsplash) is the drop-in it displaced and is
+   still used by `/omnichannel`, `/careers` and `/technology`.
+
+The subject is photographed from behind and is not identifiable, so the model
+release question in the section above does not arise here.
+
 > **Third-party livery.** Unlike the homepage truck, this photograph shows
 > **United Airlines** aircraft, ground equipment and baggage containers, all
 > carrying United's marks. Your Dart Express has no stated relationship with
