@@ -1,6 +1,11 @@
 # Image credits and licensing
 
-All hero photography in `/public/images` comes from **Unsplash**, used under the
+Hero imagery in `/public/images` comes from four places, each with its own
+section below: **Unsplash**, **Pexels**, **owner-supplied** files whose origin
+is not recorded, and one **AI-generated** image. Read the relevant section
+before reusing a file — the licence position is not the same for all of them.
+
+The files in the table immediately below are from Unsplash, used under the
 [Unsplash Licence](https://unsplash.com/license) — free for commercial use, no
 permission or attribution required. Attribution is recorded here anyway, both
 as good practice and so any image can be traced back to its source.
@@ -19,27 +24,12 @@ be blocked by the browser.
 | `warehouse-racking.jpg` | `unsplash.com/photos/1587293852726-70cdb56c2866` |
 | `parcel-pair.jpg` | `unsplash.com/photos/1595246140625-573b715d11dc` |
 | `highway-haulage.jpg` | `unsplash.com/photos/1601584115197-04ecc0da31d7` |
-| `warehouse-aisle.jpg` | `unsplash.com/photos/82ZiY5pzl1c` — **Kseniia Ilinykh** |
 | `hero-truck.jpg` | **Supplied by the business** (`Images/BG Landing 3.png`) — not Unsplash |
 | `hero-truck-mobile.jpg` | **Supplied by the business** (`Images/BG Landing Mobile Version.png`) — not Unsplash |
 
 > The IDs above are the Unsplash asset identifiers. Photographer names were not
 > retrievable without an API key — resolve each at
 > `https://unsplash.com/photos/<id>` if you want to credit them by name.
-> `warehouse-aisle.jpg` is the exception: its contributor is named in the
-> filename it arrived under.
-
-`warehouse-aisle.jpg` (the `/services/warehousing` hero) is the one Unsplash
-file that needed a crop rather than a straight downscale. The original is
-4160x6240 — a 0.67 portrait whose bottom third is bare floor — so it is cut
-**from the top**, `(0, 0)-(4160, 4379)`, and resized to 1800x1895 (ratio 0.95,
-~0.65 MB). That keeps the racking at full height and discards 1861px of floor.
-
-> The reach truck carries a legible **Hyster** mark on its mast and body.
-> Hyster makes handling equipment and is not a logistics competitor or
-> partner, so branded plant in a warehouse reads as incidental rather than as
-> a claimed relationship — a weaker version of the concern recorded for the
-> air freight and returns images. Noted for completeness; no action taken.
 
 ## Pexels
 
@@ -72,6 +62,19 @@ each breakpoint's ratio.
 `returns-van.jpg` was pre-cropped: the original is 3448x4592 (0.75
 portrait), cut to `(0, 962)-(3448, 4592)` and resized to 1600x1684
 (ratio **0.95**), ~0.44 MB.
+
+> **A real company's livery.** The van is signwritten **DDM LWL Technik**,
+> with a street address in Opfikon, the domain `ddm-lwl.ch` and a legible
+> Swiss plate (ZH 520 845). That is an unrelated third party — and not a
+> courier — sitting on a page about returns collection, so a viewer could read
+> a relationship that does not exist. It cannot be cropped out: the van *is*
+> the subject.
+>
+> In practice the lettering is illegible at the size the hero renders (the van
+> is ~240px wide on a desktop hero), but it is readable in the committed
+> master. Flagged to the owner on 2026-08-20 and used at their direction. If
+> it needs resolving, the options are to blur the rear-door text and plate, or
+> to choose an unbranded vehicle.
 
 That 0.95 is deliberate and worth understanding before cropping another hero
 — see the note below.
@@ -146,26 +149,36 @@ nothing that exists.
 > carries no legible text to test. The model-release caution recorded for it
 > below therefore stands until its origin is confirmed either way.
 
-> **A real company's livery.** The van is signwritten **DDM LWL Technik**,
-> with a street address in Opfikon, the domain `ddm-lwl.ch` and a legible
-> Swiss plate (ZH 520 845). That is an unrelated third party — and not a
-> courier — sitting on a page about returns collection, so a viewer could read
-> a relationship that does not exist. It cannot be cropped out: the van *is*
-> the subject.
->
-> In practice the lettering is illegible at the size the hero renders (the van
-> is ~240px wide on a desktop hero), but it is readable in the committed
-> master. Flagged to the owner on 2026-08-20 and used at their direction. If
-> it needs resolving, the options are to blur the rear-door text and plate, or
-> to choose an unbranded vehicle.
-
 ---
 
-## `fulfillment-picking.jpg` — provenance not recorded
+## Owner-supplied, provenance not recorded
 
 | File | Used on | Source |
 |---|---|---|
 | `fulfillment-picking.jpg` | `/services/fulfillment` hero | Supplied by the owner as `Images/Fulfillment.png` |
+| `warehouse-forklift.jpg` | `/services/warehousing` hero | Supplied by the owner as `Images/Warehousing.png` |
+
+### `warehouse-forklift.jpg`
+
+A forklift carrying a shrink-wrapped pallet past racking. The master is square
+(1254x1254) and is trimmed only 74px off the bottom, to 1254x1180 (1.06),
+quality 82 (~0.22 MB), served at native width.
+
+It is deliberately **not** cut hard from the top like the portrait sources. The
+forklift stands tall in the frame, so a deeper crop takes its wheels off at the
+1.60 card; a near-square master keeps the whole machine at every card ratio.
+1254px covers the desktop card at 2x with headroom and the 800px card at about
+84% — acceptable, and far better than the alternative below.
+
+> **Rejected before this one, 2026-08-20.** The slot was briefly pointed at
+> `Images/✨ Transform with Precision_ Powder Coating Service in Singapore
+> ✨.jpeg`. Two problems: it is only **736px wide** — 68% of what the desktop
+> card needs at 2x and 49% of the 800px card, so visibly soft — and it depicts
+> a powder-coating production plant, not storage, on a page about recording
+> stock. The filename is also a third party's marketing title, so its rights
+> were unclear. Replaced at the owner's request before it shipped.
+
+### `fulfillment-picking.jpg`
 
 A warehouse worker lifting a carton from racking. Cropped from the 1023x1537
 portrait master to 1023x1077 (ratio 0.95), quality 82 (~0.10 MB). The crop is

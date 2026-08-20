@@ -127,15 +127,16 @@ export const heroImages = {
     alt: "A warehouse worker in a hi-vis vest lifting a carton from pallet racking",
   },
   /*
-   * Unsplash, chosen by the owner — see docs/IMAGE-CREDITS.md.
+   * Owner-supplied — see docs/IMAGE-CREDITS.md.
    *
-   * Cropped from a 0.67 portrait to 0.95 taken from the TOP, which keeps the
-   * full height of the racking and drops 1861px of empty floor. The reach
-   * truck carries a legible Hyster mark; noted in the doc.
+   * A square master, trimmed only slightly off the bottom. It is NOT cut
+   * harder from the top like the other portrait sources: the forklift stands
+   * tall in the frame, and a deeper crop loses its wheels at the 1.60 card.
+   * Served at native width (1254px).
    */
-  warehouseAisle: {
-    src: "/images/warehouse-aisle.jpg",
-    alt: "A reach truck in the aisle between tall pallet racking in a warehouse",
+  warehouseForklift: {
+    src: "/images/warehouse-forklift.jpg",
+    alt: "A forklift carrying a shrink-wrapped pallet of cartons past warehouse racking",
   },
   shippingHero: {
     src: "/images/shipping-hero.jpg",
@@ -147,7 +148,7 @@ export const heroImages = {
 export const serviceHeroImages: Record<string, HeroImage> = {
   shipping: heroImages.shippingHero,
   fulfillment: heroImages.fulfilmentPicking,
-  warehousing: heroImages.warehouseAisle,
+  warehousing: heroImages.warehouseForklift,
   "reverse-logistics": heroImages.returnsVan,
   "freight-forwarding": heroImages.airFreightHero,
   "shop-and-ship": heroImages.doorstepParcel,
