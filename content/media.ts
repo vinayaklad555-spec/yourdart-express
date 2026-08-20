@@ -90,6 +90,18 @@ export const heroImages = {
     src: "/images/air-freight-hero.jpg",
     alt: "Ground crew and baggage carts working around a parked airliner on an airport apron at sunset",
   },
+  /*
+   * Pexels stock, chosen by the owner — see docs/IMAGE-CREDITS.md.
+   *
+   * The master was a TALL portrait (0.56) and the hero is landscape, so a
+   * centre crop would have kept the door and cut every parcel out of frame.
+   * It is pre-cropped to 1.18 around the doorstep instead — do not swap in the
+   * original from Images/ without re-cropping it.
+   */
+  doorstepParcels: {
+    src: "/images/shop-and-ship-hero.jpg",
+    alt: "Boxes and padded envelopes left on a doorstep beside a green front door",
+  },
   shippingHero: {
     src: "/images/shipping-hero.jpg",
     alt: "Two couriers checking the shipping label on a parcel against a delivery docket",
@@ -103,7 +115,7 @@ export const serviceHeroImages: Record<string, HeroImage> = {
   warehousing: heroImages.warehouseRacking,
   "reverse-logistics": heroImages.parcelsStacked,
   "freight-forwarding": heroImages.airFreightHero,
-  "shop-and-ship": heroImages.parcelPair,
+  "shop-and-ship": heroImages.doorstepParcels,
 };
 
 /** Which image heads each industry page, keyed by slug. */

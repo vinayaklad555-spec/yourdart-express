@@ -35,11 +35,27 @@ attribution not required. Recorded here for the same traceability reason.
 | File | Source | Photographer |
 |---|---|---|
 | `air-freight-hero.jpg` | `pexels.com/photo/3140204` | Brett Sayles |
+| `shop-and-ship-hero.jpg` | `pexels.com/photo/6995133` | Kindel Media |
 
-Chosen by the owner. Downscaled from the 4024x4024 / 2.6 MB original to
+Both chosen by the owner.
+
+`air-freight-hero.jpg` was downscaled from the 4024x4024 / 2.6 MB original to
 1800x1800 at quality 60 (~0.48 MB) before committing, matching what
 `shipping-hero.jpg` was held to. The master is square; the hero crops it to
 each breakpoint's ratio.
+
+`shop-and-ship-hero.jpg` needed a **pre-crop**, not just a downscale. The
+original is 2622x4655 — a 0.56 portrait — and the hero is landscape, so
+letting `object-cover` centre it would have framed the front door and pushed
+every parcel out of shot. It is cropped to `(190, 2600)-(2622, 4655)` and
+resized to 1800x1521 (ratio 1.18, ~0.23 MB), which sits close to the hero's
+own ratio and keeps the doorstep as the subject. Re-crop from the original in
+`Images/` rather than reusing this file if the hero's shape ever changes.
+
+> The left edge starts at x=190 rather than 0 deliberately: an **Amazon**
+> smile logo on the nearest box sits in the first ~160px, and this page sells
+> parcel forwarding, where a retailer's mark could read as a tie-in. The
+> remaining packaging is unbranded. Nothing else was altered.
 
 > **Third-party livery.** Unlike the homepage truck, this photograph shows
 > **United Airlines** aircraft, ground equipment and baggage containers, all
