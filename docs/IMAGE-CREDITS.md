@@ -157,6 +157,23 @@ nothing that exists.
 |---|---|---|
 | `fulfillment-picking.jpg` | `/services/fulfillment` hero | Supplied by the owner as `Images/Fulfillment.png` |
 | `warehouse-forklift.jpg` | `/services/warehousing` hero | Supplied by the owner as `Images/Warehousing.png` |
+| `dtc-courier.jpg` | `/industries/dtc` hero | Supplied by the owner as `Images/Direct to consumer.png` |
+
+### `dtc-courier.jpg`
+
+A courier on a delivery scooter, city background motion-blurred. 1537x1023
+(1.50), quality 82 (~0.18 MB), **uncropped**.
+
+This is the one hero served at its native ratio, and the reason is a squeeze.
+The rider fills the frame in both directions, so the usual fix pulls two ways:
+a narrower master would survive the 0.90 card more comfortably, but at 1.60 it
+takes off his helmet and the wheels. 1.50 is the only ratio that clears both
+ends of the range — verified in the browser at all four cards, where he has
+margin at each. There is also no dead space to trim from the top here, unlike
+the portrait sources.
+
+`parcelsStacked` (`parcels-stacked.jpg`) was the previous DTC hero and is
+**not** retired: `/integrations/shopify` still uses it.
 
 ### `warehouse-forklift.jpg`
 

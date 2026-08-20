@@ -138,6 +138,18 @@ export const heroImages = {
     src: "/images/warehouse-forklift.jpg",
     alt: "A forklift carrying a shrink-wrapped pallet of cartons past warehouse racking",
   },
+  /*
+   * Owner-supplied — see docs/IMAGE-CREDITS.md.
+   *
+   * Served UNCROPPED at its native 1.50. The rider fills the frame in both
+   * directions: a narrower master survives the 0.90 card better but loses his
+   * helmet and wheels at 1.60, and 1.50 is the only ratio that clears both
+   * ends of the card range.
+   */
+  dtcCourier: {
+    src: "/images/dtc-courier.jpg",
+    alt: "A courier riding a scooter through a city street with insulated delivery boxes",
+  },
   shippingHero: {
     src: "/images/shipping-hero.jpg",
     alt: "Two couriers checking the shipping label on a parcel against a delivery docket",
@@ -156,7 +168,7 @@ export const serviceHeroImages: Record<string, HeroImage> = {
 
 /** Which image heads each industry page, keyed by slug. */
 export const industryHeroImages: Record<string, HeroImage> = {
-  dtc: heroImages.parcelsStacked,
+  dtc: heroImages.dtcCourier,
   b2b: heroImages.portTerminal,
   omnichannel: heroImages.fulfilmentFloor,
 };
