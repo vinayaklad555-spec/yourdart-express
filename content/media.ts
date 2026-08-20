@@ -114,6 +114,18 @@ export const heroImages = {
     src: "/images/box-sealing.jpg",
     alt: "A pair of hands sealing a cardboard box with a roll of packing tape",
   },
+  /*
+   * Pexels stock, chosen by the owner — see docs/IMAGE-CREDITS.md, which
+   * records that the van carries an unrelated company's livery.
+   *
+   * The master was a portrait (0.75) and is pre-cropped to 1.21, the hero's
+   * own ratio. Re-crop from the original in Images/ rather than reusing this
+   * file if the hero's shape changes.
+   */
+  returnsVan: {
+    src: "/images/returns-van.jpg",
+    alt: "A yellow delivery van seen from above, driving along a road between concrete barriers",
+  },
   shippingHero: {
     src: "/images/shipping-hero.jpg",
     alt: "Two couriers checking the shipping label on a parcel against a delivery docket",
@@ -125,7 +137,7 @@ export const serviceHeroImages: Record<string, HeroImage> = {
   shipping: heroImages.shippingHero,
   fulfillment: heroImages.boxSealing,
   warehousing: heroImages.warehouseRacking,
-  "reverse-logistics": heroImages.parcelsStacked,
+  "reverse-logistics": heroImages.returnsVan,
   "freight-forwarding": heroImages.airFreightHero,
   "shop-and-ship": heroImages.doorstepParcels,
 };

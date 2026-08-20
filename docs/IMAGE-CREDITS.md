@@ -28,7 +28,7 @@ be blocked by the browser.
 
 ## Pexels
 
-One image comes from **Pexels** rather than Unsplash, used under the
+Three images come from **Pexels** rather than Unsplash, used under the
 [Pexels Licence](https://www.pexels.com/license/) — free for commercial use,
 attribution not required. Recorded here for the same traceability reason.
 
@@ -36,8 +36,9 @@ attribution not required. Recorded here for the same traceability reason.
 |---|---|---|
 | `air-freight-hero.jpg` | `pexels.com/photo/3140204` | Brett Sayles |
 | `shop-and-ship-hero.jpg` | `pexels.com/photo/6995133` | Kindel Media |
+| `returns-van.jpg` | `pexels.com/photo/11932102` | Minsu Breitenstein |
 
-Both chosen by the owner.
+All three chosen by the owner.
 
 `air-freight-hero.jpg` was downscaled from the 4024x4024 / 2.6 MB original to
 1800x1800 at quality 60 (~0.48 MB) before committing, matching what
@@ -58,14 +59,61 @@ each breakpoint's ratio.
 original is 2622x4655 — a 0.56 portrait — and the hero is landscape, so
 letting `object-cover` centre it would have framed the front door and pushed
 every parcel out of shot. It is cropped to `(190, 2600)-(2622, 4655)` and
-resized to 1800x1521 (ratio 1.18, ~0.23 MB), which sits close to the hero's
-own ratio and keeps the doorstep as the subject. Re-crop from the original in
-`Images/` rather than reusing this file if the hero's shape ever changes.
+resized to 1800x1521 (ratio 1.18, ~0.23 MB), which keeps the doorstep as the
+subject. Its parcels sit centrally, so it survives the 0.90 card described
+below. Re-crop from the original in `Images/` rather than reusing this file if
+the hero's shape ever changes.
 
 > The left edge starts at x=190 rather than 0 deliberately: an **Amazon**
 > smile logo on the nearest box sits in the first ~160px, and this page sells
 > parcel forwarding, where a retailer's mark could read as a tie-in. The
 > remaining packaging is unbranded. Nothing else was altered.
+
+`returns-van.jpg` was also pre-cropped: the original is 3448x4592 (0.75
+portrait), cut to `(0, 962)-(3448, 4592)` and resized to 1600x1684
+(ratio **0.95**), ~0.44 MB.
+
+That 0.95 is deliberate and worth understanding before cropping another hero
+— see the note below.
+
+### The hero card is not one shape
+
+Measured in the browser, `PageHero`'s image card runs across a **much wider
+range than it looks**:
+
+| Viewport | Card | Ratio |
+|---|---|---|
+| 390px (mobile) | 350x263 | 1.33 |
+| 800px (sm) | 744x465 | **1.60** |
+| 1024px (lg) | 444x496 | **0.90** |
+| 1440px (desktop) | 540x496 | 1.09 |
+
+The 1024–1279px band is the trap: two columns make the card *portrait* (0.90),
+not landscape. `object-cover` then crops the sides hard — a 1.21 master loses
+26% of its width there, a 1.50 master loses 40%.
+
+That is fine when the subject is centred (the shipping, fulfillment and
+shop-and-ship photographs all survive it), but the van in `returns-van.jpg`
+sits right of centre, and a 1.21 crop cut its front off at that width. Hence
+the near-square 0.95 master: it loses only 5% horizontally at 0.90, and at
+1.60 the middle 59% of its height still holds the whole van.
+
+**Rule of thumb:** keep the subject near the centre, or cut the master closer
+to 0.95 than to 1.20.
+
+> **A real company's livery.** The van is signwritten **DDM LWL Technik**,
+> with a street address in Opfikon, the domain `ddm-lwl.ch` and a legible
+> Swiss plate (ZH 520 845). That is an unrelated third party — and not a
+> courier — sitting on a page about returns collection, so a viewer could read
+> a relationship that does not exist. Unlike the Amazon box on
+> `shop-and-ship-hero.jpg`, this cannot be cropped out: the van *is* the
+> subject.
+>
+> In practice the lettering is illegible at the size the hero renders (the van
+> is ~240px wide on a desktop hero), but it is readable in the committed
+> master. Flagged to the owner on 2026-08-20 and used at their direction. If
+> it needs resolving, the options are to blur the rear-door text and plate, or
+> to choose an unbranded vehicle.
 
 ---
 
@@ -76,9 +124,10 @@ own ratio and keeps the doorstep as the subject. Re-crop from the original in
 | `box-sealing.jpg` | `/services/fulfillment` hero | Supplied by the owner as `Images/person-sealing-cardboard-box-with-packing-tape.jpg` |
 
 Hands sealing a carton with packing tape. Pre-cropped from the 5594x8000
-portrait master to 1800x1488 (ratio 1.21, the hero's own) around the hands and
-the box seam, quality 78 (~0.22 MB), EXIF stripped. Re-crop from the original
-in `Images/` rather than reusing this file if the hero's shape changes.
+portrait master to 1800x1488 (ratio 1.21) around the hands and the box seam,
+quality 78 (~0.22 MB), EXIF stripped. The subject is centred, so it survives
+the 0.90 card described above. Re-crop from the original in `Images/` rather
+than reusing this file if the hero's shape changes.
 
 Unlike the Unsplash and Pexels images above, no library or licence is on
 record for this one — it arrived as a bare file. It carries **no copyright or
