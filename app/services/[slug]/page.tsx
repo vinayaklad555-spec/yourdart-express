@@ -153,7 +153,7 @@ export default async function ServicePage({
               <div className="h-full rounded-2xl bg-canvas p-2.5 shadow-[0_1px_2px_rgb(16_24_40/0.04),0_2px_6px_rgb(16_24_40/0.03),0_12px_28px_-14px_rgb(16_24_40/0.14)]">
                 <BenefitVisual spec={benefit.visual} />
                 <div className="px-4 pt-5 pb-4 sm:px-5 sm:pb-5">
-                  <h3 className="text-[1rem] font-medium tracking-[-0.012em] text-ink-950">
+                  <h3 className="text-[1rem] font-medium tracking-[-0.015em] text-ink-950">
                     {benefit.title}
                   </h3>
                   <p className="mt-1.5 text-[0.875rem] leading-[1.6] text-ink-400">

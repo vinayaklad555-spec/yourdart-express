@@ -39,7 +39,7 @@ export function ServicesShowcase() {
 
               <h2
                 id="services-heading"
-                className="mt-6 text-[clamp(1.75rem,1.3rem+1.9vw,2.5rem)] leading-[1.16] font-medium tracking-[-0.012em] text-white"
+                className="mt-6 text-[clamp(1.75rem,1.3rem+1.9vw,2.5rem)] leading-[1.16] font-medium tracking-[-0.015em] text-white"
               >
                 Six services that cover the journey from your supplier to your
                 customer — and back again when it needs to come back.
@@ -64,7 +64,7 @@ export function ServicesShowcase() {
                     className="group block py-5 transition-opacity duration-200"
                   >
                     <div className="flex items-start justify-between gap-5">
-                      <h3 className="text-[1.125rem] font-medium tracking-[-0.014em] text-white lg:text-[1.25rem]">
+                      <h3 className="text-[1.125rem] font-medium tracking-[-0.015em] text-white lg:text-[1.25rem]">
                         {service.name}
                       </h3>
                       <ArrowUpRight

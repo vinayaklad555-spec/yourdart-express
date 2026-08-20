@@ -111,13 +111,13 @@ export function Hero() {
 
           <Reveal delay={0.05}>
             {/* The single H1 on the homepage */}
-            <h1 className="mt-6 text-[clamp(2rem,1.3rem+3.1vw,3.5rem)] leading-[1.06] font-medium tracking-[-0.014em] text-white">
+            <h1 className="mt-6 text-[clamp(2rem,1.3rem+3.1vw,3.5rem)] leading-[1.06] font-medium tracking-[-0.015em] text-white">
               {hero.heading}
             </h1>
           </Reveal>
 
           <Reveal delay={0.1}>
-            <p className="mx-auto mt-6 max-w-[36rem] text-[clamp(1rem,0.95rem+0.26vw,1.125rem)] leading-[1.55] text-white/75">
+            <p className="mx-auto mt-6 max-w-[36rem] text-[1rem] leading-[1.6] text-white/75">
               {hero.body}
             </p>
           </Reveal>

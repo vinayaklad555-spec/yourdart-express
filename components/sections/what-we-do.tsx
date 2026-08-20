@@ -20,7 +20,7 @@ export function WhatWeDo() {
         <RevealGroup as="ul" className="grid gap-x-10 gap-y-9 sm:grid-cols-2 lg:col-span-7">
           {whatWeDo.points.map((point) => (
             <RevealItem as="li" key={point.title} className="border-t border-line pt-5">
-              <h3 className="text-[1.0625rem] font-medium tracking-[-0.014em] text-ink-950">
+              <h3 className="text-[1.0625rem] font-medium tracking-[-0.015em] text-ink-950">
                 {point.title}
               </h3>
               <p className="mt-2 text-[0.9375rem] leading-relaxed text-ink-400">

@@ -83,7 +83,7 @@ export default async function IndustryPage({
               >
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <h3 className="mt-2 text-[1.0625rem] font-medium tracking-[-0.014em] text-ink-950">
+              <h3 className="mt-2 text-[1.0625rem] font-medium tracking-[-0.015em] text-ink-950">
                 {challenge.title}
               </h3>
               <p className="mt-2 text-[0.9375rem] leading-relaxed text-ink-400">
@@ -106,7 +106,7 @@ export default async function IndustryPage({
           {industry.howWeHelp.map((item) => (
             <RevealItem as="li" key={item.title}>
               <Card variant="raised" padding="md" className="h-full">
-                <h3 className="text-[1.0625rem] font-medium tracking-[-0.014em] text-ink-950">
+                <h3 className="text-[1.0625rem] font-medium tracking-[-0.015em] text-ink-950">
                   {item.title}
                 </h3>
                 <p className="mt-2 text-[0.9375rem] leading-relaxed text-ink-400">

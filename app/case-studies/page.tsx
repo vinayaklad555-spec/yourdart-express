@@ -56,7 +56,7 @@ export default function CaseStudiesPage() {
                 <p className="text-[0.6875rem] font-medium tracking-[0.09em] text-ink-400 uppercase">
                   {study.industry}
                 </p>
-                <h2 className="mt-3 text-[1.25rem] font-medium tracking-[-0.02em] text-ink-950">
+                <h2 className="mt-3 text-[1.25rem] font-medium tracking-[-0.015em] text-ink-950">
                   {study.client}
                 </h2>
                 <p className="mt-3 text-[0.9375rem] leading-relaxed text-ink-400">
@@ -108,7 +108,7 @@ export default function CaseStudiesPage() {
         {/* Something useful to read instead of an empty page */}
         <Reveal>
           <div className="mx-auto mt-14 max-w-[46rem] border-t border-line pt-10">
-            <h2 className="text-[1.0625rem] font-medium tracking-[-0.014em] text-ink-950">
+            <h2 className="text-[1.0625rem] font-medium tracking-[-0.015em] text-ink-950">
               In the meantime
             </h2>
             <p className="mt-3 text-[0.9375rem] leading-relaxed text-ink-400">

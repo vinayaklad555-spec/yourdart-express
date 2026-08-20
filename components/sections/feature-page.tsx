@@ -55,7 +55,7 @@ export function FeaturePage({
                   <span aria-hidden="true" className="h-px w-6 bg-ink-300" />
                   {feature.name}
                 </p>
-                <p className="mt-5 text-[1.0625rem] leading-[1.6] tracking-[-0.011em] text-ink-700">
+                <p className="mt-5 text-[1rem] leading-[1.6] text-ink-700">
                   {feature.summary}
                 </p>
 

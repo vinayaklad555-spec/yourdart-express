@@ -2,7 +2,7 @@ import * as React from "react";
 import Image from "next/image";
 import { Container } from "@/components/layout/container";
 import { Button } from "@/components/ui/button";
-import { Eyebrow } from "@/components/ui/typography";
+import { Eyebrow, Lead } from "@/components/ui/typography";
 import { cn } from "@/lib/utils";
 import type { HeroImage } from "@/content/media";
 
@@ -44,13 +44,13 @@ export function ShippingHero({
           <div className="flex flex-col justify-center lg:pr-4">
             <Eyebrow>{eyebrow}</Eyebrow>
 
-            <h1 className="mt-6 max-w-[24ch] text-[2.375rem] leading-[1.14] font-semibold tracking-[-0.015em] text-[#161616] sm:text-[2.75rem] lg:text-[2.5rem] xl:text-[2.75rem]">
+            <h1 className="mt-6 max-w-[24ch] text-[2.375rem] leading-[1.14] font-semibold tracking-[-0.015em] text-ink-950 sm:text-[2.75rem] lg:text-[2.5rem] xl:text-[2.75rem]">
               {heading}
             </h1>
 
-            <p className="mt-6 max-w-[38rem] text-[1rem] leading-[1.6] text-[#3f3f3f]">
-              {body}
-            </p>
+            {/* The shared Lead — this hero's body copy is the treatment the
+                rest of the site's section intros were matched to. */}
+            <Lead className="mt-6 max-w-[38rem]">{body}</Lead>
 
             <div className="mt-11 flex flex-col gap-4 sm:flex-row">
               <Button href="/talk-to-an-expert" className={ctaSize}>

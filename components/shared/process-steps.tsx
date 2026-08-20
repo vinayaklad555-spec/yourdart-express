@@ -60,7 +60,7 @@ export function ProcessSteps({
           <div className="lg:mt-5 lg:pr-4">
             <h3
               className={cn(
-                "text-[1rem] font-medium tracking-[-0.012em]",
+                "text-[1rem] font-medium tracking-[-0.015em]",
                 dark ? "text-white" : "text-ink-950",
               )}
             >

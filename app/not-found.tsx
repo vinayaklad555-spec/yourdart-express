@@ -41,7 +41,7 @@ export default function NotFound() {
             404
           </p>
 
-          <h1 className="mt-3 text-[clamp(1.75rem,1.35rem+1.9vw,2.75rem)] leading-[1.1] font-medium tracking-[-0.03em] text-ink-950">
+          <h1 className="mt-3 text-[clamp(1.75rem,1.35rem+1.9vw,2.75rem)] leading-[1.1] font-medium tracking-[-0.015em] text-ink-950">
             This page has not arrived
           </h1>
 

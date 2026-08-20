@@ -54,7 +54,7 @@ export default async function LegalPage({
           <p className="text-[0.6875rem] leading-[1.4] tracking-[0.09em] text-ink-400 uppercase">
             Legal
           </p>
-          <h1 className="mt-5 text-[clamp(1.75rem,1.35rem+1.9vw,3rem)] leading-[1.08] font-medium tracking-[-0.032em] text-ink-950">
+          <h1 className="mt-5 text-[clamp(1.75rem,1.35rem+1.9vw,3rem)] leading-[1.08] font-medium tracking-[-0.015em] text-ink-950">
             {doc.title}
           </h1>
           <p className="mt-4 max-w-[42rem] text-[1.0625rem] leading-[1.6] text-ink-400">
@@ -129,7 +129,7 @@ export default async function LegalPage({
                   id={slugify(section.heading)}
                   className="scroll-mt-28"
                 >
-                  <h2 className="text-[1.1875rem] font-medium tracking-[-0.018em] text-ink-950">
+                  <h2 className="text-[1.1875rem] font-medium tracking-[-0.015em] text-ink-950">
                     {section.heading}
                   </h2>
 

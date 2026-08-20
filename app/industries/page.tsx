@@ -71,7 +71,7 @@ export default function IndustriesPage() {
                     <CardIcon>
                       <Icon />
                     </CardIcon>
-                    <h2 className="mt-5 text-[1.25rem] font-medium tracking-[-0.02em] text-ink-950">
+                    <h2 className="mt-5 text-[1.25rem] font-medium tracking-[-0.015em] text-ink-950">
                       {industry.name}
                     </h2>
                     <p className="mt-3 flex-1 text-[0.9375rem] leading-relaxed text-ink-400">
@@ -92,7 +92,7 @@ export default function IndustriesPage() {
       <Section tone="warm" spacing="md" divider aria-labelledby="size-heading">
         <h2
           id="size-heading"
-          className="text-[clamp(1.625rem,1.3rem+1.5vw,2.375rem)] leading-[1.14] font-medium tracking-[-0.028em] text-ink-950"
+          className="text-[clamp(1.625rem,1.3rem+1.5vw,2.375rem)] leading-[1.14] font-medium tracking-[-0.015em] text-ink-950"
         >
           Or by the size of your business
         </h2>
@@ -102,7 +102,7 @@ export default function IndustriesPage() {
             <RevealItem as="li" key={segment.href}>
               <Card variant="raised" padding="none" interactive className="h-full">
                 <Link href={segment.href} className="flex h-full flex-col rounded-xl p-7">
-                  <h3 className="text-[1.125rem] font-medium tracking-[-0.016em] text-ink-950">
+                  <h3 className="text-[1.125rem] font-medium tracking-[-0.015em] text-ink-950">
                     {segment.name}
                   </h3>
                   <p className="mt-2 flex-1 text-[0.9375rem] leading-relaxed text-ink-400">

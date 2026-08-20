@@ -29,7 +29,7 @@ export function FaqAccordion({
               "[&::-webkit-details-marker]:hidden",
             )}
           >
-            <Heading className="text-[1rem] font-medium tracking-[-0.012em] text-ink-950 sm:text-[1.0625rem]">
+            <Heading className="text-[1rem] font-medium tracking-[-0.015em] text-ink-950 sm:text-[1.0625rem]">
               {item.question}
             </Heading>
             <span

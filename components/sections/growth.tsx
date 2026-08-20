@@ -41,7 +41,7 @@ export function Growth() {
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <div>
-                  <h3 className="text-[1.0625rem] font-medium tracking-[-0.014em] text-ink-950">
+                  <h3 className="text-[1.0625rem] font-medium tracking-[-0.015em] text-ink-950">
                     {commitment.title}
                   </h3>
                   <p className="mt-2 max-w-[38rem] text-[0.9375rem] leading-relaxed text-ink-400">

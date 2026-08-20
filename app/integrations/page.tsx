@@ -64,7 +64,7 @@ export default function IntegrationsPage() {
                     </span>
                   </div>
 
-                  <h2 className="mt-5 text-[1.375rem] font-medium tracking-[-0.022em] text-ink-950">
+                  <h2 className="mt-5 text-[1.375rem] font-medium tracking-[-0.015em] text-ink-950">
                     {integration.name}
                   </h2>
                   <p className="mt-3 flex-1 text-[0.9375rem] leading-relaxed text-ink-400">

@@ -61,7 +61,7 @@ export default function ServicesPage() {
                       <Icon />
                     </CardIcon>
 
-                    <h2 className="mt-5 flex items-start gap-1.5 text-[1.25rem] font-medium tracking-[-0.02em] text-ink-950">
+                    <h2 className="mt-5 flex items-start gap-1.5 text-[1.25rem] font-medium tracking-[-0.015em] text-ink-950">
                       {service.name}
                       <ArrowUpRight
                         aria-hidden="true"
@@ -119,7 +119,7 @@ export default function ServicesPage() {
                     <CardIcon>
                       <Icon />
                     </CardIcon>
-                    <h3 className="mt-5 text-[1.125rem] font-medium tracking-[-0.016em] text-ink-950">
+                    <h3 className="mt-5 text-[1.125rem] font-medium tracking-[-0.015em] text-ink-950">
                       {industry.name}
                     </h3>
                     <p className="mt-2 text-[0.9375rem] leading-relaxed text-ink-400">

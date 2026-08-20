@@ -7,8 +7,17 @@ import { cn } from "@/lib/utils";
  *
  * Headings sit at weight 500 — Nunito Sans draws lighter than the previous
  * Geist, and 400 read too thin at heading sizes. Line height runs close to
- * 1.0 on display sizes, and tracking is near zero rather than tightly
- * negative. Hierarchy is otherwise carried by size, colour and whitespace.
+ * 1.0 on display sizes.
+ *
+ * Every heading size carries the SAME -0.015em tracking, taken from the
+ * shipping hero. It is deliberately one value across the scale rather than
+ * loosening as sizes shrink: the sizes are close enough that a per-step ramp
+ * read as inconsistency, not as craft. Hierarchy comes from size, colour and
+ * whitespace.
+ *
+ * Lead matches that hero's body copy — 16px at 1.6, ink-700. It does not
+ * scale up with the viewport; the previous clamp to 20px made section intros
+ * compete with their own headings on wide screens.
  */
 
 export function Eyebrow({
@@ -45,7 +54,7 @@ export function Display({
   return (
     <Tag
       className={cn(
-        "text-[clamp(2.125rem,1.35rem+3.9vw,4rem)] leading-[1.02] font-medium tracking-[-0.012em] text-ink-950",
+        "text-[clamp(2.125rem,1.35rem+3.9vw,4rem)] leading-[1.02] font-medium tracking-[-0.015em] text-ink-950",
         className,
       )}
     >
@@ -68,10 +77,10 @@ export function Heading({
   id?: string;
 }) {
   const sizes = {
-    h1: "text-[clamp(2rem,1.45rem+2.7vw,3rem)] leading-[1.04] tracking-[-0.011em]",
-    h2: "text-[clamp(1.75rem,1.3rem+2.2vw,2.5rem)] leading-[1.06] tracking-[-0.008em]",
-    h3: "text-[clamp(1.375rem,1.2rem+0.85vw,1.75rem)] leading-[1.16] tracking-[-0.004em]",
-    h4: "text-[1.125rem] leading-[1.3] tracking-[0] sm:text-[1.25rem]",
+    h1: "text-[clamp(2rem,1.45rem+2.7vw,3rem)] leading-[1.04] tracking-[-0.015em]",
+    h2: "text-[clamp(1.75rem,1.3rem+2.2vw,2.5rem)] leading-[1.06] tracking-[-0.015em]",
+    h3: "text-[clamp(1.375rem,1.2rem+0.85vw,1.75rem)] leading-[1.16] tracking-[-0.015em]",
+    h4: "text-[1.125rem] leading-[1.3] tracking-[-0.015em] sm:text-[1.25rem]",
   };
 
   return (
@@ -91,7 +100,7 @@ export function Lead({
   return (
     <p
       className={cn(
-        "text-[clamp(1rem,0.94rem+0.32vw,1.25rem)] leading-[1.5] tracking-[0] text-ink-400",
+        "text-[1rem] leading-[1.6] tracking-[0] text-ink-700",
         className,
       )}
     >

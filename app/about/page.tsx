@@ -124,7 +124,7 @@ export default function AboutPage() {
                   >
                     <Icon className="size-4" />
                   </span>
-                  <h3 className="mt-5 text-[1rem] font-medium tracking-[-0.014em] text-ink-950">
+                  <h3 className="mt-5 text-[1rem] font-medium tracking-[-0.015em] text-ink-950">
                     {principle.title}
                   </h3>
                   <p className="mt-2 text-[0.9375rem] leading-relaxed text-ink-400">

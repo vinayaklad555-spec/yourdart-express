@@ -105,14 +105,14 @@ export function AuthPage({ mode }: { mode: "login" | "signup" }) {
              * h1 48px / 50px line / weight 400 (NOT medium — the restraint is
              * the point), subhead 18px / 24px, and a 24px gap between them.
              */}
-            <h1 className="text-[clamp(2.25rem,1.9rem+1.5vw,3rem)] leading-[1.042] font-medium tracking-[-0.005em] text-ink-950">
+            <h1 className="text-[clamp(2.25rem,1.9rem+1.5vw,3rem)] leading-[1.042] font-medium tracking-[-0.015em] text-ink-950">
               {isLogin ? (
                 "Pick up where you left off."
               ) : (
                 <>Get started with {site.name}.</>
               )}
             </h1>
-            <p className="mt-2 text-[1.125rem] leading-[1.333] text-ink-400">
+            <p className="mt-2 text-[1rem] leading-[1.6] text-ink-700">
               {isLogin
                 ? "Sign in and we will take it from there."
                 : "Shipping, fulfillment, warehousing and returns — coordinated by one team."}
