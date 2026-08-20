@@ -157,20 +157,24 @@ nothing that exists.
 |---|---|---|
 | `fulfillment-picking.jpg` | `/services/fulfillment` hero | Supplied by the owner as `Images/Fulfillment.png` |
 | `warehouse-forklift.jpg` | `/services/warehousing` hero | Supplied by the owner as `Images/Warehousing.png` |
-| `dtc-courier.jpg` | `/industries/dtc` hero | Supplied by the owner as `Images/Direct to consumer.png` |
+| `dtc-courier-hd.jpg` | `/industries/dtc` hero | Supplied by the owner as `Images/Door to door.png` |
 
-### `dtc-courier.jpg`
+### `dtc-courier-hd.jpg`
 
-A courier on a delivery scooter, city background motion-blurred. 1537x1023
-(1.50), quality 82 (~0.18 MB), **uncropped**.
+A courier on a delivery scooter, city background motion-blurred. Cut from
+4611x3069 to 1.60 and resized to 1800x1125, quality 80 (~0.18 MB).
 
-This is the one hero served at its native ratio, and the reason is a squeeze.
-The rider fills the frame in both directions, so the usual fix pulls two ways:
-a narrower master would survive the 0.90 card more comfortably, but at 1.60 it
-takes off his helmet and the wheels. 1.50 is the only ratio that clears both
-ends of the range — verified in the browser at all four cards, where he has
-margin at each. There is also no dead space to trim from the top here, unlike
-the portrait sources.
+The target ratio is **1.60 on purpose**: that is exactly the widest card, so
+that card crops nothing at all, and the rider is small enough in frame to
+still clear the narrow 0.90 card with room. The 187px trim comes off the
+bottom, where the frame is empty road — the only direction with anything
+spare.
+
+> **Supersedes `dtc-courier.jpg`, 2026-08-20.** That was the same composition
+> from `Images/Direct to consumer.png`, but only 1537px wide and framed much
+> tighter on the rider — tight enough that no crop cleared both ends of the
+> card range, so it had to ship uncropped. This version is 3x the resolution
+> with air around the subject, which is what makes a clean 1.60 cut possible.
 
 `parcelsStacked` (`parcels-stacked.jpg`) was the previous DTC hero and is
 **not** retired: `/integrations/shopify` still uses it.

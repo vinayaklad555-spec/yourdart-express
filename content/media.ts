@@ -141,13 +141,12 @@ export const heroImages = {
   /*
    * Owner-supplied — see docs/IMAGE-CREDITS.md.
    *
-   * Served UNCROPPED at its native 1.50. The rider fills the frame in both
-   * directions: a narrower master survives the 0.90 card better but loses his
-   * helmet and wheels at 1.60, and 1.50 is the only ratio that clears both
-   * ends of the card range.
+   * Cut to 1.60, which is exactly the widest card, so that card crops nothing
+   * and the rider still clears the narrow 0.90 card with room. The trim comes
+   * off the BOTTOM, where the frame is empty road.
    */
   dtcCourier: {
-    src: "/images/dtc-courier.jpg",
+    src: "/images/dtc-courier-hd.jpg",
     alt: "A courier riding a scooter through a city street with insulated delivery boxes",
   },
   shippingHero: {
