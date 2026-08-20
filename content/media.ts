@@ -103,14 +103,16 @@ export const heroImages = {
     alt: "Boxes and padded envelopes left on a doorstep beside a green front door",
   },
   /*
-   * Owner-supplied, and the ONE hero whose licence is unconfirmed — the file
-   * carries a photographer's copyright notice rather than a stock-library
-   * grant. See the warning in docs/IMAGE-CREDITS.md before reusing it
-   * anywhere else.
+   * Owner-supplied — see docs/IMAGE-CREDITS.md.
+   *
+   * The master was a tall portrait (0.70) and is pre-cropped to 1.21, the
+   * hero's own ratio, around the hands and the box seam. Re-crop from the
+   * original in Images/ rather than reusing this file if the hero's shape
+   * changes.
    */
-  fulfilmentLabelDesk: {
-    src: "/images/fulfillment-hero.jpg",
-    alt: "A warehouse worker in a hi-vis vest and hard hat printing shipping labels at a desk, with pallet racking behind",
+  boxSealing: {
+    src: "/images/box-sealing.jpg",
+    alt: "A pair of hands sealing a cardboard box with a roll of packing tape",
   },
   shippingHero: {
     src: "/images/shipping-hero.jpg",
@@ -121,7 +123,7 @@ export const heroImages = {
 /** Which image heads each service page, keyed by slug. */
 export const serviceHeroImages: Record<string, HeroImage> = {
   shipping: heroImages.shippingHero,
-  fulfillment: heroImages.fulfilmentLabelDesk,
+  fulfillment: heroImages.boxSealing,
   warehousing: heroImages.warehouseRacking,
   "reverse-logistics": heroImages.parcelsStacked,
   "freight-forwarding": heroImages.airFreightHero,

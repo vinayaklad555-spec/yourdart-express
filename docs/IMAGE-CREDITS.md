@@ -44,6 +44,16 @@ Both chosen by the owner.
 `shipping-hero.jpg` was held to. The master is square; the hero crops it to
 each breakpoint's ratio.
 
+> **Third-party livery in `air-freight-hero.jpg`.** Unlike the homepage truck,
+> that photograph shows **United Airlines** aircraft, ground equipment and
+> baggage containers, all carrying United's marks. Your Dart Express has no
+> stated relationship with United, and on a page selling air freight
+> forwarding a viewer could read one in. The Pexels licence covers the
+> photograph; it does not grant any right in the trademarks inside it. Flagged
+> to the owner on 2026-08-20 and used at their direction — revisit if the page
+> ever makes a carrier-partnership claim, or swap for unbranded air-cargo
+> imagery.
+
 `shop-and-ship-hero.jpg` needed a **pre-crop**, not just a downscale. The
 original is 2622x4655 — a 0.56 portrait — and the hero is landscape, so
 letting `object-cover` centre it would have framed the front door and pushed
@@ -59,47 +69,29 @@ own ratio and keeps the doorstep as the subject. Re-crop from the original in
 
 ---
 
-## ⚠️ Unconfirmed licence — `fulfillment-hero.jpg`
+## `box-sealing.jpg` — provenance not recorded
 
-| File | Used on | Photographer |
+| File | Used on | Source |
 |---|---|---|
-| `fulfillment-hero.jpg` | `/services/fulfillment` hero | **Dragos Condrea** |
+| `box-sealing.jpg` | `/services/fulfillment` hero | Supplied by the owner as `Images/person-sealing-cardboard-box-with-packing-tape.jpg` |
 
-Supplied by the owner as
-`Images/african-american-staff-printing-awb-tracking-numbers-tags-new-parcel-shipment-managing-airway.jpg`
-and put live at their direction on 2026-08-20. Downscaled 5472x3648 → 1800x1200
-at quality 78 (~0.18 MB), EXIF stripped.
+Hands sealing a carton with packing tape. Pre-cropped from the 5594x8000
+portrait master to 1800x1488 (ratio 1.21, the hero's own) around the hands and
+the box seam, quality 78 (~0.22 MB), EXIF stripped. Re-crop from the original
+in `Images/` rather than reusing this file if the hero's shape changes.
 
-**This is the only hero on the site whose licence has not been established.**
-Unlike the Unsplash and Pexels images above, the file carries an explicit
-copyright notice in its EXIF — `Artist` and `Copyright` both read
-"Dragos Condrea" — and no stock-library grant travels with it. The long
-keyword filename and the embedded marketing description are the shape of a
-paid stock listing (Dreamstime / Adobe Stock / iStock all list this
-photographer), which means a licence probably has to be **bought**, and the
-one that applies decides whether commercial web use is covered at all.
+Unlike the Unsplash and Pexels images above, no library or licence is on
+record for this one — it arrived as a bare file. It carries **no copyright or
+author metadata**, and no trademarks, faces or identifiable people appear in
+the frame, so the exposure is low. Still worth recording where it came from if
+anyone knows.
 
-Before treating this as settled, confirm one of:
-
-1. Your Dart Express holds a commercial licence for it — record the library,
-   licence type and order reference in this table; or
-2. it was commissioned, in which case record that and it moves to the
-   owner-supplied section; or
-3. neither — in which case **replace it**. `fulfilmentFloor`
-   (`fulfilment-floor.jpg`, Unsplash) is the drop-in it displaced and is
-   still used by `/omnichannel`, `/careers` and `/technology`.
-
-The subject is photographed from behind and is not identifiable, so the model
-release question in the section above does not arise here.
-
-> **Third-party livery.** Unlike the homepage truck, this photograph shows
-> **United Airlines** aircraft, ground equipment and baggage containers, all
-> carrying United's marks. Your Dart Express has no stated relationship with
-> United, and on a page selling air freight forwarding a viewer could read one
-> in. The Pexels licence covers the photograph; it does not grant any right in
-> the trademarks inside it. Flagged to the owner on 2026-08-20 and used at
-> their direction — revisit if the page ever makes a carrier-partnership
-> claim, or swap for unbranded air-cargo imagery.
+> **Superseded, 2026-08-20.** This slot briefly held a different photograph
+> (`african-american-staff-printing-awb-tracking-numbers-tags-...jpg`), which
+> carried an explicit `Artist` / `Copyright` EXIF notice reading "Dragos
+> Condrea" and no licence grant. It was replaced at the owner's request before
+> that question was resolved, so the concern no longer applies to the live
+> site — but do not reinstate that file without a licence.
 
 ---
 
