@@ -31,6 +31,29 @@ be blocked by the browser.
 > retrievable without an API key — resolve each at
 > `https://unsplash.com/photos/<id>` if you want to credit them by name.
 
+### Sea freight is not a service — watch the imagery
+
+`services.ts` states plainly that the company forwards **by air** and does
+"not run ocean or rail freight". Two files in the table above contradict that
+if used on a transport page:
+
+| File | Status |
+|---|---|
+| `port-terminal.jpg` | Removed from `/industries/b2b` on 2026-08-20. **Still on `/services`, `/partners` and `/enterprise`** — flagged to the owner, not yet changed. |
+| `container-ship.jpg` | Unused, and should stay unused. The most explicit sea-freight claim in the library. |
+
+A reader takes the picture as the claim, so a container port on a page about
+moving goods offers a service that does not exist. B2B now uses
+`road-freight.jpg` — a curtain-sider, which is what those pallet consignments
+actually travel on.
+
+> `road-freight.jpg` carries a legible third-party marking of its own: the
+> trailer is signwritten **GRANOTRADE** with the domain `granotrade.cl`, a
+> Chilean grain trader. It is unrelated to Your Dart Express but is not a
+> logistics business either, so it reads as an ordinary vehicle rather than as
+> a partner. Pre-existing — the file was already on `/talk-to-an-expert`,
+> `/track` and `/approach` before B2B was added to that list.
+
 ## Pexels
 
 Three images come from **Pexels** rather than Unsplash, used under the

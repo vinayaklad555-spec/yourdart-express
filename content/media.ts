@@ -26,6 +26,16 @@ export interface HeroImage {
 }
 
 export const heroImages = {
+  /*
+   * SEA FREIGHT IS NOT A SERVICE. Your Dart Express forwards by air only —
+   * services.ts says so in as many words ("We do not run ocean or rail
+   * freight"). A container port therefore depicts something the company does
+   * not sell, and on a page about moving goods a reader takes the picture as
+   * the claim.
+   *
+   * Do not put this on a page about transport. It was removed from
+   * /industries/b2b for exactly that reason. See containerShip below.
+   */
   portTerminal: {
     src: "/images/port-terminal.jpg",
     alt: "Aerial view of shipping containers stacked at a port terminal",
@@ -34,6 +44,11 @@ export const heroImages = {
     src: "/images/road-freight.jpg",
     alt: "A curtain-side truck on an open highway through mountains",
   },
+  /*
+   * UNUSED, and should stay that way — a berthed ship is the most explicit
+   * sea-freight claim in the library and the company does not run ocean
+   * freight. Kept only so nobody re-adds it thinking it was an oversight.
+   */
   containerShip: {
     src: "/images/container-ship.jpg",
     alt: "A container ship berthed beneath gantry cranes at a port",
@@ -168,7 +183,13 @@ export const serviceHeroImages: Record<string, HeroImage> = {
 /** Which image heads each industry page, keyed by slug. */
 export const industryHeroImages: Record<string, HeroImage> = {
   dtc: heroImages.dtcCourier,
-  b2b: heroImages.portTerminal,
+  /*
+   * A curtain-sider, NOT the container port this used to show. B2B is the
+   * page about moving trade consignments, so a port read as an ocean-freight
+   * offer the company does not have. A curtain-side truck is the vehicle
+   * these pallet consignments actually travel on.
+   */
+  b2b: heroImages.roadFreight,
   omnichannel: heroImages.fulfilmentFloor,
 };
 
