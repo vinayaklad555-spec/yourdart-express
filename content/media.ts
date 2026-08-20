@@ -91,16 +91,16 @@ export const heroImages = {
     alt: "Ground crew and baggage carts working around a parked airliner on an airport apron at sunset",
   },
   /*
-   * Pexels stock, chosen by the owner — see docs/IMAGE-CREDITS.md.
+   * Owner-supplied and AI-GENERATED — see docs/IMAGE-CREDITS.md. Both the
+   * parcel label and the wall plaque are gibberish under magnification, which
+   * is illegible at hero size but is the reason this image must never be
+   * enlarged or used as a detail crop.
    *
-   * The master was a TALL portrait (0.56) and the hero is landscape, so a
-   * centre crop would have kept the door and cut every parcel out of frame.
-   * It is pre-cropped to 1.18 around the doorstep instead — do not swap in the
-   * original from Images/ without re-cropping it.
+   * Cropped from a 0.75 portrait to 0.95 around the door and the parcel.
    */
-  doorstepParcels: {
-    src: "/images/shop-and-ship-hero.jpg",
-    alt: "Boxes and padded envelopes left on a doorstep beside a green front door",
+  doorstepParcel: {
+    src: "/images/doorstep-parcel.jpg",
+    alt: "A cardboard parcel left on the step of a yellow front door with a wreath",
   },
   /*
    * Pexels stock, chosen by the owner — see docs/IMAGE-CREDITS.md, which
@@ -148,7 +148,7 @@ export const serviceHeroImages: Record<string, HeroImage> = {
   warehousing: heroImages.warehouseDock,
   "reverse-logistics": heroImages.returnsVan,
   "freight-forwarding": heroImages.airFreightHero,
-  "shop-and-ship": heroImages.doorstepParcels,
+  "shop-and-ship": heroImages.doorstepParcel,
 };
 
 /** Which image heads each industry page, keyed by slug. */

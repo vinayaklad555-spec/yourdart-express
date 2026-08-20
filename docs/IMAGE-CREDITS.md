@@ -35,11 +35,10 @@ attribution not required. Recorded here for the same traceability reason.
 | File | Source | Photographer |
 |---|---|---|
 | `air-freight-hero.jpg` | `pexels.com/photo/3140204` | Brett Sayles |
-| `shop-and-ship-hero.jpg` | `pexels.com/photo/6995133` | Kindel Media |
 | `returns-van.jpg` | `pexels.com/photo/11932102` | Minsu Breitenstein |
 | `warehouse-dock.jpg` | `pexels.com/photo/12585837` | Boom |
 
-All four chosen by the owner.
+All three chosen by the owner.
 
 `warehouse-dock.jpg` — cartons in front of loading dock doors. The original is
 5158x3434 (1.50); trimmed evenly from both sides to 1.20 and resized to
@@ -61,21 +60,7 @@ each breakpoint's ratio.
 > ever makes a carrier-partnership claim, or swap for unbranded air-cargo
 > imagery.
 
-`shop-and-ship-hero.jpg` needed a **pre-crop**, not just a downscale. The
-original is 2622x4655 — a 0.56 portrait — and the hero is landscape, so
-letting `object-cover` centre it would have framed the front door and pushed
-every parcel out of shot. It is cropped to `(190, 2600)-(2622, 4655)` and
-resized to 1800x1521 (ratio 1.18, ~0.23 MB), which keeps the doorstep as the
-subject. Its parcels sit centrally, so it survives the 0.90 card described
-below. Re-crop from the original in `Images/` rather than reusing this file if
-the hero's shape ever changes.
-
-> The left edge starts at x=190 rather than 0 deliberately: an **Amazon**
-> smile logo on the nearest box sits in the first ~160px, and this page sells
-> parcel forwarding, where a retailer's mark could read as a tie-in. The
-> remaining packaging is unbranded. Nothing else was altered.
-
-`returns-van.jpg` was also pre-cropped: the original is 3448x4592 (0.75
+`returns-van.jpg` was pre-cropped: the original is 3448x4592 (0.75
 portrait), cut to `(0, 962)-(3448, 4592)` and resized to 1600x1684
 (ratio **0.95**), ~0.44 MB.
 
@@ -98,14 +83,59 @@ The 1024–1279px band is the trap: two columns make the card *portrait* (0.90),
 not landscape. `object-cover` then crops the sides hard — a 1.21 master loses
 26% of its width there, a 1.50 master loses 40%.
 
-That is fine when the subject is centred (the shipping, fulfillment and
-shop-and-ship photographs all survive it), but the van in `returns-van.jpg`
-sits right of centre, and a 1.21 crop cut its front off at that width. Hence
-the near-square 0.95 master: it loses only 5% horizontally at 0.90, and at
-1.60 the middle 59% of its height still holds the whole van.
+That is fine when the subject is centred (the shipping and warehousing
+photographs both survive it), but the van in `returns-van.jpg` sits right of
+centre, and a 1.21 crop cut its front off at that width. Hence the near-square
+0.95 master: it loses only 5% horizontally at 0.90, and at 1.60 the middle 59%
+of its height still holds the whole van.
 
 **Rule of thumb:** keep the subject near the centre, or cut the master closer
 to 0.95 than to 1.20.
+
+---
+
+## AI-generated images
+
+| File | Used on | Source |
+|---|---|---|
+| `doorstep-parcel.jpg` | `/services/shop-and-ship` hero | Supplied by the owner as `Images/Doorstep.png` |
+
+A parcel on the step of a yellow front door. Cropped from the 1086x1448
+portrait (0.75) to 1086x1143 (0.95), quality 82 (~0.30 MB). Served at its
+native width — the master is only 1086px, so it is not upscaled.
+
+The crop is taken from **y=130**, i.e. high in the frame, keeping the arch and
+fanlight and dropping the lower brickwork. It cannot go higher. The parcel
+sits at y 887–1032 in the master, and the 1.60 card shows only the middle
+59.4% of the crop; taking it from y=0 pushed the parcel below that band and
+the hero became a photograph of a door with no delivery in it. The offset has
+to stay between 121 and 655 for the parcel to survive every card.
+
+**This image is AI-generated, and it is worth knowing why that is certain.**
+Magnify the parcel's shipping label or the brass plaque beside the door and
+the lettering resolves into gibberish — letter-shaped marks that spell
+nothing. Real signage does not do that.
+
+Practical consequences:
+
+- **No licence or model-release question.** Nothing was photographed, and the
+  door number and plaque are not a real address. This is the cleanest image on
+  the site on that front.
+- **Never enlarge it or crop into it.** At hero size the fake text is
+  illegible and reads as ordinary label detail. Any closer and it becomes
+  obvious. That rules it out for a lightbox, a zoom, or a detail crop.
+- The purple mark on the label resembles a brand logo but is not the Your Dart
+  Express one. It is invented. Do not describe it as company packaging.
+
+Also note that the site-wide honesty rule at the top of `content/media.ts` —
+alt text is descriptive, never possessive — matters doubly here: this depicts
+nothing that exists.
+
+> `Images/Fulfillment.png`, used for the fulfillment hero, may also be
+> AI-generated — it is the same kind of asset from the same batch — but
+> inspection was **inconclusive**: its background is thrown out of focus and
+> carries no legible text to test. The model-release caution recorded for it
+> below therefore stands until its origin is confirmed either way.
 
 > **A real company's livery.** The van is signwritten **DDM LWL Technik**,
 > with a street address in Opfikon, the domain `ddm-lwl.ch` and a legible
