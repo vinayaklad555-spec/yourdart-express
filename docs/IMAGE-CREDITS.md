@@ -45,8 +45,9 @@ if used on a transport page:
 A reader takes the picture as the claim, so a container port on a page about
 moving goods offers a service that does not exist. Replacements so far:
 
-- `/industries/b2b` -> `road-freight.jpg`, a curtain-sider, which is what
-  those pallet consignments actually travel on.
+- `/industries/b2b` -> `b2b-trucks.jpg`, road haulage supplied by the owner
+  for this page. (It went briefly via the stock `road-freight.jpg` on the same
+  reasoning: a curtain-sider is what these pallet consignments travel on.)
 - `/enterprise` -> `warehouse-racking.jpg`. That page is about written
   procedures and reviewable reporting rather than about transport at all, so
   organised racking suits it better than any vehicle would.
@@ -184,6 +185,7 @@ nothing that exists.
 |---|---|---|
 | `fulfillment-picking.jpg` | `/services/fulfillment` hero | Supplied by the owner as `Images/Fulfillment.png` |
 | `warehouse-pallet.jpg` | `/services/warehousing` hero | Supplied by the owner as `Images/Warehousing new.png` |
+| `b2b-trucks.jpg` | `/industries/b2b` hero | Supplied by the owner as `Images/B2B.png` |
 | `dtc-courier-hd.jpg` | `/industries/dtc` hero | Supplied by the owner as `Images/Door to door.png` |
 
 ### `dtc-courier-hd.jpg`
@@ -205,6 +207,21 @@ spare.
 
 `parcelsStacked` (`parcels-stacked.jpg`) was the previous DTC hero and is
 **not** retired: `/integrations/shopify` still uses it.
+
+### `b2b-trucks.jpg`
+
+A curtain-side truck and a box truck at a road junction. Cropped from the
+1086x1448 portrait (0.75) to 1086x905 (1.20), quality 82 (~0.23 MB), served at
+native width.
+
+The trucks sit in a horizontal band, so the crop **centres that band** rather
+than cutting from either end — the 0.90 card then shows the middle 75% of the
+width and the 1.60 card the middle 75% of the height, and both keep the
+vehicles whole.
+
+At 1086px it just covers the desktop card at 2x and reaches about 73% of what
+the 800px card wants, so expect it to be slightly soft on a retina tablet — the
+same limitation as `fulfillment-picking.jpg` and `doorstep-parcel.jpg`.
 
 ### `warehouse-pallet.jpg`
 

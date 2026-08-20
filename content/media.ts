@@ -164,6 +164,20 @@ export const heroImages = {
     src: "/images/dtc-courier-hd.jpg",
     alt: "A courier riding a scooter through a city street with insulated delivery boxes",
   },
+  /*
+   * Owner-supplied — see docs/IMAGE-CREDITS.md.
+   *
+   * Road haulage, deliberately: B2B must not show a container port, because
+   * the company does not run ocean freight. See the note on portTerminal.
+   *
+   * The trucks sit in a horizontal band, so the crop centres that band in a
+   * 1.20 master rather than cutting from either end — both cards then keep
+   * the vehicles.
+   */
+  b2bTrucks: {
+    src: "/images/b2b-trucks.jpg",
+    alt: "A curtain-side truck and a box truck waiting at a road junction below wooded hills",
+  },
   shippingHero: {
     src: "/images/shipping-hero.jpg",
     alt: "Two couriers checking the shipping label on a parcel against a delivery docket",
@@ -183,13 +197,8 @@ export const serviceHeroImages: Record<string, HeroImage> = {
 /** Which image heads each industry page, keyed by slug. */
 export const industryHeroImages: Record<string, HeroImage> = {
   dtc: heroImages.dtcCourier,
-  /*
-   * A curtain-sider, NOT the container port this used to show. B2B is the
-   * page about moving trade consignments, so a port read as an ocean-freight
-   * offer the company does not have. A curtain-side truck is the vehicle
-   * these pallet consignments actually travel on.
-   */
-  b2b: heroImages.roadFreight,
+  /* Road haulage, NOT the container port this once showed — see b2bTrucks. */
+  b2b: heroImages.b2bTrucks,
   omnichannel: heroImages.fulfilmentFloor,
 };
 
