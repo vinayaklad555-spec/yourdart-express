@@ -7,8 +7,8 @@ import { cn } from "@/lib/utils";
  * Button language matched to the benchmark: compact heights, a 6px radius,
  * 14px text at weight 400, no shadow, and colour doing all the work.
  *
- * The primary action is a near-black fill with white text, matched to the
- * shipping page hero reference and promoted site-wide from there.
+ * The primary action is the deep purple fill with white text (7.11:1). Only
+ * the deep steps of the ramp are ever used this way — see globals.css.
  */
 /*
  * A soft highlight bleeding down from the top edge, so filled buttons read as
@@ -29,7 +29,7 @@ const buttonVariants = cva(
     "inline-flex items-center justify-center gap-2 whitespace-nowrap",
     "font-normal",
     /* `transform` is in the list so the press below actually eases. */
-    "transition-[background,background-color,color,border-color,opacity,transform] duration-150",
+    "transition-[background-color,color,border-color,opacity,transform] duration-150",
     "[transition-timing-function:var(--ease-out-soft)]",
     /* Press feedback. 0.98 rather than the 0.95 mobile guideline — on a
        pointer device a deeper squash reads as a glitch, not a press. */
@@ -42,20 +42,20 @@ const buttonVariants = cva(
     variants: {
       variant: {
         /*
-         * Near-black with the "lit from above" gradient, promoted site-wide
-         * from the shipping hero. Colour and gradient live in ONE `background`
-         * shorthand per state — as separate bg-color + bg-image utilities,
-         * tailwind-merge treats them as conflicting `bg-*` classes and drops
-         * one. That is also why this variant does not use topSheen.
+         * The accent purple. It was briefly near-black, matched to a Figma
+         * hero; that left the brand colour marking only decoration and never
+         * the action it most wants marked. The lit-from-above sheen from that
+         * pass is kept — but as topSheen at 0.14, NOT the 0.17 the black used.
+         * Black had ~17:1 of headroom to spend on a highlight; purple has
+         * 7.11:1. See the topSheen note above before raising it.
          */
-        primary:
-          "text-white [background:linear-gradient(180deg,rgb(255_255_255/0.17),rgb(255_255_255/0)_62%)_#151515] hover:[background:linear-gradient(180deg,rgb(255_255_255/0.17),rgb(255_255_255/0)_62%)_#2d2d2d] shadow-[0_1px_2px_rgb(16_24_40/0.12)]",
+        primary: `bg-accent text-white hover:bg-accent-hover ${topSheen}`,
         secondary: `bg-ink-950 text-white hover:bg-ink-800 ${topSheen}`,
         outline:
           "border border-line-strong bg-canvas text-ink-950 hover:bg-ink-50",
         ghost: "text-ink-950 hover:bg-ink-50",
-        /* On dark sections the primary black would vanish — white takes over. */
-        inverse: "bg-white text-ink-950 hover:bg-ink-100",
+        /* Dark sections: accent-600 sits well clear of the accent-950 ground. */
+        inverse: `bg-accent text-white hover:bg-accent-hover ${topSheen}`,
         "inverse-outline":
           "border border-white/25 text-white hover:border-white/45 hover:bg-white/8",
         /*
