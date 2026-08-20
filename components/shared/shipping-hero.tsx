@@ -44,7 +44,11 @@ export function ShippingHero({
           <div className="flex flex-col justify-center lg:pr-4">
             <Eyebrow>{eyebrow}</Eyebrow>
 
-            <h1 className="mt-6 max-w-[24ch] text-[2.375rem] leading-[1.14] font-semibold tracking-[-0.015em] text-ink-950 sm:text-[2.75rem] lg:text-[2.5rem] xl:text-[2.75rem]">
+            {/* The lg step sits below the others on purpose: 1024–1279px is
+                where the two-column split leaves the text column narrowest.
+                42px is the measured ceiling that still holds the heading to
+                two lines at 1024px; 43px spills to three. */}
+            <h1 className="mt-6 max-w-[24ch] text-[2.5rem] leading-[1.14] font-semibold tracking-[-0.015em] text-ink-950 sm:text-[3rem] lg:text-[2.625rem] xl:text-[3rem]">
               {heading}
             </h1>
 
