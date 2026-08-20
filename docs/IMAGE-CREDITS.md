@@ -19,12 +19,27 @@ be blocked by the browser.
 | `warehouse-racking.jpg` | `unsplash.com/photos/1587293852726-70cdb56c2866` |
 | `parcel-pair.jpg` | `unsplash.com/photos/1595246140625-573b715d11dc` |
 | `highway-haulage.jpg` | `unsplash.com/photos/1601584115197-04ecc0da31d7` |
+| `warehouse-aisle.jpg` | `unsplash.com/photos/82ZiY5pzl1c` — **Kseniia Ilinykh** |
 | `hero-truck.jpg` | **Supplied by the business** (`Images/BG Landing 3.png`) — not Unsplash |
 | `hero-truck-mobile.jpg` | **Supplied by the business** (`Images/BG Landing Mobile Version.png`) — not Unsplash |
 
 > The IDs above are the Unsplash asset identifiers. Photographer names were not
 > retrievable without an API key — resolve each at
 > `https://unsplash.com/photos/<id>` if you want to credit them by name.
+> `warehouse-aisle.jpg` is the exception: its contributor is named in the
+> filename it arrived under.
+
+`warehouse-aisle.jpg` (the `/services/warehousing` hero) is the one Unsplash
+file that needed a crop rather than a straight downscale. The original is
+4160x6240 — a 0.67 portrait whose bottom third is bare floor — so it is cut
+**from the top**, `(0, 0)-(4160, 4379)`, and resized to 1800x1895 (ratio 0.95,
+~0.65 MB). That keeps the racking at full height and discards 1861px of floor.
+
+> The reach truck carries a legible **Hyster** mark on its mast and body.
+> Hyster makes handling equipment and is not a logistics competitor or
+> partner, so branded plant in a warehouse reads as incidental rather than as
+> a claimed relationship — a weaker version of the concern recorded for the
+> air freight and returns images. Noted for completeness; no action taken.
 
 ## Pexels
 
@@ -36,14 +51,8 @@ attribution not required. Recorded here for the same traceability reason.
 |---|---|---|
 | `air-freight-hero.jpg` | `pexels.com/photo/3140204` | Brett Sayles |
 | `returns-van.jpg` | `pexels.com/photo/11932102` | Minsu Breitenstein |
-| `warehouse-dock.jpg` | `pexels.com/photo/12585837` | Boom |
 
-All three chosen by the owner.
-
-`warehouse-dock.jpg` — cartons in front of loading dock doors. The original is
-5158x3434 (1.50); trimmed evenly from both sides to 1.20 and resized to
-1800x1500 (~0.18 MB), so the 0.90 card discards 25% of the width rather than
-40%. No people, no marks.
+Both chosen by the owner.
 
 `air-freight-hero.jpg` was downscaled from the 4024x4024 / 2.6 MB original to
 1800x1800 at quality 60 (~0.48 MB) before committing, matching what
@@ -83,11 +92,11 @@ The 1024–1279px band is the trap: two columns make the card *portrait* (0.90),
 not landscape. `object-cover` then crops the sides hard — a 1.21 master loses
 26% of its width there, a 1.50 master loses 40%.
 
-That is fine when the subject is centred (the shipping and warehousing
-photographs both survive it), but the van in `returns-van.jpg` sits right of
-centre, and a 1.21 crop cut its front off at that width. Hence the near-square
-0.95 master: it loses only 5% horizontally at 0.90, and at 1.60 the middle 59%
-of its height still holds the whole van.
+That is fine when the subject is centred — the shipping photograph survives it
+comfortably — but the van in `returns-van.jpg` sits right of centre, and a 1.21
+crop cut its front off at that width. Hence the near-square 0.95 master: it
+loses only 5% horizontally at 0.90, and at 1.60 the middle 59% of its height
+still holds the whole van.
 
 **Rule of thumb:** keep the subject near the centre, or cut the master closer
 to 0.95 than to 1.20.
@@ -141,9 +150,8 @@ nothing that exists.
 > with a street address in Opfikon, the domain `ddm-lwl.ch` and a legible
 > Swiss plate (ZH 520 845). That is an unrelated third party — and not a
 > courier — sitting on a page about returns collection, so a viewer could read
-> a relationship that does not exist. Unlike the Amazon box on
-> `shop-and-ship-hero.jpg`, this cannot be cropped out: the van *is* the
-> subject.
+> a relationship that does not exist. It cannot be cropped out: the van *is*
+> the subject.
 >
 > In practice the lettering is illegible at the size the hero renders (the van
 > is ~240px wide on a desktop hero), but it is readable in the committed

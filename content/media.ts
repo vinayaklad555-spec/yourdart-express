@@ -127,13 +127,15 @@ export const heroImages = {
     alt: "A warehouse worker in a hi-vis vest lifting a carton from pallet racking",
   },
   /*
-   * Pexels stock, chosen by the owner — see docs/IMAGE-CREDITS.md. Trimmed
-   * from 1.50 to 1.20 so the 0.90 card does not have to discard 40% of the
-   * width; the cartons sit centrally either way.
+   * Unsplash, chosen by the owner — see docs/IMAGE-CREDITS.md.
+   *
+   * Cropped from a 0.67 portrait to 0.95 taken from the TOP, which keeps the
+   * full height of the racking and drops 1861px of empty floor. The reach
+   * truck carries a legible Hyster mark; noted in the doc.
    */
-  warehouseDock: {
-    src: "/images/warehouse-dock.jpg",
-    alt: "Two cardboard cartons stacked on the apron in front of warehouse loading dock doors",
+  warehouseAisle: {
+    src: "/images/warehouse-aisle.jpg",
+    alt: "A reach truck in the aisle between tall pallet racking in a warehouse",
   },
   shippingHero: {
     src: "/images/shipping-hero.jpg",
@@ -145,7 +147,7 @@ export const heroImages = {
 export const serviceHeroImages: Record<string, HeroImage> = {
   shipping: heroImages.shippingHero,
   fulfillment: heroImages.fulfilmentPicking,
-  warehousing: heroImages.warehouseDock,
+  warehousing: heroImages.warehouseAisle,
   "reverse-logistics": heroImages.returnsVan,
   "freight-forwarding": heroImages.airFreightHero,
   "shop-and-ship": heroImages.doorstepParcel,
