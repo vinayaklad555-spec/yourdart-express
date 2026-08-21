@@ -113,8 +113,8 @@ export const howItWorks = {
 export const growth = {
   eyebrow: "Where we are",
   heading: "Early, and honest about it",
-  body: "Your Dart Express is a young company building its network, its systems and its service coverage. We have chosen not to put customer numbers, delivery percentages or a coverage map on this website, because we have not earned them yet and you would have no way to check them.",
-  body2: "What we can offer is a supplier that is small enough to give your account real attention, structured enough to be relied on, and building in the direction you are growing. When we have results worth publishing, they will appear here with the customer's name on them.",
+  body: "Your Dart Express is a young company, still building its network and its coverage. You will not find customer numbers or a coverage map here — we have not earned them yet, and you would have no way to check them.",
+  body2: "What we can offer is a supplier small enough to give your account real attention and structured enough to be relied on. When we have results worth publishing, they will carry the customer's name.",
   commitments: [
     {
       title: "We will tell you what we cannot do",
