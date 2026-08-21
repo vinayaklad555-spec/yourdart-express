@@ -3,6 +3,9 @@ import {
   ClipboardList,
   Layers,
   ShieldCheck,
+  MessageSquareWarning,
+  BadgeCheck,
+  TrendingUp,
 } from "lucide-react";
 
 /**
@@ -116,14 +119,17 @@ export const growth = {
     {
       title: "We will tell you what we cannot do",
       body: "If a route, a commodity or a timeline is outside what we can support properly, you will hear that before you commit — not after.",
+      icon: MessageSquareWarning,
     },
     {
       title: "We will not overstate what is running",
       body: "Capabilities that are in development are described as in development. You will not find a product screenshot here for something you cannot use.",
+      icon: BadgeCheck,
     },
     {
       title: "We will grow into what you need",
       body: "The services are already in place. As your volume changes, the arrangement changes with it — without you having to find a new supplier.",
+      icon: TrendingUp,
     },
   ],
 };
