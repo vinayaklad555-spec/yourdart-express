@@ -28,21 +28,22 @@ export function Growth() {
       className="lg:py-32"
     >
       <Reveal>
-        <div className="overflow-hidden rounded-2xl border border-line bg-canvas p-3 sm:p-4">
+        <div className="overflow-hidden rounded-2xl bg-canvas p-3 sm:p-4">
           <div className="grid gap-3 sm:gap-4 lg:min-h-[34rem] lg:grid-cols-12">
             {/* ------------------------------------------------ narrative */}
             <div className="relative overflow-hidden rounded-xl bg-[linear-gradient(155deg,color-mix(in_oklab,var(--color-accent)_5%,#fff)_0%,color-mix(in_oklab,var(--color-accent)_12%,#fff)_100%)] p-8 sm:p-10 lg:col-span-5 lg:p-12">
               {/*
-                * The brand mark as a watermark, the way the reference uses its
-                * own logo: oversized, bled off the corner and dropped to a few
-                * percent so it reads as texture rather than as a second logo.
-                * `gradient={false}` makes every path take currentColor, which
-                * is what lets one opacity class tint the whole mark.
+                * The brand mark as a watermark: oversized, bled off the corner
+                * and masked so it dissolves upward rather than stopping on an
+                * edge — it should read as texture in the empty half of the
+                * panel, not as a second logo. `gradient={false}` makes every
+                * path take currentColor, which is what lets one opacity class
+                * tint the whole mark.
                 */}
               <LogoMark
                 gradient={false}
                 id="growth-watermark"
-                className="pointer-events-none absolute -right-14 -bottom-16 size-60 text-white/70 select-none sm:-right-16 sm:-bottom-20 sm:size-80"
+                className="pointer-events-none absolute -right-14 -bottom-16 size-60 text-white/55 select-none [-webkit-mask-image:linear-gradient(to_top,#000_15%,transparent_78%)] [mask-image:linear-gradient(to_top,#000_15%,transparent_78%)] sm:-right-16 sm:-bottom-20 sm:size-80"
               />
 
               <div className="relative">
