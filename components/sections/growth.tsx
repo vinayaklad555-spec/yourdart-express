@@ -61,15 +61,16 @@ export function Growth() {
                     <RevealItem as="li" key={commitment.title}>
                       <div className="flex gap-5">
                         {/*
-                          * Filled, not outlined. lucide ships no solid set, so
-                          * the fill lives in the plate: accent ground, white
-                          * glyph. Measured 7.11:1, so the glyph stays legible.
+                          * Tinted plate, SOLID glyph — the reference's
+                          * arrangement. The glyphs come from
+                          * shared/solid-icons because lucide has no filled
+                          * set; see the note there.
                           */}
                         <span
                           aria-hidden="true"
-                          className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl bg-accent text-white"
+                          className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl bg-accent-100/45 text-accent"
                         >
-                          <Icon className="size-5" strokeWidth={2} />
+                          <Icon className="size-5" />
                         </span>
                         <div className="min-w-0">
                           <h3 className="text-[1.0625rem] font-medium tracking-[-0.015em] text-ink-950">

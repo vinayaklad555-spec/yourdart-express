@@ -3,10 +3,12 @@ import {
   ClipboardList,
   Layers,
   ShieldCheck,
-  MessageSquareWarning,
-  BadgeCheck,
-  TrendingUp,
 } from "lucide-react";
+import {
+  SolidSpeechAlert,
+  SolidVerified,
+  SolidGrowth,
+} from "@/components/shared/solid-icons";
 
 /**
  * Homepage copy. Seven sections, no more. Every claim below describes either a
@@ -119,17 +121,17 @@ export const growth = {
     {
       title: "We will tell you what we cannot do",
       body: "If a route, a commodity or a timeline is outside what we can support properly, you will hear that before you commit — not after.",
-      icon: MessageSquareWarning,
+      icon: SolidSpeechAlert,
     },
     {
       title: "We will not overstate what is running",
       body: "Capabilities that are in development are described as in development. You will not find a product screenshot here for something you cannot use.",
-      icon: BadgeCheck,
+      icon: SolidVerified,
     },
     {
       title: "We will grow into what you need",
       body: "The services are already in place. As your volume changes, the arrangement changes with it — without you having to find a new supplier.",
-      icon: TrendingUp,
+      icon: SolidGrowth,
     },
   ],
 };
