@@ -18,12 +18,20 @@ import { growth } from "@/content/home";
  */
 export function Growth() {
   return (
-    <Section tone="warm" spacing="lg" divider aria-labelledby="growth-heading">
+    <Section
+      tone="warm"
+      spacing="lg"
+      divider
+      aria-labelledby="growth-heading"
+      /* Deeper than the stock lg step: the reference gives this band noticeably
+         more air than the rows around it, and the taller card needs it. */
+      className="lg:py-32"
+    >
       <Reveal>
         <div className="overflow-hidden rounded-2xl border border-line bg-canvas p-3 sm:p-4">
-          <div className="grid gap-3 sm:gap-4 lg:grid-cols-12">
+          <div className="grid gap-3 sm:gap-4 lg:min-h-[34rem] lg:grid-cols-12">
             {/* ------------------------------------------------ narrative */}
-            <div className="relative overflow-hidden rounded-xl bg-canvas-sunk p-7 sm:p-9 lg:col-span-5">
+            <div className="relative overflow-hidden rounded-xl bg-[linear-gradient(155deg,color-mix(in_oklab,var(--color-accent)_5%,#fff)_0%,color-mix(in_oklab,var(--color-accent)_12%,#fff)_100%)] p-8 sm:p-10 lg:col-span-5 lg:p-12">
               {/*
                 * The brand mark as a watermark, the way the reference uses its
                 * own logo: oversized, bled off the corner and dropped to a few
@@ -34,7 +42,7 @@ export function Growth() {
               <LogoMark
                 gradient={false}
                 id="growth-watermark"
-                className="pointer-events-none absolute -right-14 -bottom-16 size-56 text-accent/[0.045] select-none sm:-right-16 sm:-bottom-20 sm:size-72 sm:text-accent/[0.08]"
+                className="pointer-events-none absolute -right-14 -bottom-16 size-60 text-white/70 select-none sm:-right-16 sm:-bottom-20 sm:size-80"
               />
 
               <div className="relative">
@@ -53,7 +61,7 @@ export function Growth() {
             <div className="lg:col-span-7">
               <RevealGroup
                 as="ul"
-                className="flex h-full flex-col justify-center gap-8 px-1 py-4 sm:px-6 sm:py-6 lg:px-10"
+                className="flex h-full flex-col justify-center gap-10 px-1 py-6 sm:px-6 sm:py-10 lg:gap-12 lg:px-12"
               >
                 {growth.commitments.map((commitment) => {
                   const Icon = commitment.icon;
