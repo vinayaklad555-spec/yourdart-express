@@ -190,6 +190,18 @@ export const heroImages = {
     src: "/images/small-business-hero.jpg",
     alt: "A small business owner taping a cardboard parcel closed, surrounded by packed boxes",
   },
+  /*
+   * Owner-supplied and CHOSEN BY THE OWNER FOR THIS PAGE — see
+   * docs/IMAGE-CREDITS.md, which records why it sits apart from the rest.
+   *
+   * The only hero on the site that is not a photograph of logistics: an
+   * abstract 3D render. Served uncropped at its native 1.50, which clears
+   * both ends of the card range because the subject is centred.
+   */
+  enterpriseConcept: {
+    src: "/images/enterprise-hero.jpg",
+    alt: "A yellow light bulb mounted on a metal gear, set into a grid of dark tiles",
+  },
   shippingHero: {
     src: "/images/shipping-hero.jpg",
     alt: "Two couriers checking the shipping label on a parcel against a delivery docket",
@@ -233,6 +245,5 @@ export const pageHeroImages = {
   sustainability: heroImages.highwayHaulage,
   analytics: heroImages.warehouseRacking,
   smallBusiness: heroImages.smallBusinessPacking,
-  /* Racking, not the container port — see the note on portTerminal. */
-  enterprise: heroImages.warehouseRacking,
+  enterprise: heroImages.enterpriseConcept,
 } as const satisfies Record<string, HeroImage>;

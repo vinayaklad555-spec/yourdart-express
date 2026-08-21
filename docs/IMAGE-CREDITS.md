@@ -187,6 +187,7 @@ nothing that exists.
 | `warehouse-pallet.jpg` | `/services/warehousing` hero | Supplied by the owner as `Images/Warehousing new.png` |
 | `b2b-trucks.jpg` | `/industries/b2b` hero | Supplied by the owner as `Images/B2B.png` |
 | `small-business-hero.jpg` | `/small-business` hero | Supplied by the owner as `Images/small-business-owner-packing-product-parcel-boxes-delivery.jpg` |
+| `enterprise-hero.jpg` | `/enterprise` hero | Supplied by the owner as `Images/Enterprise.png` |
 | `dtc-courier-hd.jpg` | `/industries/dtc` hero | Supplied by the owner as `Images/Door to door.png` |
 
 ### `dtc-courier-hd.jpg`
@@ -208,6 +209,33 @@ spare.
 
 `parcelsStacked` (`parcels-stacked.jpg`) was the previous DTC hero and is
 **not** retired: `/integrations/shopify` still uses it.
+
+### `enterprise-hero.jpg` — the one image that is not logistics
+
+A yellow light bulb on a metal gear, set into a grid of dark tiles. A 3D
+render, 1536x1024 (1.50), served **uncropped** at quality 82 (~0.07 MB) — the
+subject is centred, so native 1.50 clears both ends of the card range. No
+copyright metadata, no faces, no marks.
+
+Chosen by the owner for this page. Three things make it sit apart from every
+other hero, recorded here so the difference reads as a decision rather than an
+oversight:
+
+1. **It is not a photograph of the operation.** Every other hero shows
+   something the company actually handles — parcels, vans, aircraft, racking,
+   a forklift. This is an abstract concept render, so the honesty note at the
+   top of `content/media.ts` applies differently: there is nothing pictured to
+   mistake for a Your Dart Express facility.
+2. **It does not depict the page's subject.** `/enterprise` is about scoped
+   requirements, version-controlled procedures and reporting that survives
+   review. A bulb-on-a-gear is the visual shorthand for *innovation*, which is
+   a different promise from the one the copy makes.
+3. **It is outside the palette.** Yellow on near-black, against a site built
+   on purple and warm neutrals. It is the only hero that does not sit in the
+   site's colour range.
+
+If it should look like the rest of the set, `warehouse-racking.jpg` is what it
+displaced — organised racking, which reads as structured operations at scale.
 
 ### ⚠️ `small-business-hero.jpg` — licence not established
 
