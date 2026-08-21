@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Check } from "lucide-react";
 import { PageHero, heroCtaSize } from "@/components/shared/page-hero";
+import { ShippingPage } from "@/components/sections/shipping-page";
 import { Section, SectionHeader } from "@/components/layout/section";
 import { Button } from "@/components/ui/button";
 import { Card, CardIcon } from "@/components/ui/card";
@@ -54,6 +55,21 @@ export default async function ServicePage({
     { name: "Services", path: "/services" },
     { name: service.name, path: `/services/${service.slug}` },
   );
+
+  /*
+   * Shipping is the one service with several offerings to explain — road and
+   * air, domestic and international, plus cost, tracking and support — so it
+   * has a purpose-built page. Metadata, breadcrumbs and JSON-LD stay shared,
+   * which is why it branches here rather than living at its own route.
+   */
+  if (service.slug === "shipping") {
+    return (
+      <>
+        <JsonLd schema={[breadcrumbSchema(crumbs), serviceSchema(service)]} />
+        <ShippingPage />
+      </>
+    );
+  }
 
   const others = publishedServices.filter((s) => s.slug !== service.slug).slice(0, 3);
   const Icon = service.icon;
