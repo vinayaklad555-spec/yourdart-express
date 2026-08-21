@@ -115,6 +115,27 @@ export interface ProcessStep {
   body: string;
 }
 
+/**
+ * A "who this is for" entry. A bare string is the original shape and most
+ * services still use it; the object form adds a line under the heading where
+ * the audience needs qualifying.
+ */
+export type BestForItem = string | { title: string; body: string };
+
+/**
+ * Per-service overrides for the section furniture on /services/[slug].
+ *
+ * The template's defaults are built from the service name — "What it covers",
+ * "<name>, in practice" — which works while a service does one thing. A
+ * service that needs to say something else in its own words sets it here.
+ * Anything omitted falls back to the default, so a service needing none of
+ * this declares none of it.
+ */
+export interface ServiceSections {
+  overview?: { eyebrow?: string; heading?: string; lead?: string };
+  bestFor?: { heading?: string };
+}
+
 export interface Service extends Publishable {
   slug: string;
   name: string;
@@ -128,10 +149,13 @@ export interface Service extends Publishable {
     heading: string;
     body: string;
   };
+  /** Replaces the hero's default "All services" button. */
+  heroSecondaryCta?: { label: string; href: string };
   whatItIs: string[];
   benefits: Benefit[];
   process: ProcessStep[];
-  bestFor: string[];
+  bestFor: BestForItem[];
+  sections?: ServiceSections;
   seo: SeoMeta;
 }
 

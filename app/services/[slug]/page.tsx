@@ -58,6 +58,11 @@ export default async function ServicePage({
   const others = publishedServices.filter((s) => s.slug !== service.slug).slice(0, 3);
   const Icon = service.icon;
 
+  /* Section furniture: a service may override any of it — see ServiceSections. */
+  const overview = service.sections?.overview;
+  const heroSecondary =
+    service.heroSecondaryCta ?? { label: "All services", href: "/services" };
+
   return (
     <>
       <JsonLd schema={[breadcrumbSchema(crumbs), serviceSchema(service)]} />
@@ -73,11 +78,11 @@ export default async function ServicePage({
             Talk to our team
           </Button>
           <Button
-            href="/services"
+            href={heroSecondary.href}
             variant="outline"
             className={heroCtaSize}
           >
-            All services
+            {heroSecondary.label}
           </Button>
         </div>
       </PageHero>
@@ -87,9 +92,9 @@ export default async function ServicePage({
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
             <SectionHeader
-              eyebrow="What it covers"
-              heading={`${service.name}, in practice`}
-              lead={service.summary}
+              eyebrow={overview?.eyebrow ?? "What it covers"}
+              heading={overview?.heading ?? `${service.name}, in practice`}
+              lead={overview?.lead ?? service.summary}
               headingId="covers-heading"
             />
             <Reveal>
@@ -177,21 +182,38 @@ export default async function ServicePage({
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-4">
             <Heading as="h2" size="h3" id="best-for-heading">
-              Who this is usually for
+              {service.sections?.bestFor?.heading ?? "Who this is usually for"}
             </Heading>
           </div>
           <RevealGroup as="ul" className="grid gap-3 lg:col-span-8">
-            {service.bestFor.map((item) => (
-              <RevealItem as="li" key={item}>
-                <div className="flex items-start gap-3 rounded-xl border border-line bg-canvas-sunk px-5 py-4">
-                  <span
-                    aria-hidden="true"
-                    className="mt-2 size-1.5 shrink-0 rounded-full bg-ink-950"
-                  />
-                  <p className="text-[0.9375rem] text-ink-700">{item}</p>
-                </div>
-              </RevealItem>
-            ))}
+            {/*
+              * bestFor takes a bare string or a title/body pair — see
+              * BestForItem. Both render in the same bordered row, so a service
+              * using one shape sits beside a service using the other without
+              * the list looking mixed.
+              */}
+            {service.bestFor.map((item) => {
+              const title = typeof item === "string" ? item : item.title;
+              const body = typeof item === "string" ? null : item.body;
+              return (
+                <RevealItem as="li" key={title}>
+                  <div className="flex items-start gap-3 rounded-xl border border-line bg-canvas-sunk px-5 py-4">
+                    <span
+                      aria-hidden="true"
+                      className="mt-2 size-1.5 shrink-0 rounded-full bg-ink-950"
+                    />
+                    <div>
+                      <p className="text-[0.9375rem] text-ink-700">{title}</p>
+                      {body ? (
+                        <p className="mt-1 text-[0.875rem] leading-relaxed text-ink-400">
+                          {body}
+                        </p>
+                      ) : null}
+                    </div>
+                  </div>
+                </RevealItem>
+              );
+            })}
           </RevealGroup>
         </div>
       </Section>

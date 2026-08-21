@@ -280,46 +280,57 @@ export const services: Service[] = [
   {
     slug: "warehousing",
     name: "Warehousing",
-    tagline: "Space, stock control and dispatch access",
+    tagline: "Storage, stock control and fulfilment",
     summary:
-      "Storage for your inventory with recorded stock movements, so you always know what is on hand and what has left the building.",
+      "Storage for your inventory with recorded stock movements, and fulfilment, pick and pack coordinated from the same operation.",
     icon: Warehouse,
     published: true,
     hero: {
       eyebrow: "Service",
-      heading: "Somewhere to put your stock, properly recorded",
-      body: "Warehousing is not just floor space. It is knowing what arrived, what is on hand, what went out and when — and being able to answer that question without walking the aisles.",
+      heading: "Warehousing that keeps your inventory and orders moving",
+      body: "Store your inventory with us, keep stock under control, and move orders through fulfilment, pick and pack, and dispatch from one coordinated operation.",
+    },
+    /* The enquiry form is where a quote actually starts, so the second button
+       goes there rather than to /talk-to-an-expert alongside the first. */
+    heroSecondaryCta: { label: "Get a quote", href: "/contact" },
+    sections: {
+      overview: {
+        eyebrow: "What we cover",
+        heading: "More than just storage",
+        lead: "We help you keep inventory organised, visible and ready to fulfil orders when they come in.",
+      },
+      bestFor: { heading: "Who our warehousing services are for" },
     },
     whatItIs: [
-      "Inbound receiving with a check against the expected manifest.",
-      "Organised storage with recorded locations, so stock can actually be found.",
-      "Stock movements logged in and out, with counts reconciled on a schedule you agree.",
-      "Direct access to fulfilment and shipping from the same site.",
+      "Inbound receiving checked against the expected manifest.",
+      "Organised storage with inventory records you can rely on.",
+      "Stock movements recorded as inventory moves in and out.",
+      "Order fulfilment, pick and pack coordinated from the same operation.",
     ],
     benefits: [
       {
-        title: "Stock you can account for",
-        body: "Movements are recorded as they happen. Reconciliation is a report you receive, not an annual surprise.",
+        title: "Know what you have in stock",
+        body: "Keep track of inventory as it moves through your operation, with clearer records and better visibility.",
         icon: ClipboardCheck,
         visual: { kind: "ledger", rows: [{ label: "Goods in" }, { label: "Picked", out: true }, { label: "Dispatched", out: true }, { label: "Goods in" }] },
       },
       {
-        title: "Storage that matches the goods",
-        body: "Handling requirements are agreed before intake, so fragile, bulky or sensitive stock is stored appropriately rather than wherever it fits.",
-        icon: ShieldCheck,
-        visual: { kind: "bays", bays: ["Fragile", "Bulky", "Sensitive"] },
+        title: "Stock that stays organised",
+        body: "Keep inventory structured and easier to manage, so products are easier to locate when orders need to move.",
+        icon: Boxes,
+        visual: { kind: "bays", bays: ["Bay A", "Bay B", "Bay C"] },
       },
       {
-        title: "One site, three functions",
-        body: "Stored, picked and dispatched from the same place. Nothing has to be trucked between vendors to get out the door.",
+        title: "From order to dispatch",
+        body: "We coordinate fulfilment, pick and pack, helping your orders move through the process without unnecessary handoffs.",
         icon: Layers,
-        visual: { kind: "zones", site: "One site", zones: ["Store", "Pick", "Dispatch"] },
+        visual: { kind: "zones", site: "One operation", zones: ["Pick", "Pack", "Dispatch"] },
       },
       {
-        title: "Capacity that flexes",
-        body: "Space is agreed against your actual needs and reviewed as they change, rather than locked to a fixed footprint you have to grow into.",
+        title: "Built to support your workflow",
+        body: "Our warehousing support is designed around your operational needs, helping you manage inventory and fulfil orders efficiently.",
         icon: Scale,
-        visual: { kind: "capacity", label: "Agreed space", marks: ["Reviewed", "Adjusted"] },
+        visual: { kind: "capacity", label: "Your workflow", marks: ["Reviewed", "Adjusted"] },
       },
     ],
     process: [
@@ -345,14 +356,23 @@ export const services: Service[] = [
       },
     ],
     bestFor: [
-      "Businesses holding stock at home, in an office or in overflow space",
-      "Importers who need somewhere for a container to land",
-      "Sellers who need stock positioned closer to dispatch",
+      {
+        title: "Businesses managing growing inventory",
+        body: "For businesses that need a more organised way to receive, store and manage increasing stock.",
+      },
+      {
+        title: "Sellers fulfilling regular orders",
+        body: "For businesses that need inventory, fulfilment, pick and pack handled as part of one operation.",
+      },
+      {
+        title: "Businesses preparing products for Amazon FBA",
+        body: "For sellers who need support preparing inventory before it moves into Amazon fulfilment channels.",
+      },
     ],
     seo: {
-      title: "Warehousing & Storage Services",
+      title: "Warehousing, Inventory & Fulfilment Services",
       description:
-        "Warehousing from Your Dart Express — inbound checking, recorded storage locations, logged stock movements and direct access to fulfillment and shipping from the same site.",
+        "Warehousing from Your Dart Express — inbound checking against the manifest, organised storage with reliable inventory records, recorded stock movements, and order fulfilment, pick and pack from the same operation.",
       path: "/services/warehousing",
     },
   },
