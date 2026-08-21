@@ -226,24 +226,28 @@ export const industryHeroImages: Record<string, HeroImage> = {
   omnichannel: heroImages.fulfilmentFloor,
 };
 
-/** Standalone routes. Company pages use the quietest, least literal images. */
+/**
+ * Standalone routes that head their page with a photograph.
+ *
+ * The COMPANY pages are deliberately absent — /about, /approach, /technology,
+ * /analytics, /sustainability, /partners, /integrations and /careers all run
+ * image-less heroes. Those pages are about how the company works rather than
+ * about moving goods, and the stock photographs that used to head them
+ * illustrated nothing on the page: picking totes over "Our Technology",
+ * racking over "Analytics", a diesel truck over a sustainability page that
+ * opens "what we actually do, not what sounds good". PageHero's image-less
+ * form gives the heading full width, which reads as a decision rather than a
+ * gap — the same treatment /contact, /faq and /talk-to-an-expert already use.
+ *
+ * Adding one back is just passing `image` again. Worth doing for /about if
+ * real photography of the team or the premises ever exists; it is the one
+ * company page where a picture would carry something.
+ */
 export const pageHeroImages = {
   services: heroImages.portTerminal,
   industries: heroImages.highwayHaulage,
-  integrations: heroImages.parcelPair,
   shopify: heroImages.parcelsStacked,
   caseStudies: heroImages.parcelPair,
-  about: heroImages.highwayHaulage,
-  partners: heroImages.portTerminal,
-  careers: heroImages.fulfilmentFloor,
-  contact: heroImages.parcelPair,
-  talkToAnExpert: heroImages.roadFreight,
-  faq: heroImages.parcelPair,
-  track: heroImages.roadFreight,
-  technology: heroImages.fulfilmentFloor,
-  approach: heroImages.roadFreight,
-  sustainability: heroImages.highwayHaulage,
-  analytics: heroImages.warehouseRacking,
   smallBusiness: heroImages.smallBusinessPacking,
   enterprise: heroImages.enterpriseConcept,
 } as const satisfies Record<string, HeroImage>;

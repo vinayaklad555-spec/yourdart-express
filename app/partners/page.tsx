@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/shared/page-hero";
-import { pageHeroImages } from "@/content/media";
 import { Section, SectionHeader } from "@/components/layout/section";
 import { Card } from "@/components/ui/card";
 import { Notice } from "@/components/shared/notice";
@@ -26,7 +25,6 @@ export default function PartnersPage() {
       <JsonLd schema={breadcrumbSchema(crumbs)} />
 
       <PageHero
-        image={pageHeroImages.partners}
         eyebrow={partners.hero.eyebrow}
         heading={partners.hero.heading}
         body={partners.hero.body}

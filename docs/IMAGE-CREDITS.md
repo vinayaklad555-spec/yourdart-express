@@ -39,7 +39,7 @@ if used on a transport page:
 
 | File | Status |
 |---|---|
-| `port-terminal.jpg` | Removed from `/industries/b2b` and `/enterprise` on 2026-08-20. **Still on `/services` and `/partners`** — flagged to the owner, not yet changed. |
+| `port-terminal.jpg` | Removed from `/industries/b2b` and `/enterprise` (2026-08-20), then from `/partners` (2026-08-21, when the company pages went image-less). **Still on `/services`** — the last one, flagged and not yet changed. |
 | `container-ship.jpg` | Unused, and should stay unused. The most explicit sea-freight claim in the library. |
 
 A reader takes the picture as the claim, so a container port on a page about
@@ -58,6 +58,31 @@ moving goods offers a service that does not exist. Replacements so far:
 > logistics business either, so it reads as an ordinary vehicle rather than as
 > a partner. Pre-existing — the file was already on `/talk-to-an-expert`,
 > `/track` and `/approach` before B2B was added to that list.
+
+### The company pages have no hero image
+
+`/about`, `/approach`, `/technology`, `/analytics`, `/sustainability`,
+`/partners`, `/integrations` and `/careers` run image-less heroes, at the
+owner's decision on 2026-08-21. This is deliberate, not a gap waiting to be
+filled.
+
+Those pages are about how the company works, not about moving goods, and the
+photographs that used to head them illustrated nothing on the page — picking
+totes over "Our Technology", pallet racking over "Analytics", and a diesel
+truck over a sustainability page that opens "what we actually do, not what
+sounds good". Two images also did double duty across four pages.
+
+Removing them cleared three third-party marks in one pass: the **SCANIA**
+badge, **COMELLI** operator name and legible plate on the sustainability and
+about truck, the **GRANOTRADE** trailer on `/approach`, and the container port
+on `/partners` — the last of which also implied sea freight, which is not a
+service.
+
+`PageHero`'s image-less form gives the heading full width. It is the same
+treatment `/contact`, `/faq` and `/talk-to-an-expert` already used, so it
+reads as a decision rather than a missing asset. Adding one back is just
+passing `image` again — worth doing for `/about` if real photography of the
+team or the premises ever exists.
 
 ## Pexels
 

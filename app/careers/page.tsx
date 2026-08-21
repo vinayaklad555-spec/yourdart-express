@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Briefcase } from "lucide-react";
 import { PageHero } from "@/components/shared/page-hero";
-import { pageHeroImages } from "@/content/media";
 import { Section, SectionHeader } from "@/components/layout/section";
 import { Card } from "@/components/ui/card";
 import { Heading } from "@/components/ui/typography";
@@ -31,7 +30,6 @@ export default function CareersPage() {
       <JsonLd schema={breadcrumbSchema(crumbs)} />
 
       <PageHero
-        image={pageHeroImages.careers}
         eyebrow={careers.hero.eyebrow}
         heading={careers.hero.heading}
         body={careers.hero.body}

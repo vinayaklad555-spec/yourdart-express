@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { FeaturePage } from "@/components/sections/feature-page";
 import { buildMetadata } from "@/lib/seo";
 import { getFeature } from "@/content/features";
-import { pageHeroImages } from "@/content/media";
 
 const feature = getFeature("analytics")!;
 
@@ -16,7 +15,6 @@ export default function AnalyticsPage() {
   return (
     <FeaturePage
       feature={feature}
-      image={pageHeroImages.analytics}
       crumbLabel="Company"
       crumbPath="/about"
       cta={{

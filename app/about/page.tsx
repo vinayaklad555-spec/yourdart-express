@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { PageHero } from "@/components/shared/page-hero";
-import { pageHeroImages } from "@/content/media";
 import { Section, SectionHeader } from "@/components/layout/section";
 import { Heading } from "@/components/ui/typography";
 import { CtaBand } from "@/components/shared/cta-band";
@@ -35,7 +34,6 @@ export default function AboutPage() {
       <JsonLd schema={breadcrumbSchema(crumbs)} />
 
       <PageHero
-        image={pageHeroImages.about}
         eyebrow={about.hero.eyebrow}
         heading={about.hero.heading}
         body={about.hero.body}

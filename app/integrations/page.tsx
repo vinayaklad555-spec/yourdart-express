@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Check, Minus } from "lucide-react";
 import { PageHero } from "@/components/shared/page-hero";
-import { pageHeroImages } from "@/content/media";
 import { Section, SectionHeader } from "@/components/layout/section";
 import { Card } from "@/components/ui/card";
 import { Notice } from "@/components/shared/notice";
@@ -32,7 +31,6 @@ export default function IntegrationsPage() {
       <JsonLd schema={breadcrumbSchema(crumbs)} />
 
       <PageHero
-        image={pageHeroImages.integrations}
         eyebrow="Integrations"
         heading="One connection, and we are honest about the rest"
         body="Orders should reach us the way they reached you. Today that means Shopify — and for everything else, a straightforward bulk route rather than a logo we have not earned."
