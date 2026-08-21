@@ -24,7 +24,6 @@ export function FeatureSplit({
   body,
   points,
   image,
-  secondImage,
   reverse = false,
   children,
 }: {
@@ -34,8 +33,6 @@ export function FeatureSplit({
   body: string;
   points?: { title: string; body: string }[];
   image: HeroImage;
-  /** Renders a stacked pair — used where one picture cannot carry the point. */
-  secondImage?: HeroImage;
   reverse?: boolean;
   children?: React.ReactNode;
 }) {
@@ -67,26 +64,14 @@ export function FeatureSplit({
       </Reveal>
 
       <Reveal className={cn("relative", reverse && "lg:order-1")}>
-        <div className={cn("grid gap-4", secondImage && "sm:grid-cols-2 lg:grid-cols-1")}>
-          {[image, secondImage].filter(Boolean).map((img) => (
-            <div
-              key={img!.src}
-              className={cn(
-                "relative overflow-hidden rounded-2xl",
-                secondImage
-                  ? "aspect-[16/10] lg:aspect-[16/7]"
-                  : "aspect-[4/3] sm:aspect-[16/10] lg:aspect-[5/4]",
-              )}
-            >
-              <Image
-                src={img!.src}
-                alt={img!.alt}
-                fill
-                sizes="(min-width: 1024px) 44rem, 100vw"
-                className="object-cover"
-              />
-            </div>
-          ))}
+        <div className="relative aspect-[4/3] overflow-hidden rounded-2xl sm:aspect-[16/10] lg:aspect-[5/4]">
+          <Image
+            src={image.src}
+            alt={image.alt}
+            fill
+            sizes="(min-width: 1024px) 44rem, 100vw"
+            className="object-cover"
+          />
         </div>
       </Reveal>
     </div>
