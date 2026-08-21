@@ -186,6 +186,7 @@ nothing that exists.
 | `fulfillment-picking.jpg` | `/services/fulfillment` hero | Supplied by the owner as `Images/Fulfillment.png` |
 | `warehouse-pallet.jpg` | `/services/warehousing` hero | Supplied by the owner as `Images/Warehousing new.png` |
 | `b2b-trucks.jpg` | `/industries/b2b` hero | Supplied by the owner as `Images/B2B.png` |
+| `small-business-hero.jpg` | `/small-business` hero | Supplied by the owner as `Images/small-business-owner-packing-product-parcel-boxes-delivery.jpg` |
 | `dtc-courier-hd.jpg` | `/industries/dtc` hero | Supplied by the owner as `Images/Door to door.png` |
 
 ### `dtc-courier-hd.jpg`
@@ -207,6 +208,39 @@ spare.
 
 `parcelsStacked` (`parcels-stacked.jpg`) was the previous DTC hero and is
 **not** retired: `/integrations/shopify` still uses it.
+
+### ⚠️ `small-business-hero.jpg` — licence not established
+
+Someone taping a parcel shut among packed boxes. Cut from 7000x4667 (1.50) to
+5367x4667 and resized to 1800x1565 (1.15), quality 80 (~0.36 MB), EXIF
+stripped.
+
+The crop is anchored **left**, not centred: the hands and tape gun sit in the
+top-left and are the half of the frame that reads as a small business packing
+its own orders. Trimming the empty right keeps them through the narrow 0.90
+card. At the widest card (1.60) the fingers clip at the top — the tape gun,
+the tape line and the box all still read, and pulling the crop either way to
+fix it costs the hands sideways at 0.90 instead.
+
+**This file carries a third party's copyright.** Its EXIF names
+`Rawpixel Ltd.` as copyright holder and `rawpixel.com / Teddy` as the artist.
+Rawpixel runs both free and paid tiers, and the terms differ between them —
+some content is free for commercial use, some requires a subscription, and
+some requires attribution. No licence, order reference or tier is on record
+here.
+
+This is the same position the fulfillment hero was in before it was replaced.
+Before treating it as settled, confirm one of:
+
+1. Your Dart Express holds a Rawpixel licence covering commercial web use —
+   record the tier and reference in the table above; or
+2. it is Rawpixel free-tier content whose terms permit this use, with any
+   required attribution given; or
+3. neither — in which case replace it. `parcel-pair.jpg` (Unsplash) is the
+   image it displaced and is a clean drop-in.
+
+No faces are visible and no trademarks appear, so the model-release and
+trademark questions do not arise — this is purely about the licence.
 
 ### `b2b-trucks.jpg`
 

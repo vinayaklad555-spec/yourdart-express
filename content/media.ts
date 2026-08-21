@@ -178,6 +178,18 @@ export const heroImages = {
     src: "/images/b2b-trucks.jpg",
     alt: "A curtain-side truck and a box truck waiting at a road junction below wooded hills",
   },
+  /*
+   * Owner-supplied — see docs/IMAGE-CREDITS.md, which records that this file
+   * carries a Rawpixel copyright notice and no licence on record.
+   *
+   * Anchored LEFT rather than centre-cropped: the hands and tape gun are in
+   * the top-left and are the half of the frame that reads as "small
+   * business". The empty right side is what gets trimmed.
+   */
+  smallBusinessPacking: {
+    src: "/images/small-business-hero.jpg",
+    alt: "A small business owner taping a cardboard parcel closed, surrounded by packed boxes",
+  },
   shippingHero: {
     src: "/images/shipping-hero.jpg",
     alt: "Two couriers checking the shipping label on a parcel against a delivery docket",
@@ -220,7 +232,7 @@ export const pageHeroImages = {
   approach: heroImages.roadFreight,
   sustainability: heroImages.highwayHaulage,
   analytics: heroImages.warehouseRacking,
-  smallBusiness: heroImages.parcelPair,
+  smallBusiness: heroImages.smallBusinessPacking,
   /* Racking, not the container port — see the note on portTerminal. */
   enterprise: heroImages.warehouseRacking,
 } as const satisfies Record<string, HeroImage>;
