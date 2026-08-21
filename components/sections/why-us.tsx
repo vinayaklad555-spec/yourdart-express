@@ -20,12 +20,13 @@ export function WhyUs() {
           return (
             <RevealItem key={reason.title} className="bg-canvas">
               <div className="h-full p-6 lg:p-7">
-                <span
-                  aria-hidden="true"
-                  className="inline-flex size-10 items-center justify-center rounded-lg bg-accent text-white"
-                >
-                  <Icon className="size-[1.125rem]" strokeWidth={1.75} />
-                </span>
+                {/*
+                  * Bare glyph, no plate — the reference sets these straight on
+                  * the card. They are solid rather than stroked (see
+                  * shared/solid-icons) and take ink rather than the accent, so
+                  * the colour on this row comes from the copy, not the icons.
+                  */}
+                <Icon className="size-6 text-ink-950" />
                 <h3 className="mt-5 text-[1rem] font-medium tracking-[-0.015em] text-ink-950">
                   {reason.title}
                 </h3>

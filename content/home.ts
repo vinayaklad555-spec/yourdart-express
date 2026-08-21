@@ -1,13 +1,11 @@
 import {
-  MessagesSquare,
-  ClipboardList,
-  Layers,
-  ShieldCheck,
-} from "lucide-react";
-import {
   SolidSpeechAlert,
   SolidVerified,
   SolidGrowth,
+  SolidConversation,
+  SolidClipboardList,
+  SolidLayers,
+  SolidShieldCheck,
 } from "@/components/shared/solid-icons";
 
 /**
@@ -64,22 +62,22 @@ export const whyUs = {
     {
       title: "You talk to the same people",
       body: "One team owns your account. They know your packing standard and your last three problems, so nothing has to be explained twice.",
-      icon: MessagesSquare,
+      icon: SolidConversation,
     },
     {
       title: "We confirm before we commit",
       body: "Serviceability, handling and timelines are checked before we take the booking. A yes we cannot honour is worse for you than a no.",
-      icon: ClipboardList,
+      icon: SolidClipboardList,
     },
     {
       title: "The whole chain, one supplier",
       body: "Storage, fulfilment, shipping and returns under one roof. No handoffs between vendors where accountability disappears.",
-      icon: Layers,
+      icon: SolidLayers,
     },
     {
       title: "Written down, so it repeats",
       body: "Packing standards, handling instructions and return criteria are documented and agreed — which is what keeps a service consistent as volume grows.",
-      icon: ShieldCheck,
+      icon: SolidShieldCheck,
     },
   ],
 };

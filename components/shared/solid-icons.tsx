@@ -74,3 +74,59 @@ export function SolidGrowth({ className }: GlyphProps) {
     </Glyph>
   );
 }
+
+/* --------------------------------------------------------------------------
+ * The "why us" set. Same reasoning as the three above — solid silhouettes with
+ * the detail knocked out — but these render bare, with no plate behind them,
+ * so every hole shows the page itself through.
+ * ----------------------------------------------------------------------- */
+
+/** Speech bubble with two lines knocked out — a conversation, not an alert. */
+export function SolidConversation({ className }: GlyphProps) {
+  return (
+    <Glyph className={className}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M5 3h14a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3h-7l-5 4v-4H5a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3zm1.6 4.4h10.8v1.9H6.6V7.4zm0 3.5h7v1.9h-7v-1.9z"
+      />
+    </Glyph>
+  );
+}
+
+/** Clipboard with its list knocked out — the thing that gets checked first. */
+export function SolidClipboardList({ className }: GlyphProps) {
+  return (
+    <Glyph className={className}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M9 2h6a1 1 0 0 1 1 1v1h1.5A2.5 2.5 0 0 1 20 6.5v13a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 19.5v-13A2.5 2.5 0 0 1 6.5 4H8V3a1 1 0 0 1 1-1zm-1.4 7.2h8.8V11H7.6V9.2zm0 3.6h8.8v1.8H7.6v-1.8zm0 3.6h5.9v1.8H7.6v-1.8z"
+      />
+    </Glyph>
+  );
+}
+
+/** Three stacked plates — separate paths, so no knockout is needed. */
+export function SolidLayers({ className }: GlyphProps) {
+  return (
+    <Glyph className={className}>
+      <path d="M12 2.2 22.4 7 12 11.8 1.6 7z" />
+      <path d="M4.7 10.6 12 14l7.3-3.4 3.1 1.4L12 17.1 1.6 12z" />
+      <path d="M4.7 15.4 12 18.8l7.3-3.4 3.1 1.4L12 21.9 1.6 16.8z" />
+    </Glyph>
+  );
+}
+
+/** Shield with a check knocked out — written down, so it repeats. */
+export function SolidShieldCheck({ className }: GlyphProps) {
+  return (
+    <Glyph className={className}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M12 2.1 4 5.2v6.4c0 4.9 3.4 9.2 8 10.4 4.6-1.2 8-5.5 8-10.4V5.2l-8-3.1zm-1.4 14.3-3.8-3.8 1.6-1.6 2.2 2.2 4.6-4.6 1.6 1.6-6.2 6.2z"
+      />
+    </Glyph>
+  );
+}
