@@ -14,7 +14,7 @@ export function WhyUs() {
         align="center"
       />
 
-      <RevealGroup className="mt-14 grid gap-px overflow-hidden rounded-md bg-line sm:grid-cols-2 lg:grid-cols-4">
+      <RevealGroup className="mt-14 grid gap-px overflow-hidden rounded-md border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
         {whyUs.reasons.map((reason) => {
           const Icon = reason.icon;
           return (
@@ -22,14 +22,14 @@ export function WhyUs() {
               <div className="h-full p-6 lg:p-7">
                 <span
                   aria-hidden="true"
-                  className="inline-flex size-9 items-center justify-center rounded-lg bg-canvas-sunk text-ink-950 ring-1 ring-line"
+                  className="inline-flex size-10 items-center justify-center rounded-lg bg-accent text-white"
                 >
-                  <Icon className="size-4" />
+                  <Icon className="size-[1.125rem]" strokeWidth={1.75} />
                 </span>
                 <h3 className="mt-5 text-[1rem] font-medium tracking-[-0.015em] text-ink-950">
                   {reason.title}
                 </h3>
-                <p className="mt-2 text-[0.9375rem] leading-relaxed text-ink-400">
+                <p className="mt-3 text-[0.9375rem] leading-relaxed text-ink-400">
                   {reason.body}
                 </p>
               </div>
