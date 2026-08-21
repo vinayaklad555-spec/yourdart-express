@@ -37,19 +37,6 @@ import type { Service } from "@/types/content";
 
 export const services: Service[] = [
   {
-    /*
-     * NOTE: /services/shipping does NOT render from this entry.
-     *
-     * Shipping has a purpose-built page — components/sections/shipping-page.tsx,
-     * copy in content/shipping.ts — because it is the only service with several
-     * offerings to explain. What is still read from here: `name`, `shortName`,
-     * `tagline`, `summary` and `icon` (navigation and the /services index),
-     * plus `seo` and the JSON-LD built from this object.
-     *
-     * The hero/whatItIs/benefits/process/bestFor blocks below are kept only so
-     * the entry satisfies `Service` alongside the other five. Editing them
-     * changes nothing on the page — edit content/shipping.ts instead.
-     */
     slug: "shipping",
     name: "Shipping",
     tagline: "Parcels and packages, by road and by air",
@@ -171,9 +158,9 @@ export const services: Service[] = [
       secondary: { label: "Track shipment", href: "/track" },
     },
     seo: {
-      title: "Shipping Services — Domestic Ground, Express & International Air",
+      title: "Shipping Services",
       description:
-        "Parcel, package and courier-sized shipping from Your Dart Express: domestic ground and express by road, international air shipping and air cargo with onward road delivery, plus quotes, shipment tracking and support.",
+        "Shipping from Your Dart Express — domestic express for parcels and packages, ground delivery for courier-sized shipments, and international shipping by air, with tracking and support throughout.",
       path: "/services/shipping",
     },
   },
