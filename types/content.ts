@@ -91,23 +91,6 @@ export type BenefitVisualSpec =
   | { kind: "parties"; left: string[]; right: string[]; border: string }
   /** A route whose final leg is the point. */
   | { kind: "lastleg"; legs: string[] }
-
-  /* ------------------------------------------------------------- shipping
-   * Four compositions built for the shipping cards specifically. They exist
-   * because that page had two identical `checks` lists side by side and two
-   * cards repeating the same three status labels — the set read as one
-   * diagram drawn four times. Each of these has a different silhouette:
-   * parallel lanes, an orthogonal route, an arc over a border, a UI readout.
-   */
-  | { kind: "lanes"; fast: string; slow: string }
-  | { kind: "roadroute"; from: string; via: string; to: string }
-  | { kind: "aircross"; from: string; via: string; to: string }
-  | {
-      kind: "trackpanel";
-      reference: string;
-      status: string;
-      rows: { label: string; state: "done" | "current" | "pending" }[];
-    }
   /* --- shop and ship ---------------------------------------------------- */
   /** Our address standing in at someone else's checkout. */
   | { kind: "checkout"; field: string; value: string; note: string }
@@ -132,29 +115,6 @@ export interface ProcessStep {
   body: string;
 }
 
-/**
- * A "who this is for" entry. A bare string is the original shape and most
- * services still use it; the object form adds a line of explanation under the
- * heading for services where the audience needs qualifying.
- */
-export type BestForItem = string | { title: string; body: string };
-
-/**
- * Per-service overrides for the section furniture on /services/[slug].
- *
- * The template's defaults are generic by design — "What it covers",
- * "<name>, in practice" — which works when a service does one thing. A service
- * offering several distinct options needs to say so in its own words. Anything
- * omitted falls back to the template default, so a service that needs none of
- * this declares none of it.
- */
-export interface ServiceSections {
-  overview?: { eyebrow?: string; heading?: string; lead?: string };
-  benefits?: { eyebrow?: string; heading?: string };
-  process?: { eyebrow?: string; heading?: string };
-  bestFor?: { heading?: string };
-}
-
 export interface Service extends Publishable {
   slug: string;
   name: string;
@@ -168,19 +128,10 @@ export interface Service extends Publishable {
     heading: string;
     body: string;
   };
-  /** Replaces the hero's default "All services" button. */
-  heroSecondaryCta?: { label: string; href: string };
   whatItIs: string[];
   benefits: Benefit[];
   process: ProcessStep[];
-  bestFor: BestForItem[];
-  /** Overrides the closing band, which otherwise builds itself from `name`. */
-  cta?: {
-    heading: string;
-    body: string;
-    secondary?: { label: string; href: string };
-  };
-  sections?: ServiceSections;
+  bestFor: string[];
   seo: SeoMeta;
 }
 

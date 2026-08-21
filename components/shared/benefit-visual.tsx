@@ -14,7 +14,6 @@ import {
   ArrowDown,
   ArrowUp,
   Boxes,
-  Truck,
 } from "lucide-react";
 import type { BenefitVisualSpec } from "@/types/content";
 
@@ -159,131 +158,6 @@ function Composition({ spec }: { spec?: BenefitVisualSpec }) {
     /* ---------------------------------------------------------- shipping */
     case "image":
       return null;
-
-    /* ------------------------------------------------------ shipping page
-     * The four below are one-per-card by design; see the note on their union
-     * members in types/content.ts.
-     */
-
-    /*
-     * Two parallel lanes, the express one further along. States the service's
-     * whole meaning — the same journey, sooner — without naming a duration,
-     * which we cannot promise.
-     */
-    case "lanes":
-      return (
-        <>
-          <Routes d={["M36 62H268", "M36 118H268", "M268 52V128"]} />
-          <span
-            className={`${FOCAL} absolute top-[34%] left-[50%] -translate-y-1/2`}
-          >
-            {spec.fast}
-          </span>
-          <span
-            className={`${CHIP} absolute top-[66%] left-[22%] -translate-y-1/2`}
-          >
-            {spec.slow}
-          </span>
-        </>
-      );
-
-    /*
-     * An orthogonal run with the vehicle on it. Right angles read as a road
-     * network — deliberately the opposite of the arc used for air below.
-     */
-    case "roadroute":
-      return (
-        <>
-          <Arcs />
-          <Routes
-            d={[
-              "M52 132H92Q104 132 104 120V76Q104 64 116 64H150",
-              "M186 64H216Q228 64 228 76V116Q228 128 240 128H272",
-            ]}
-          />
-          <span className={`${CHIP} absolute top-[73%] left-[6%] -translate-y-1/2`}>
-            {spec.from}
-          </span>
-          <span className={`${FOCAL} absolute top-[36%] left-[42%] -translate-y-1/2`}>
-            <Truck className="size-3.5" strokeWidth={2.4} />
-            {spec.via}
-          </span>
-          <span className={`${CHIP} absolute top-[71%] right-[6%] -translate-y-1/2`}>
-            {spec.to}
-          </span>
-        </>
-      );
-
-    /*
-     * An arc over a border. The one curve in this file, and it earns the
-     * exception: a flight path is the shape of the thing being described, and
-     * it is what keeps this card from looking like the road one.
-     */
-    case "aircross":
-      return (
-        <>
-          <Routes d={["M56 126Q160 30 264 126", "M160 106V148"]} />
-          <span className={`${CHIP} absolute top-[74%] left-[6%] -translate-y-1/2`}>
-            {spec.from}
-          </span>
-          <span
-            className={`${FOCAL} absolute top-[22%] left-1/2 -translate-x-1/2 -translate-y-1/2`}
-          >
-            <Plane className="size-3.5" strokeWidth={2.4} />
-            {spec.via}
-          </span>
-          <span className={`${CHIP} absolute top-[74%] right-[6%] -translate-y-1/2`}>
-            {spec.to}
-          </span>
-        </>
-      );
-
-    /*
-     * A readout rather than a diagram: this card describes a screen the
-     * visitor can actually open from the header, so it shows one. The
-     * reference is bulleted out — no invented consignment number.
-     */
-    case "trackpanel":
-      return (
-        <div className="flex size-full items-center justify-center px-6">
-          <div className={`w-full rounded-xl bg-canvas p-3.5 ${PLATE_SHADOW}`}>
-            <div className="flex items-center justify-between gap-3 border-b border-line pb-2.5">
-              <span className="font-mono text-[0.75rem] tracking-tight text-ink-800">
-                {spec.reference}
-              </span>
-              <span className="rounded-full bg-accent/12 px-2 py-0.5 text-[0.6875rem] leading-[1.5] font-medium text-accent">
-                {spec.status}
-              </span>
-            </div>
-            <div className="mt-2.5 space-y-2">
-              {spec.rows.map((row) => (
-                <span key={row.label} className="flex items-center gap-2.5">
-                  <span
-                    className={
-                      row.state === "done"
-                        ? "inline-flex size-3.5 shrink-0 items-center justify-center rounded-full bg-accent text-white"
-                        : row.state === "current"
-                          ? "inline-flex size-3.5 shrink-0 rounded-full border-[3px] border-accent bg-canvas"
-                          : "inline-flex size-3.5 shrink-0 rounded-full border border-ink-200 bg-canvas"
-                    }
-                  >
-                    {row.state === "done" ? (
-                      <Check className="size-2.5" strokeWidth={4} />
-                    ) : null}
-                  </span>
-                  <span
-                    className={`text-[0.8125rem] leading-none ${
-                      row.state === "pending" ? "text-ink-400" : "text-ink-800"
-                    }`}
-                  >
-                    {row.label}
-                  </span>
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-      );
 
     case "checks":
       return (

@@ -58,12 +58,6 @@ export default async function ServicePage({
   const others = publishedServices.filter((s) => s.slug !== service.slug).slice(0, 3);
   const Icon = service.icon;
 
-  /* Section furniture: a service may override any of it — see ServiceSections. */
-  const sections = service.sections;
-  const overview = sections?.overview;
-  const heroSecondary =
-    service.heroSecondaryCta ?? { label: "All services", href: "/services" };
-
   return (
     <>
       <JsonLd schema={[breadcrumbSchema(crumbs), serviceSchema(service)]} />
@@ -79,11 +73,11 @@ export default async function ServicePage({
             Talk to our team
           </Button>
           <Button
-            href={heroSecondary.href}
+            href="/services"
             variant="outline"
             className={heroCtaSize}
           >
-            {heroSecondary.label}
+            All services
           </Button>
         </div>
       </PageHero>
@@ -93,9 +87,9 @@ export default async function ServicePage({
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
             <SectionHeader
-              eyebrow={overview?.eyebrow ?? "What it covers"}
-              heading={overview?.heading ?? `${service.name}, in practice`}
-              lead={overview?.lead ?? service.summary}
+              eyebrow="What it covers"
+              heading={`${service.name}, in practice`}
+              lead={service.summary}
               headingId="covers-heading"
             />
             <Reveal>
@@ -131,8 +125,8 @@ export default async function ServicePage({
       {/* ------------------------------------------------------------ benefits */}
       <Section tone="warm" spacing="lg" divider aria-labelledby="benefits-heading">
         <SectionHeader
-          eyebrow={sections?.benefits?.eyebrow ?? "Why it helps"}
-          heading={sections?.benefits?.heading ?? "What you get out of it"}
+          eyebrow="Why it helps"
+          heading="What you get out of it"
           headingId="benefits-heading"
         />
 
@@ -169,10 +163,8 @@ export default async function ServicePage({
         />
         <div className="relative">
           <SectionHeader
-            eyebrow={sections?.process?.eyebrow ?? "How it works"}
-            heading={
-              sections?.process?.heading ?? "From first message to finished job"
-            }
+            eyebrow="How it works"
+            heading="From first message to finished job"
             headingId="process-heading"
             tone="dark"
           />
@@ -185,38 +177,21 @@ export default async function ServicePage({
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-4">
             <Heading as="h2" size="h3" id="best-for-heading">
-              {sections?.bestFor?.heading ?? "Who this is usually for"}
+              Who this is usually for
             </Heading>
           </div>
           <RevealGroup as="ul" className="grid gap-3 lg:col-span-8">
-            {/*
-              * bestFor takes either a bare string or a title/body pair — see
-              * BestForItem. Both render in the same bordered row so a service
-              * using one shape sits beside a service using the other without
-              * the list looking mixed.
-              */}
-            {service.bestFor.map((item) => {
-              const title = typeof item === "string" ? item : item.title;
-              const body = typeof item === "string" ? null : item.body;
-              return (
-                <RevealItem as="li" key={title}>
-                  <div className="flex items-start gap-3 rounded-xl border border-line bg-canvas-sunk px-5 py-4">
-                    <span
-                      aria-hidden="true"
-                      className="mt-2 size-1.5 shrink-0 rounded-full bg-ink-950"
-                    />
-                    <div>
-                      <p className="text-[0.9375rem] text-ink-700">{title}</p>
-                      {body ? (
-                        <p className="mt-1 text-[0.875rem] leading-relaxed text-ink-400">
-                          {body}
-                        </p>
-                      ) : null}
-                    </div>
-                  </div>
-                </RevealItem>
-              );
-            })}
+            {service.bestFor.map((item) => (
+              <RevealItem as="li" key={item}>
+                <div className="flex items-start gap-3 rounded-xl border border-line bg-canvas-sunk px-5 py-4">
+                  <span
+                    aria-hidden="true"
+                    className="mt-2 size-1.5 shrink-0 rounded-full bg-ink-950"
+                  />
+                  <p className="text-[0.9375rem] text-ink-700">{item}</p>
+                </div>
+              </RevealItem>
+            ))}
           </RevealGroup>
         </div>
       </Section>
@@ -256,15 +231,8 @@ export default async function ServicePage({
       </Section>
 
       <CtaBand
-        heading={
-          service.cta?.heading ??
-          `Talk to us about ${service.name.toLowerCase()}`
-        }
-        body={
-          service.cta?.body ??
-          "Tell us what you need and we will confirm what we can support before anything is booked."
-        }
-        {...(service.cta?.secondary ? { secondary: service.cta.secondary } : {})}
+        heading={`Talk to us about ${service.name.toLowerCase()}`}
+        body="Tell us what you need and we will confirm what we can support before anything is booked."
       />
     </>
   );

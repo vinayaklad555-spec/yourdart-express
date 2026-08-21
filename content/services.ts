@@ -39,127 +39,79 @@ export const services: Service[] = [
   {
     slug: "shipping",
     name: "Shipping",
-    tagline: "Parcels and packages, by road and by air",
+    tagline: "Parcels picked up, moved and delivered",
     summary:
-      "Domestic express, ground delivery and international air shipping for parcels, packages and courier-sized consignments.",
+      "Day-to-day parcel movement for online orders and business consignments, coordinated end to end by one team.",
     icon: Package,
     published: true,
     hero: {
-      eyebrow: "Shipping",
-      heading: "Shipping that moves with your business.",
-      body: "From everyday parcels to time-sensitive packages and international air cargo, we help keep your shipments moving with practical road and air shipping solutions.",
-    },
-    /* The header already carries tracking, so the hero's second button points
-       there rather than back to the service index. */
-    heroSecondaryCta: { label: "Track shipment", href: "/track" },
-    sections: {
-      overview: {
-        eyebrow: "What we cover",
-        heading: "Shipping, built around real delivery needs.",
-        lead: "From time-sensitive domestic deliveries to everyday road shipments and international air cargo, we help move parcels and packages based on where they need to go and how they need to move.",
-      },
-      benefits: {
-        eyebrow: "How we help",
-        heading: "Shipping options for the way you move.",
-      },
-      process: {
-        eyebrow: "How it works",
-        heading: "From first message to shipment delivery.",
-      },
-      bestFor: { heading: "Who this is for" },
+      eyebrow: "Service",
+      heading: "Parcel shipping, coordinated end to end",
+      body: "You hand us the order. We arrange collection, move it through the delivery network and stay accountable for it until it reaches the recipient — with one point of contact the whole way.",
     },
     whatItIs: [
-      "Domestic express shipping for suitable parcels and packages.",
-      "Ground delivery for parcels, packages and courier-sized shipments.",
-      "International shipping through air transportation.",
-      "Shipment tracking and support throughout the journey.",
+      "Scheduled or on-request collection from your location.",
+      "Documentation, labelling and manifest preparation before dispatch.",
+      "Movement through our delivery partners with status updates at each handover.",
+      "Delivery confirmation returned to you, plus follow-up on anything that stalls.",
     ],
-    /*
-     * Four cards, four different diagrams. They used to share two `checks`
-     * lists and two status flows, which made the row read as one visual
-     * repeated. Titles are held to 15-18 characters and bodies to 84-92 so
-     * the cards balance rather than one running long.
-     */
     benefits: [
       {
-        title: "Domestic Express",
-        body: "For shipments that cannot wait. We confirm what the route allows before you commit to it.",
-        icon: Timer,
-        visual: { kind: "lanes", fast: "Express", slow: "Ground" },
+        title: "One point of contact",
+        body: "The same team handles your bookings, your questions and your exceptions. You are not routed through a queue to explain the shipment again.",
+        icon: MessagesSquare,
+        visual: { kind: "image", src: "/images/benefit-one-point-of-contact.png" },
       },
       {
-        title: "Ground Shipping",
-        body: "Domestic road movement for parcels, packages and courier-sized consignments.",
-        icon: Truck,
-        visual: { kind: "roadroute", from: "Pickup", via: "In transit", to: "Delivery" },
-      },
-      {
-        title: "International Air",
-        body: "Cross-border shipments travel as air cargo, with onward delivery arranged at the far end.",
-        icon: Plane,
-        visual: { kind: "aircross", from: "Origin", via: "Air cargo", to: "Destination" },
-      },
-      {
-        title: "Tracking & Support",
-        body: "Follow a shipment from any page, and reach the people who arranged it while it moves.",
+        title: "Serviceability confirmed upfront",
+        body: "We check the destination, the parcel profile and the timeline before we accept the booking, so you find out what is possible before your customer does.",
         icon: MapPin,
-        visual: {
-          kind: "trackpanel",
-          reference: "YDX-••••••",
-          status: "In transit",
-          rows: [
-            { label: "Collected", state: "done" },
-            { label: "In transit", state: "current" },
-            { label: "Out for delivery", state: "pending" },
-          ],
-        },
+        visual: { kind: "checks", items: [{ label: "Destination" }, { label: "Parcel profile" }, { label: "Timeline" }], result: "Booking accepted" },
+      },
+      {
+        title: "Exceptions raised, not buried",
+        body: "If a shipment is held, misrouted or refused, we tell you and tell you what we are doing about it. Silence is not a status.",
+        icon: Timer,
+        visual: { kind: "steps", steps: ["Collected", "In transit", "Held"], flagged: 2 },
+      },
+      {
+        title: "Handled as documented",
+        body: "Packaging requirements, handling instructions and delivery conditions are recorded at booking and travel with the consignment.",
+        icon: ShieldCheck,
+        visual: { kind: "record", title: "Consignment record", lines: ["Packaging", "Handling", "Delivery conditions"] },
       },
     ],
     process: [
       {
         step: "01",
         title: "Share the shipment",
-        body: "Tell us what you need to move, where it is going and the details we need to understand your shipping requirements.",
+        body: "Send us pickup and delivery details, contents, weight and dimensions — by form, email or your Shopify store.",
       },
       {
         step: "02",
-        title: "We confirm the details",
-        body: "We review the shipment requirements and help determine a suitable road or air shipping option.",
+        title: "We confirm and collect",
+        body: "We confirm serviceability and the expected timeline, then arrange collection at an agreed slot.",
       },
       {
         step: "03",
-        title: "Your shipment moves",
-        body: "Once the shipping details are in place, your shipment begins its journey to the destination.",
+        title: "In transit",
+        body: "The consignment moves through the network. You get status updates at each handover point.",
       },
       {
         step: "04",
-        title: "Track and follow up",
-        body: "Stay informed about your shipment's progress and reach out to our team when you need support.",
+        title: "Delivered and closed",
+        body: "Delivery is confirmed back to you. Anything unresolved stays open with us until it is settled.",
       },
     ],
     bestFor: [
-      {
-        title: "Businesses shipping parcels and packages",
-        body: "For businesses that regularly need to move customer orders and business shipments.",
-      },
-      {
-        title: "Teams with time-sensitive deliveries",
-        body: "For shipments where domestic express delivery is a more suitable option.",
-      },
-      {
-        title: "Businesses shipping internationally",
-        body: "For parcels, packages and air cargo that need to move across borders by air.",
-      },
+      "Online stores dispatching customer orders",
+      "Businesses sending regular consignments to trade customers",
+      "Teams that want a person to talk to, not just a portal",
     ],
-    cta: {
-      heading: "Let's find the right way to move your shipment.",
-      body: "Tell us what you need to ship and where it needs to go. Our team will help you get the conversation started.",
-      secondary: { label: "Track shipment", href: "/track" },
-    },
     seo: {
-      title: "Shipping Services",
+      title: "Parcel Shipping Services",
       description:
-        "Shipping from Your Dart Express — domestic express for parcels and packages, ground delivery for courier-sized shipments, and international shipping by air, with tracking and support throughout.",
+        "Parcel shipping coordinated end to end by Your Dart Express — collection, documentation, transit updates and delivery confirmation, with one point of contact throughout.",
       path: "/services/shipping",
     },
   },
