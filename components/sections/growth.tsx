@@ -59,19 +59,15 @@ export function Growth() {
                   const Icon = commitment.icon;
                   return (
                     <RevealItem as="li" key={commitment.title}>
-                      <div className="flex gap-5">
+                      <div className="flex gap-4">
                         {/*
-                          * Tinted plate, SOLID glyph — the reference's
-                          * arrangement. The glyphs come from
-                          * shared/solid-icons because lucide has no filled
-                          * set; see the note there.
+                          * Bare glyph, no plate — matching the "why us" row.
+                          * Solid rather than stroked (see shared/solid-icons),
+                          * in ink rather than the accent, and nudged down half
+                          * a step so it sits on the title's cap height rather
+                          * than its line box.
                           */}
-                        <span
-                          aria-hidden="true"
-                          className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl bg-accent-100/45 text-accent"
-                        >
-                          <Icon className="size-5" />
-                        </span>
+                        <Icon className="mt-0.5 size-6 shrink-0 text-ink-950" />
                         <div className="min-w-0">
                           <h3 className="text-[1.0625rem] font-medium tracking-[-0.015em] text-ink-950">
                             {commitment.title}
