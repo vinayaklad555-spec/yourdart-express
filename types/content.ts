@@ -91,6 +91,23 @@ export type BenefitVisualSpec =
   | { kind: "parties"; left: string[]; right: string[]; border: string }
   /** A route whose final leg is the point. */
   | { kind: "lastleg"; legs: string[] }
+
+  /* ------------------------------------------------------------- shipping
+   * Four compositions built for the shipping cards specifically. They exist
+   * because that page had two identical `checks` lists side by side and two
+   * cards repeating the same three status labels — the set read as one
+   * diagram drawn four times. Each of these has a different silhouette:
+   * parallel lanes, an orthogonal route, an arc over a border, a UI readout.
+   */
+  | { kind: "lanes"; fast: string; slow: string }
+  | { kind: "roadroute"; from: string; via: string; to: string }
+  | { kind: "aircross"; from: string; via: string; to: string }
+  | {
+      kind: "trackpanel";
+      reference: string;
+      status: string;
+      rows: { label: string; state: "done" | "current" | "pending" }[];
+    }
   /* --- shop and ship ---------------------------------------------------- */
   /** Our address standing in at someone else's checkout. */
   | { kind: "checkout"; field: string; value: string; note: string }

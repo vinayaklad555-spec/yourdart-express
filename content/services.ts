@@ -74,45 +74,44 @@ export const services: Service[] = [
       "International shipping through air transportation.",
       "Shipment tracking and support throughout the journey.",
     ],
+    /*
+     * Four cards, four different diagrams. They used to share two `checks`
+     * lists and two status flows, which made the row read as one visual
+     * repeated. Titles are held to 15-18 characters and bodies to 84-92 so
+     * the cards balance rather than one running long.
+     */
     benefits: [
       {
         title: "Domestic Express",
-        body: "A practical option for parcels and packages that need to move quickly within the country.",
+        body: "For shipments that cannot wait. We confirm what the route allows before you commit to it.",
         icon: Timer,
-        visual: { kind: "steps", steps: ["Collected", "In transit", "Delivered"] },
+        visual: { kind: "lanes", fast: "Express", slow: "Ground" },
       },
       {
         title: "Ground Shipping",
-        body: "Reliable road delivery for parcels, packages and courier-sized shipments.",
+        body: "Domestic road movement for parcels, packages and courier-sized consignments.",
         icon: Truck,
-        /* The three labels ARE the scope of this service. Road here means
-           parcels and courier-sized consignments — not LTL, not truckload. */
-        visual: {
-          kind: "checks",
-          items: [{ label: "Parcels" }, { label: "Packages" }, { label: "Courier-sized" }],
-        },
+        visual: { kind: "roadroute", from: "Pickup", via: "In transit", to: "Delivery" },
       },
       {
-        title: "International Air Shipping",
-        body: "Move international parcels, packages and air cargo across borders through air transportation.",
+        title: "International Air",
+        body: "Cross-border shipments travel as air cargo, with onward delivery arranged at the far end.",
         icon: Plane,
-        visual: {
-          kind: "checks",
-          items: [
-            { label: "International parcels" },
-            { label: "Packages" },
-            { label: "Air cargo" },
-          ],
-        },
+        visual: { kind: "aircross", from: "Origin", via: "Air cargo", to: "Destination" },
       },
       {
         title: "Tracking & Support",
-        body: "Stay informed about your shipment and get support when you need it.",
+        body: "Follow a shipment from any page, and reach the people who arranged it while it moves.",
         icon: MapPin,
         visual: {
-          kind: "notify",
-          to: "You",
-          pings: ["Collected", "In transit", "Delivered"],
+          kind: "trackpanel",
+          reference: "YDX-••••••",
+          status: "In transit",
+          rows: [
+            { label: "Collected", state: "done" },
+            { label: "In transit", state: "current" },
+            { label: "Out for delivery", state: "pending" },
+          ],
         },
       },
     ],
